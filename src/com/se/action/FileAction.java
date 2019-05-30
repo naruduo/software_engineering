@@ -31,11 +31,11 @@ public class FileAction extends ActionSupport {
 		// 根据传来的文件名，获取到具体的完整的路径
 		String realPath = ServletActionContext.getServletContext()
 				.getRealPath(File.separator + "download" + File.separator + packageId);
-		System.out.println(realPath + "," + filename);
 		returnFile = new File(realPath, filename);
+		System.out.println(returnFile);
 		if (!returnFile.exists())
 			return "fail";
-		System.out.println(returnFile);
+		
 		// 找到文件，响应到浏览器，弹出下载
 		os.add("下载", filename, (int) ServletActionContext.getContext().getSession().get("USER"));
 		filename = new String(filename.getBytes(), "ISO-8859-1");

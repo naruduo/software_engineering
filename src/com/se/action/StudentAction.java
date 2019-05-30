@@ -38,18 +38,22 @@ public class StudentAction extends ActionSupport {
 
 	public String add() {
 		StudentService ss = new StudentService();
-		if (avatar == null) {
-			stu.setAvatar(ServletActionContext.getServletContext().getRealPath(
-					File.separator + "WEB-INF" + File.separator + "StudentAvatar" + File.separator + "default.jpg"));
-		} else {
-			stu.setAvatar(ServletActionContext.getServletContext().getRealPath("/WEB-INF/StudentAvatar/") + stu.getId()
-					+ "." + avatarFileName.trim().split("\\.")[1]);
-		}
-		FileUtils.copy(avatar, new File(stu.getAvatar()));
-		// System.out.println(stu);
+		stu.setAvatar("default.jpg");
+		stu.setPassword(stu.getId() + "");
+		stu.setTeacherId(SessionUtils.getUserId());
+		System.out.println(stu);
+//		if (avatar == null) {
+//			stu.setAvatar(ServletActionContext.getServletContext()
+//					.getRealPath(File.separator + "StudentAvatar" + File.separator + "default.jpg"));
+//		} else {
+//			stu.setAvatar(ServletActionContext.getServletContext().getRealPath("StudentAvatar") + File.separator
+//					+ stu.getId() + "." + avatarFileName.trim().split("\\.")[1]);
+//			FileUtils.copy(avatar, new File(stu.getAvatar()));
+//		}
+//		// System.out.println(stu);
 		ss.addStudent(stu);
 		list();
-		return ActionSupport.SUCCESS;
+		return "addSuccess";
 	}
 
 	public String update() {
@@ -75,8 +79,8 @@ public class StudentAction extends ActionSupport {
 	public String delete() {
 		StudentService ss = new StudentService();
 		ss.delete(id);
-		list();
-		return ActionSupport.SUCCESS;
+		System.out.println(id);
+		return "deleteSuccess";
 	}
 
 	public String listMyHomeworks() {
