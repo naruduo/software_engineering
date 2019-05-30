@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.multipart.maxSize" value="314572800" />
+	<constant name="struts.devMode" value="true" />
+	<!-- 林鹏飞-5-17 -->
+	<package name="default" extends="struts-default">
+		<interceptors>
+			<interceptor name="stuLoginCheckInterceptor"
+				class="com.se.interceptor.StudentBeenLoginInterceptor" />
+			<interceptor name="teaLoginCheckInterceptor"
+				class="com.se.interceptor.TeacherBeenLoginInterceptor" />
+			<interceptor name="loginCheckInterceptor"
+				class="com.se.interceptor.BeenLoginInterceptor" />
+		</interceptors>
+		<global-results>
+			<result name="NOLOGIN" type="dispatcher">/login.jsp</result>
+		</global-results>
+	</package>
+	<package name="user" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginInterceptor"
+				class="com.se.interceptor.LoginInterceptor" />
+		</interceptors>
+		<action name="*User" class="com.se.action.UserAction"
+			method="{1}">
+			<interceptor-ref name="loginInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="StudentLoginSuccess" type="dispatcher">/test/studentUpdate.jsp
+			</result>
+			<result name="TeacherLoginSuccess" type="dispatcher">/teacher/TeacherIndex.jsp
+			</result>
+			<result name="LogoutSuccess">/login.jsp</result>
+			<result name="fail">/login.jsp</result>
+			<allowed-methods>login,logout,index</allowed-methods>
+		</action>
+	</package>
+	<package name="teacher" namespace="/teacher" extends="default">
+		<action name="teacher_*" class="com.se.action.TeacherAction"
+			method="{1}">
+			<interceptor-ref name="teaLoginCheckInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="listMyHomeworks">/test/teacherhomework.jsp</result>
+			<result name="listMyHomeworkAnswers">/test/teacherhomeworkAnswers.jsp</result>
+			<result name="listMyStudents">/teacher/teacher_manage.jsp</result>
+			<result name="getMyRoster" type="redirectAction">
+				<param name="actionName">downloadFile</param>
+				<param name="namespace">/file</param>
+				<param name="filename">${filename}</param>
+			</result>
+			<result name="listMyOperationLogs">/test/operations.jsp</result>
+			<!-- <result name="{1}">/admin/listMine/{1}.jsp</result> -->
+			<allowed-methods>listMyOperationLogs,listMyHomeworkAnswers,listMyHomeworks,getMyRoster,listMyStudents</allowed-methods>
+		</action>
+	</package>
+	<package name="student" extends="default">
+		<interceptors>
+			<interceptor name="updateStudentInterceptor"
+				class="com.se.interceptor.UpdateStudentInterceptor" />
+		</interceptors>
+		<action name="addStudent" class="com.se.action.StudentAction"
+			method="add">
+			<interceptor-ref name="updateStudentInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="success">/student/listStudent.jsp</result>
+			<result name="fail">/student/addStudent.jsp</result>
+		</action>
+		<action name="*Student" class="com.se.action.StudentAction"
+			method="{1}">
+			<interceptor-ref name="stuLoginCheckInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="success">/student/listStudent.jsp</result>
+			<result name="listMyHomeworks">/student/stu_homework.jsp</result>
+			<result name="listMyOperationLogs">/test/operations.jsp</result>
+			<result name="updateSuccess">/test/studentUpdate.jsp</result>
+			<allowed-methods>listMyHomeworks,update,listMyOperationLogs</allowed-methods>
+		</action>
+	</package>
+	<!-- 林鹏飞-5-17 -->
+	<package name="file" extends="default">
+		<action name="*File" class="com.se.action.FileAction"
+			method="{1}">
+			<interceptor-ref name="loginCheckInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="downloadSuccess" type="stream">
+				<param name="contentDisposition">attatchment;filename=${filename}</param>
+			</result>
+			<result name="uploadSuccess" type="redirect">/teacher/teacher_download.jsp
+			</result>
+			<result name="deleteSuccess" type="redirect">/teacher/teacher_download.jsp
+			</result>
+			<result name="deleteFail" type="redirect">/teacher/teacher_download.jsp
+			</result>
+			<allowed-methods>download,upload</allowed-methods>
+		</action>
+	</package>
+	<!-- 林鹏飞-5-18 -->
+	<package name="homework" extends="default">
+		<action name="*Homework" class="com.se.action.HomeworkAction"
+			method="{1}">
+			<!-- <interceptor-ref name="teaLoginCheckInterceptor" /> -->
+			<interceptor-ref name="defaultStack" />
+			<result name="addSuccess" type="redirectAction">/teacher/teacher_listMyHomeworks
+			</result>
+			<result name="addFail" type="dispatcher">/teacher/teacher_homeworkEditor.jsp
+			</result>
+			<result name="deleteSuccess" type="redirectAction">/teacher/teacher_listMyHomeworks
+			</result>
+			<result name="getDetailSuccess" type="dispatcher">/student/stu_ .jsp
+			</result>
+			<allowed-methods>add,delete,getDetail</allowed-methods>
+		</action>
+	</package>
+	<package name="homeworkAnswer" extends="default">
+		<action name="*HomeworkAnswer"
+			class="com.se.action.HomeworkAnswerAction" method="{1}">
+			<interceptor-ref name="loginCheckInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="addSuccess">/test/studenthomework.jsp</result>
+			<result name="getDetailSuccess">/student/stu_homeworkEditor.jsp</result>
+			<result name="submitSuccess">/test/studentAnswerHomework.jsp</result>
+			<result name="scoreSuccess" type="redirectAction">
+				<param name="namespace">/teacher</param>
+				<param name="actionName">teacher_listMyHomeworkAnswers</param>
+				<param name="homeworkId">${homeworkId}</param>
+			</result>
+			<allowed-methods>submit,add,getDetail,score</allowed-methods>
+		</action>
+	</package>
+</struts>
