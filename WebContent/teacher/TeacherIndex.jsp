@@ -25,7 +25,7 @@
        background-size:contain;
 }
 </style>
-<base href="http://localhost:8080/software_engineering/"/>
+<base href="http://localhost:8081/software_engineering/"/>
 <!-- //custom-theme -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Owl-carousel-CSS -->
@@ -188,7 +188,7 @@
 								<h4 class="sub_service_agileits">学生名单</h4>
 								<p>查看您班级的学生</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher_manage.jsp" role="button">GO ! »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/teacher_listMyStudents.action" role="button">GO ! »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>
