@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
 import com.se.dao.StudentDao;
+import com.se.pojo.Exp;
 import com.se.pojo.Student;
 import com.se.util.Page;
 
@@ -131,4 +132,23 @@ public class StudentService {
 		dao.update(stu);
 		return true;
 	}
+	
+	/**********************************************************/
+	
+	/*
+	 * 
+	 * foreign keys' service
+	 * created by lw
+	 * 
+	 */
+	
+	//获取我的教师的文件
+	public List<Exp> listTeacherExps(int sid, Page p) {
+		Student stu = dao.get(sid);
+		return new TeacherService().listExp(stu.getTeacherId(), p);
+	}
+	
+	
+	/*********************************************************/
+	
 }

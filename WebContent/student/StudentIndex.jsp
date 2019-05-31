@@ -69,7 +69,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="span12">
-		 <p class="bg-primary">欢迎您：${USER}，${stu.name}同学
+		 <p class="bg-primary">欢迎您：${USER}，${student.name}同学
 		 	<a href="<%=request.getContextPath()%>/logout.action" class="pull-right bg-primary">登出</a>
 		 </p>
 		
@@ -84,7 +84,7 @@
 					<a href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action" style="font-size:20px">习题作业</a>
 				</li>
 				<li class="">
-					<a href="<%=request.getContextPath()%>/student/stu_experience.action?id=${USER}" style="font-size:20px">实验教学</a>
+					<a href="<%=request.getContextPath()%>/student/listMyTeacherExpsStudent.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>

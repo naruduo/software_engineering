@@ -77,7 +77,7 @@
 					<a href="<%=request.getContextPath()%>/student/stu_homework.jsp" style="font-size:20px">习题作业</a>
 				</li>
 				<li class="">
-					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyExps.action?id=${USER}" style="font-size:20px">实验教学</a>
+					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyExperiences.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>

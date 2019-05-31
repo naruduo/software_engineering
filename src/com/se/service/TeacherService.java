@@ -3,8 +3,10 @@ package com.se.service;
 import java.util.List;
 
 import com.se.dao.TeacherDao;
+import com.se.pojo.Exp;
 import com.se.pojo.Homework;
 import com.se.pojo.Teacher;
+import com.se.util.Page;
 
 public class TeacherService {
 
@@ -28,4 +30,9 @@ public class TeacherService {
 	public Teacher get(int id) {
 		return td.get(Teacher.class, id);
 	}
+	
+	public List<Exp> listExp(int tid, Page p) {
+		return td.listExpsWithPage(tid, p);
+	}
+	
 }

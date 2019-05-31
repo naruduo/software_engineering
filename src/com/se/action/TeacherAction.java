@@ -2,9 +2,11 @@ package com.se.action;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.se.pojo.Exp;
 import com.se.pojo.Homework;
 import com.se.pojo.HomeworkAnswer;
 import com.se.pojo.OperationLog;
@@ -129,5 +131,28 @@ public class TeacherAction extends ActionSupport {
 	public void setOperations(List<OperationLog> operations) {
 		this.operations = operations;
 	}
+	
+	/***********************************************************/
+	
+	/*
+	 * 
+	 * foreign keys' action
+	 * created by lw
+	 * 
+	 */
+	
+	//获取教师实验数据
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public String listMyExperiences() {
+		//初始
+		Map req = (Map)ActionContext.getContext().get("request");
+		//获得教师id
+		Integer tid = SessionUtils.getUserId();
+		//将数据放入request
+		req.put("exps", teacherService.listExp(tid, page));
+		return "listMyExperiences";
+	}
+	
+	/***********************************************************/
 
 }

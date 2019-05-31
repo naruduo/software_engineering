@@ -3,12 +3,14 @@ package com.se.action;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.se.dao.OnlineTestDao;
+import com.se.pojo.Exp;
 import com.se.pojo.Homework;
 import com.se.pojo.HomeworkAnswer;
 import com.se.pojo.OperationLog;
@@ -180,4 +182,27 @@ public class StudentAction extends ActionSupport {
 		this.operations = operations;
 	}
 
+	/************************************************************/
+	
+	/*
+	 * 
+	 * foreign keys' action
+	 * created by lw
+	 * 
+	 */
+	
+	
+	//列出该学生教师的实验文件
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public String listMyTeacherExps() {
+		//获取学生号
+		Integer sid = SessionUtils.getUserId();
+		//将实验列表放入请求
+		Map req = (Map)ActionContext.getContext().get("request");
+		req.put("exps", ss.listTeacherExps(sid, page));
+		return "listMyTeacherExps";
+	}
+	
+	/************************************************************/	
+	
 }

@@ -3,9 +3,11 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
+
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.multipart.maxSize" value="314572800" />
 	<constant name="struts.devMode" value="true" />
+	
 	<!-- 林鹏飞-5-17 -->
 	<package name="default" extends="struts-default">
 		<interceptors>
@@ -20,6 +22,7 @@
 			<result name="NOLOGIN" type="dispatcher">/login.jsp</result>
 		</global-results>
 	</package>
+	
 	<package name="user" extends="struts-default">
 		<interceptors>
 			<interceptor name="loginInterceptor"
@@ -29,7 +32,7 @@
 			method="{1}">
 			<interceptor-ref name="loginInterceptor" />
 			<interceptor-ref name="defaultStack" />
-			<result name="StudentLoginSuccess" type="dispatcher">/test/studentUpdate.jsp
+			<result name="StudentLoginSuccess" type="dispatcher">/student/StudentIndex.jsp
 			</result>
 			<result name="TeacherLoginSuccess" type="dispatcher">/teacher/TeacherIndex.jsp
 			</result>
@@ -38,6 +41,7 @@
 			<allowed-methods>login,logout,index</allowed-methods>
 		</action>
 	</package>
+	
 	<package name="teacher" namespace="/teacher" extends="default">
 		<action name="teacher_*" class="com.se.action.TeacherAction"
 			method="{1}">
@@ -52,10 +56,14 @@
 				<param name="filename">${filename}</param>
 			</result>
 			<result name="listMyOperationLogs">/test/operations.jsp</result>
+			<result name="listMyExperiences">/student/stu_experience.jsp</result>
 			<!-- <result name="{1}">/admin/listMine/{1}.jsp</result> -->
-			<allowed-methods>listMyOperationLogs,listMyHomeworkAnswers,listMyHomeworks,getMyRoster,listMyStudents</allowed-methods>
+			<allowed-methods>listMyOperationLogs,listMyHomeworkAnswers,listMyHomeworks,getMyRoster,listMyStudents
+							,listMyExperiences
+			</allowed-methods>
 		</action>
 	</package>
+	
 	<package name="student" extends="default">
 		<interceptors>
 			<interceptor name="updateStudentInterceptor"
@@ -75,10 +83,14 @@
 			<result name="success">/student/listStudent.jsp</result>
 			<result name="listMyHomeworks">/student/stu_homework.jsp</result>
 			<result name="listMyOperationLogs">/test/operations.jsp</result>
+			<result name="listMyTeacherExps">/student/stu_experience.jsp</result>
 			<result name="updateSuccess">/test/studentUpdate.jsp</result>
-			<allowed-methods>listMyHomeworks,update,listMyOperationLogs</allowed-methods>
+			<allowed-methods>listMyHomeworks,update,listMyOperationLogs
+							,listMyTeacherExps
+			</allowed-methods>
 		</action>
 	</package>
+	
 	<!-- 林鹏飞-5-17 -->
 	<package name="file" extends="default">
 		<action name="*File" class="com.se.action.FileAction"
@@ -97,6 +109,7 @@
 			<allowed-methods>download,upload</allowed-methods>
 		</action>
 	</package>
+	
 	<!-- 林鹏飞-5-18 -->
 	<package name="homework" extends="default">
 		<action name="*Homework" class="com.se.action.HomeworkAction"
@@ -114,6 +127,7 @@
 			<allowed-methods>add,delete,getDetail</allowed-methods>
 		</action>
 	</package>
+	
 	<package name="homeworkAnswer" extends="default">
 		<action name="*HomeworkAnswer"
 			class="com.se.action.HomeworkAnswerAction" method="{1}">
@@ -130,4 +144,5 @@
 			<allowed-methods>submit,add,getDetail,score</allowed-methods>
 		</action>
 	</package>
+	
 </struts>
