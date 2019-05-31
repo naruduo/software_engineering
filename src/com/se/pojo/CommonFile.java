@@ -3,11 +3,16 @@ package com.se.pojo;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "common_file")
 public class CommonFile {
+	public final static int SLIDE = 1, TEST = 2;
 	@Id
 	@Column(name = "file_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +21,6 @@ public class CommonFile {
 	private String fileName;
 	@Column(name = "file_type")
 	private int fileType;
-	@Column(name = "file_address")
-	private String file_address;
 	@Column(name = "release_time")
 	private Date releaseTime;
 	@Column(name = "download_time")
@@ -47,14 +50,6 @@ public class CommonFile {
 		this.fileType = fileType;
 	}
 
-	public String getFile_address() {
-		return file_address;
-	}
-
-	public void setFile_address(String file_address) {
-		this.file_address = file_address;
-	}
-
 	public Date getReleaseTime() {
 		return releaseTime;
 	}
@@ -69,6 +64,23 @@ public class CommonFile {
 
 	public void setDownloadTimes(int downloadTimes) {
 		this.downloadTimes = downloadTimes;
+	}
+
+	public CommonFile(String fileName, int fileType, Date releaseTime, int downloadTimes) {
+		super();
+		this.fileName = fileName;
+		this.fileType = fileType;
+		this.releaseTime = releaseTime;
+		this.downloadTimes = downloadTimes;
+	}
+
+	public CommonFile() {
+	}
+
+	@Override
+	public String toString() {
+		return "CommonFile [id=" + id + ", fileName=" + fileName + ", fileType=" + fileType + ", releaseTime="
+				+ releaseTime + ", downloadTimes=" + downloadTimes + "]";
 	}
 
 }

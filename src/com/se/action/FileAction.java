@@ -25,17 +25,19 @@ public class FileAction extends ActionSupport {
 	private String uploadFileFileName;
 	private String uploadFileContentType;
 	private OperationLogService os = new OperationLogService();
-	private int packageId;// 老师或学生的Id，表示的下载文件的文件夹
+	private int packageId = -1;// 老师或学生的Id，表示的下载文件的文件夹
 
 	public String download() throws Exception {
 		// 根据传来的文件名，获取到具体的完整的路径
+		System.out.println("HERE");
 		String realPath = ServletActionContext.getServletContext()
 				.getRealPath(File.separator + "download" + File.separator + packageId);
 		returnFile = new File(realPath, filename);
+		System.out.println(realPath);
 		System.out.println(returnFile);
 		if (!returnFile.exists())
 			return "fail";
-		
+
 		// 找到文件，响应到浏览器，弹出下载
 		os.add("下载", filename, (int) ServletActionContext.getContext().getSession().get("USER"));
 		filename = new String(filename.getBytes(), "ISO-8859-1");
@@ -44,12 +46,11 @@ public class FileAction extends ActionSupport {
 
 	public String upload() {
 		String realPath = ServletActionContext.getServletContext().getRealPath(File.separator + "download");
-		System.out.println(realPath);
-		int userId = (int) ActionContext.getContext().getSession().get("USER");
-		File destDir = new File(realPath + File.separator + userId);
+		if (packageId == -1)
+			packageId = SessionUtils.getUserId();
+		File destDir = new File(realPath + File.separator + packageId);
 		if (!destDir.exists())
 			destDir.mkdir();
-		System.out.println(destDir);
 		File destFile = new File(destDir, uploadFileFileName);
 		FileUtils.copy(uploadFile, destFile);
 		os.add("上传", uploadFileFileName, (int) ServletActionContext.getContext().getSession().get("USER"));
@@ -69,6 +70,8 @@ public class FileAction extends ActionSupport {
 	}
 
 	public String delete() {
+		if(packageId == -1) 
+			packageId = SessionUtils.getUserId();
 		String realPath = ServletActionContext.getServletContext()
 				.getRealPath(File.separator + "download" + File.separator + SessionUtils.getUserId());
 		File destFile = new File(realPath, filename);

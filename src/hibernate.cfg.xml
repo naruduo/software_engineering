@@ -25,6 +25,7 @@
 		<mapping class="com.se.pojo.Student" />
 		<mapping class="com.se.pojo.TestScore" />
 		<mapping class="com.se.pojo.OnlineTest" />
+		<mapping class="com.se.pojo.CommonFile"/>
 	</session-factory>
 
 </hibernate-configuration>

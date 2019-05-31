@@ -167,14 +167,14 @@ Start About Section
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="service-item">
               <i class="tf-ion-ios-alarm-outline"></i>
-              <h4><a href="stu_re_slide.jsp">课件</a></h4>
+              <h4><a href="commonFile/commonFile_list.action?fileType=1">课件</a></h4>
               <p></p>
             </div>
           </div><!-- END COL -->
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="service-item">
               <i class="tf-ion-ios-briefcase-outline"></i>
-              <h4>试卷</h4>
+              <h4><a href="commonFile/commonFile_list.action?fileType=2">试卷</a></h4>
               <p></p>
             </div>
           </div><!-- END COL -->

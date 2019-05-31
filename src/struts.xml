@@ -29,7 +29,7 @@
 			method="{1}">
 			<interceptor-ref name="loginInterceptor" />
 			<interceptor-ref name="defaultStack" />
-			<result name="StudentLoginSuccess" type="dispatcher">/test/studentUpdate.jsp
+			<result name="StudentLoginSuccess" type="dispatcher">/student/StudentIndex.jsp
 			</result>
 			<result name="TeacherLoginSuccess" type="dispatcher">/teacher/TeacherIndex.jsp
 			</result>
@@ -125,6 +125,36 @@
 				<param name="homeworkId">${homeworkId}</param>
 			</result>
 			<allowed-methods>submit,add,getDetail,score</allowed-methods>
+		</action>
+	</package>
+	<!-- uploadCommonFile -->
+	<package name="commonFile" extends="default">
+		<action name="TcommonFile_*"
+			class="com.se.action.CommonFileAction" method="{1}">
+			<interceptor-ref name="teaLoginCheckInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="uploadCommonFile">/teacher/teacher_uploadCommonFile.jsp</result>
+			<result name="deleteCommonFile" type="redirectAction">
+				<param name="actionName">commonFile_list</param>
+				<param name="namespace">/commonFile</param>
+				<param name="fileId">${fileId}</param>
+				<param name="fileType">${fileType}</param>
+			</result>
+			<allowed-methods>upload,delete</allowed-methods>
+		</action>
+		<action name="commonFile_*"
+			class="com.se.action.CommonFileAction" method="{1}">
+			<interceptor-ref name="loginCheckInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="listTeacherCommonFiles">/teacher/teacher_manageResource.jsp</result>
+			<result name="listStudentCommonFiles">/student/stu_re_slide.jsp</result>
+			<result name="downloadCommonFile" type="redirectAction">
+				<param name="actionName">downloadFile</param>
+				<param name="namespace">/file</param>
+				<param name="filename">${downloadFile}</param>
+				<param name="packageId">0</param>
+			</result>
+			<allowed-methods>download,list</allowed-methods>
 		</action>
 	</package>
 </struts>

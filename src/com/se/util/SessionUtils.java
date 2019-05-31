@@ -12,4 +12,8 @@ public class SessionUtils {
 	public static String getRealPath(String path) {
 		return ServletActionContext.getServletContext().getRealPath(path);
 	}
+
+	public static String getRole() {
+		return (String) ActionContext.getContext().getSession().get("ROLE");
+	}
 }
