@@ -19,8 +19,8 @@ public class OperationLog {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "log_id")
 	private int id;
-	@Column(name = "stu_id")
-	private int studentId;
+	@Column(name = "user_id")
+	private int userId;
 	@Column(name = "op_time")
 	private Date operationTime;
 	@Column(name = "op")
@@ -36,12 +36,12 @@ public class OperationLog {
 		this.id = id;
 	}
 
-	public int getStudentId() {
-		return studentId;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public Date getOperationTime() {
@@ -62,8 +62,8 @@ public class OperationLog {
 
 	@Override
 	public String toString() {
-		return "OperationLog [id=" + id + ", studentId=" + studentId + ", operationTime=" + operationTime
-				+ ", operation=" + operation + "]";
+		return "OperationLog [id=" + id + ", userId=" + userId + ", operationTime=" + operationTime + ", operation="
+				+ operation + "]";
 	}
 
 	public String getFilename() {

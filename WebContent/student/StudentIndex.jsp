@@ -99,7 +99,7 @@
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#">操作日志</a>
+							<a href="student/listMyOperationLogsStudent.action">操作日志</a>
 						</li>
 						<li>
 							<a href="#">联系我们</a>

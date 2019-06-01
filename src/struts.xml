@@ -53,8 +53,7 @@
 				<param name="filename">${filename}</param>
 				<param name="packageId">${id}</param>
 			</result>
-			<result name="listMyOperationLogs">/test/operations.jsp</result>
-			<!-- <result name="{1}">/admin/listMine/{1}.jsp</result> -->
+			<result name="listMyOperationLogs">/teacher/teacher_showMyLogs.jsp</result>
 			<allowed-methods>listMyOperationLogs,listMyHomeworkAnswers,listMyHomeworks,getMyRoster,listMyStudents,searchMyStudents</allowed-methods>
 		</action>
 	</package>
@@ -67,7 +66,7 @@
 			method="{1}">
 			<result name="success">/student/listStudent.jsp</result>
 			<result name="listMyHomeworks">/student/stu_homework.jsp</result>
-			<result name="listMyOperationLogs">/test/operations.jsp</result>
+			<result name="listMyOperationLogs">/student/stu_showMyLogs.jsp</result>
 			<result name="updateSuccess">/test/studentUpdate.jsp</result>
 			<result name="deleteSuccess" type="redirectAction">/teacher/teacher_listMyStudents
 			</result>

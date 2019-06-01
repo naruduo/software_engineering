@@ -42,15 +42,6 @@ public class StudentAction extends ActionSupport {
 		stu.setPassword(stu.getId() + "");
 		stu.setTeacherId(SessionUtils.getUserId());
 		System.out.println(stu);
-//		if (avatar == null) {
-//			stu.setAvatar(ServletActionContext.getServletContext()
-//					.getRealPath(File.separator + "StudentAvatar" + File.separator + "default.jpg"));
-//		} else {
-//			stu.setAvatar(ServletActionContext.getServletContext().getRealPath("StudentAvatar") + File.separator
-//					+ stu.getId() + "." + avatarFileName.trim().split("\\.")[1]);
-//			FileUtils.copy(avatar, new File(stu.getAvatar()));
-//		}
-//		// System.out.println(stu);
 		ss.addStudent(stu);
 		list();
 		return "addSuccess";
