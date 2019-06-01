@@ -11,15 +11,14 @@
 <title>软件工程精品课</title>
 
 <link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
-<!--  
-<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css.map" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.min.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.min.css.map" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.css.map" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css.map" />-->
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css.map" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css.map" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css.map" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css.map" />
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- CSS
@@ -92,11 +91,7 @@
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-<<<<<<< HEAD
 							<a href="student/listMyOperationLogsStudent.action">操作日志</a>
-=======
-							<a href="user_log.jsp">操作日志</a>
->>>>>>> b0597252f85308f62bafac2194a6a2f30acc92bc
 						</li>
 						<li>
 							<a href="#">联系我们</a>
@@ -116,7 +111,7 @@
 	</div>
 	
 
-      <div class="row">
+   <div class="row">
       <div class="jumbotron">
         <h1>Hello! Software Engineering! </h1>
         <p>软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。它涉及程序设计语言、数据库、软件开发工具、系统平台、标准、设计模式等方面。</p>
@@ -341,6 +336,18 @@
         });
     });
 </script>          		
-
+<script>
+    var homeList = "/website/f/api/article/homeList";
+    var ctxf = "/website/f";
+    $('li.dropdown').mouseover(function () {
+        $(this).addClass('open');
+    }).mouseout(function () {
+        $(this).removeClass('open');
+    });
+    $(document).ready(function () {
+        
+        homepages();
+    });
+</script>
 </body>
 </html>

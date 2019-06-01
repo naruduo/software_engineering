@@ -71,20 +71,16 @@
 			</h3>
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
 				<li class="active">
-					<a href="<%=request.getContextPath()%>/teacher/StudentIndex.jsp" style="font-size:20px">课程主页</a>
+					<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp" style="font-size:20px">课程主页</a>
 				</li>
 				<li>
-<<<<<<< HEAD
-					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action" style="font-size:20px">习题作业</a>
-=======
 					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}" style="font-size:20px">习题作业</a>
->>>>>>> b0597252f85308f62bafac2194a6a2f30acc92bc
 				</li>
 				<li class="">
 					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyExps.action?id=${USER}" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
-					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
+					<a href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp" style="font-size:20px">资源下载</a>
 				</li>
 				<li>
 					<a href="#" style="font-size:20px">练习管理</a>
@@ -211,7 +207,7 @@
 								<h4 class="sub_service_agileits">添加学生</h4>
 								<p>为您的班级新增成员</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="addStudent.jsp" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/teacher_addStudent.jsp" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>
@@ -284,10 +280,10 @@
 								</div>
 							</div>
 							<div class="col-xs-9 wthree_banner_bottom_grid_right">
-								<h4 class="sub_service_agileits">即将上线</h4>
-								<p>敬请期待</p>
+								<h4 class="sub_service_agileits">更新资源</h4>
+								<p>上传新的教学资源</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="contact_us.jsp" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/teacher_uploadCommonFile.jsp" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>
