@@ -71,10 +71,14 @@
 			</h3>
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
 				<li class="active">
-					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
+					<a href="<%=request.getContextPath()%>/teacher/StudentIndex.jsp" style="font-size:20px">课程主页</a>
 				</li>
 				<li>
+<<<<<<< HEAD
 					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action" style="font-size:20px">习题作业</a>
+=======
+					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}" style="font-size:20px">习题作业</a>
+>>>>>>> b0597252f85308f62bafac2194a6a2f30acc92bc
 				</li>
 				<li class="">
 					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyExps.action?id=${USER}" style="font-size:20px">实验教学</a>
@@ -86,7 +90,7 @@
 					<a href="#" style="font-size:20px">练习管理</a>
 				</li>
 				<li>
-					<a href="teacher/teacher_listMyStudents.action" style="font-size:20px">学生管理</a>
+					<a href="teacher/teacher_listMyStudents.action" style="font-size:20px">课程论坛</a>
 				</li>
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>

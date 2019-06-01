@@ -10,6 +10,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>学生习题作业</title>
+<link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />
 <link type="text/css" rel="stylesheet"
 	href="css/bootstrap-theme.css.map" />
@@ -26,6 +28,7 @@
 <script type="text/javascript" src="js/npm.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
 	<div class="container">
 		<div class="row">
 			<div class="span12">
@@ -93,12 +96,146 @@
 						</c:forEach>
 					</tbody>
 				</table>
+=======
+<div class="container-fluid">
+	<div class="row">
+		<div class="span12">
+		
+		 <p class="bg-primary">欢迎您：${USER}，${stu.name}同学
+		 	<a href="<%=request.getContextPath()%>/logout.action" class="pull-right bg-primary">登出</a>
+		 </p>
+		
+		<h3>
+			软件工程精品课
+		</h3>
+			
+			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
+				<li >
+					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
+				</li>
+				<li class="active">
+					<a href="<%=request.getContextPath()%>/student/listMyHomeworkStudent.action" style="font-size:20px">习题作业</a>
+				</li>
+				<li class="">
+					<a href="<%=request.getContextPath()%>/student/stu_experience.action?id=${USER}" style="font-size:20px">实验教学</a>
+				</li>
+				<li>
+					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
+				</li>
+				<li>
+					<a href="#" style="font-size:20px">在线练习</a>
+				</li>
+				<li>
+					<a href="#" style="font-size:20px">学习社区</a>
+				</li>
+				<li class="dropdown pull-right">
+					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">操作日志</a>
+						</li>
+						<li>
+							<a href="#">联系我们</a>
+						</li>
+						<li>
+							<a href="#">更多设置</a>
+						</li>
+						<li class="divider">
+						</li>
+						<li>
+							<a href="#">退出登录</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			
+			
+			<h3>
+				作业列表
+			</h3>
+			
+			<table class="table table-bordered" contenteditable="true">
+	<thead>
+		<tr>
+			<th>作业编号</th>
+			<th>作业名称</th>
+			<th>发布时间</th>
+			<th>截止时间</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<c:forEach items="${homeworks}" var="homework">
+			<tr class="success">
+				<td>${homework.id}</td>
+				<td><a href="<%=request.getContextPath()%>/sepak/downloadExp.action?filename=${homework.name}">${homework.name}</a></td>
+				<td>${homework.releaseTime}</td>
+				<td>${homework.deadline}</td>
+				<td><a class="btn btn-lg btn-primary" href="stu_homeworkEditor.jsp" role="button">提交</a></td>	
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
+>>>>>>> b0597252f85308f62bafac2194a6a2f30acc92bc
 
 				<div class="text-center">
 					<%@include file="../include/adminPage.jsp"%>
 				</div>
 			</div>
+<<<<<<< HEAD
 		</div>
 	</div>
+=======
+<div class="fd-f-link">
+    <div class="container">
+        <div class="fd-fl-title">
+            <span class="fd-flt-span1">友情链接</span>
+            <span class="fd-flt-span2">Friendship Link</span>
+        </div>
+        <div>
+            
+                <a href="http://www.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer01.PNG">
+                </a>
+            
+                <a href="http://jwch.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer02.PNG">
+                </a>
+            
+                <a href="http://zsb.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer03.PNG">
+                </a>
+            
+                <a href="http://yjsy.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer04.PNG">
+                </a>
+            
+        </div>
+    </div>
+</div>
+
+
+<div class="fd-f-bottom">
+    <div class="container">
+        <div class="fd-fb-logo">
+            <img src="../picture/footer05.PNG">
+        </div>
+        <div class="fd-fb-public">
+          <span class="fd-fbp-span1">
+              学院地址：福州市闽侯县学园路2号福州大学数学与计算机科学学院
+          </span>
+          <span class="fd-fbp-span2">
+              版权声明：© 2019
+              福州大学软件学院19春季软工实践G013. 版权所有. 保留所有权利
+          </span>
+        </div>
+    </div>
+</div>
+		
+</div>
+</div>
+</div>
+>>>>>>> b0597252f85308f62bafac2194a6a2f30acc92bc
 </body>
 </html>
