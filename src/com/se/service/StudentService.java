@@ -104,7 +104,9 @@ public class StudentService {
 				idCell.setCellValue(String.format("%08d", stu.getId()));
 				nameCell.setCellValue(stu.getName());
 			}
-			wb.write(new FileOutputStream(filePath));
+			File destFile = new File(filePath);
+			if(!destFile.exists()) destFile.createNewFile();
+			wb.write(new FileOutputStream(destFile));
 			wb.close();
 		} catch (IOException e) {
 			e.printStackTrace();
