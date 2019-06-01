@@ -32,7 +32,7 @@
 		</div>
 		<br /> <br />
 		<div class="login_logo_1" align="center">
-			<img src="./picture/login_logo_1.PNG" alt="软件工程" />
+			<img src="<%=request.getContextPath()%>/picture/login_logo_1.PNG"  alt="软件工程" />
 		</div>
 		<br /> <br />
 		<div class="wall-warp">
