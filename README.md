@@ -1,5 +1,22 @@
 # software_engineering
-software engineering course website
+#software engineering course website
 #代码不规范 队友两行泪
 
 #权威的localhost是8081，所以pull下来权威的代码的时候，把jsp里面改成8080
+
+#2019.06.01
+已完成：
+教师/学生的操作日志
+教师/学生的主页
+教师/学生下载资源/上传资源 但是前端界面有待优化
+教师查看/增加/删除/导出学生
+教师/学生的作业模块基本完成（仍有问题）
+
+未完成：
+实验模块没有整合
+论坛模块没有整合
+考试模块没有开发
+#END
+
+
+
