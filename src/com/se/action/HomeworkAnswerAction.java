@@ -11,6 +11,7 @@ import com.se.dao.HomeworkDao;
 import com.se.pojo.Homework;
 import com.se.pojo.HomeworkAnswer;
 import com.se.pojo.Student;
+import com.se.service.FileService;
 import com.se.service.HomeworkAnswerService;
 import com.se.service.HomeworkService;
 import com.se.util.Page;
@@ -37,12 +38,11 @@ public class HomeworkAnswerAction extends ActionSupport {
 
 	public String add() {
 		System.out.println(uploadFile + "," + uploadFileFileName + "," + uploadFileContentType);
-		FileAction fa = new FileAction(uploadFile, uploadFileFileName, uploadFileContentType);
-		fa.upload();
+		FileService fs = new FileService();
+		
 		HomeworkAnswer ha = has.getDetail(homeworkId, SessionUtils.getUserId());
 		if (ha != null) {
-			fa.setFilename(ha.getAddress());
-			fa.delete();
+			fs.delete(SessionUtils.getUserId(), ha.getAddress());
 		} else {
 			ha = new HomeworkAnswer();
 			ha.setStudentId(SessionUtils.getUserId());
@@ -56,7 +56,7 @@ public class HomeworkAnswerAction extends ActionSupport {
 		System.out.println(ha);
 
 		has.addOrUpdate(ha);
-
+		fs.upload(SessionUtils.getUserId(), uploadFileFileName, uploadFile);
 		return "addSuccess";
 	}
 

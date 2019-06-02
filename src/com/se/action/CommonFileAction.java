@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.se.pojo.CommonFile;
 import com.se.service.CommonFileService;
+import com.se.service.FileService;
 import com.se.util.Page;
 import com.se.util.SessionUtils;
 
@@ -24,12 +25,8 @@ public class CommonFileAction extends ActionSupport {
 	private int fileType;
 
 	public String upload() {
-		FileAction fa = new FileAction();
-		fa.setUploadFile(uploadFile);
-		fa.setUploadFileContentType(uploadFileContentType);
-		fa.setUploadFileFileName(uploadFileFileName);
-		fa.setPackageId(0);
-		fa.upload();
+		FileService fs = new FileService();
+		fs.upload(0, uploadFileFileName, uploadFile);
 		cf.setDownloadTimes(0);
 		cf.setFileName(uploadFileFileName);
 		cf.setReleaseTime(new Date());
@@ -56,10 +53,8 @@ public class CommonFileAction extends ActionSupport {
 
 	public String delete() {
 		String filename = cfs.get(fileId).getFileName();
-		FileAction fa = new FileAction();
-		fa.setFilename(filename);
-		fa.setPackageId(0);
-		fa.delete();
+		FileService fs = new FileService();
+		fs.delete(0, filename);
 		cfs.delete(fileId);
 		return "deleteCommonFile";
 	}

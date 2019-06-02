@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.se.dao.OperationLogDao;
 import com.se.pojo.Student;
+import com.se.service.FileService;
 import com.se.service.OperationLogService;
 import com.se.service.StudentService;
 import com.se.util.FileUtils;
@@ -45,16 +46,11 @@ public class FileAction extends ActionSupport {
 	}
 
 	public String upload() {
-		String realPath = ServletActionContext.getServletContext().getRealPath(File.separator + "download");
-		if (packageId == -1)
-			packageId = SessionUtils.getUserId();
-		File destDir = new File(realPath + File.separator + packageId);
-		if (!destDir.exists())
-			destDir.mkdir();
-		File destFile = new File(destDir, uploadFileFileName);
-		FileUtils.copy(uploadFile, destFile);
-		os.add("上传", uploadFileFileName, (int) ServletActionContext.getContext().getSession().get("USER"));
-		return "uploadSuccess";
+		FileService fs = new FileService();
+		if (fs.upload(packageId, uploadFileFileName, uploadFile))
+			return "uploadSuccess";
+		else
+			return "uploadFail";
 	}
 
 	// 提供给Struts2框架调用，用来获得要下载的文件的流数据
@@ -70,16 +66,11 @@ public class FileAction extends ActionSupport {
 	}
 
 	public String delete() {
-		if(packageId == -1) 
-			packageId = SessionUtils.getUserId();
-		String realPath = ServletActionContext.getServletContext()
-				.getRealPath(File.separator + "download" + File.separator + SessionUtils.getUserId());
-		File destFile = new File(realPath, filename);
-		if (!destFile.exists())
+		FileService fs = new FileService();
+		if (fs.delete(packageId, filename))
+			return "deleteSuccess";
+		else
 			return "deleteFail";
-		destFile.delete();
-		os.add("删除", filename, (int) ServletActionContext.getContext().getSession().get("USER"));
-		return "deleteSuccess";
 	}
 
 	public String getFilename() {
