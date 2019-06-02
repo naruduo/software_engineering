@@ -11,12 +11,9 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />
-<link type="text/css" rel="stylesheet"
-	href="css/bootstrap-theme.css.map" />
-<link type="text/css" rel="stylesheet"
-	href="css/bootstrap-theme.min.css" />
-<link type="text/css" rel="stylesheet"
-	href="css/bootstrap-theme.min.css.map" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css.map" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css.map" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.css.map" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
@@ -33,7 +30,7 @@
 
 
 
-	<div class="container">
+	<div  class="container">
 		<div class="row">
 			<div class="span12">
 
@@ -68,7 +65,7 @@
 							<li><a href="#">联系我们</a></li>
 							<li><a href="#">更多设置</a></li>
 							<li class="divider"></li>
-							<li><a href="#">退出登录</a></li>
+							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
 						</ul></li>
 				</ul>
 
@@ -111,6 +108,18 @@
 		</div>
 	</div>
 
-
+<script>
+    var homeList = "/website/f/api/article/homeList";
+    var ctxf = "/website/f";
+    $('li.dropdown').mouseover(function () {
+        $(this).addClass('open');
+    }).mouseout(function () {
+        $(this).removeClass('open');
+    });
+    $(document).ready(function () {
+        
+        homepages();
+    });
+</script>
 </body>
 </html>
