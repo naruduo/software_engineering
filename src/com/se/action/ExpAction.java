@@ -21,6 +21,7 @@ public class ExpAction extends ActionSupport {
 	
 	private Exp exp;
 	//The property of a file
+	private int packageId = -1;
 	private String filename;
 	private File uploadFile;
 	private String uploadFileFileName;
@@ -30,7 +31,12 @@ public class ExpAction extends ActionSupport {
 	private Page page = new Page(0, 5);
 	private ExpService expService = new ExpService();
 	
+	@SuppressWarnings("unchecked")
 	public String download() {
+		if("Teacher".equals(SessionUtils.getRole()))
+			packageId = SessionUtils.getUserId();
+		else if("Student".equals(SessionUtils.getRole()))
+			packageId = ((Student)SessionUtils.getHttpSession().get("Student")).getTeacherId();
 		return "downloadFile";
 	}
 
@@ -72,7 +78,7 @@ public class ExpAction extends ActionSupport {
 	 * 根据教师id获得其实验报告
 	 */
 	public String list() {
-		Map session = (Map)ActionContext.getContext().getSession();
+		Map session = SessionUtils.getHttpSession();
 		String role = session.get("ROLE").toString();
 		//根据角色获取教师id
 		if("Student".equals(role)) {
@@ -158,6 +164,14 @@ public class ExpAction extends ActionSupport {
 
 	public void setExp(Exp exp) {
 		this.exp = exp;
+	}
+
+	public int getPackageId() {
+		return packageId;
+	}
+
+	public void setPackageId(int packageId) {
+		this.packageId = packageId;
 	}
 	
 }

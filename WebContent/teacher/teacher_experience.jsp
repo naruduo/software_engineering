@@ -95,7 +95,7 @@
 		<c:forEach items="${exps}" var="exp">
 			<tr class="success">
 				<td>${exp.expId}</td>
-				<td><a href="<%=request.getContextPath()%>/sepak/downloadExp.action?filename=${exp.expName}">${exp.expName}</a></td>
+				<td><a href="<%=request.getContextPath()%>/exp/downloadExp.action?filename=${exp.expName}">${exp.expName}</a></td>
 				<td>${exp.releaseTime}</td>
 				<td>${exp.deadline}</td>
 				<td>

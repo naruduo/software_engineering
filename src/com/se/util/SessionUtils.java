@@ -1,5 +1,7 @@
 package com.se.util;
 
+import java.util.Map;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -16,4 +18,10 @@ public class SessionUtils {
 	public static String getRole() {
 		return (String) ActionContext.getContext().getSession().get("ROLE");
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public static Map getHttpSession() {
+		return (Map)ActionContext.getContext().getSession();
+	}
+	
 }
