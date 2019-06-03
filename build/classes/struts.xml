@@ -49,17 +49,16 @@
 			<interceptor-ref name="defaultStack" />
 			<result name="listMyHomeworks">/test/teacherhomework.jsp</result>
 			<result name="listMyHomeworkAnswers">/test/teacherhomeworkAnswers.jsp</result>
-			<result name="listMyStudents">/teacher/teacher_manage.jsp</result>
+			<result name="listMyStudents">/teacher/teacher_manageStudents.jsp</result>
+			<result name="searchMyStudents">/teacher/teacher_manageStudents.jsp</result>
 			<result name="getMyRoster" type="redirectAction">
 				<param name="actionName">downloadFile</param>
 				<param name="namespace">/file</param>
 				<param name="filename">${filename}</param>
+				<param name="packageId">${id}</param>
 			</result>
-			<result name="listMyOperationLogs">/test/operations.jsp</result>
-			<!-- <result name="{1}">/admin/listMine/{1}.jsp</result> -->
-			<allowed-methods>listMyOperationLogs,listMyHomeworkAnswers,listMyHomeworks,getMyRoster,listMyStudents
-							
-			</allowed-methods>
+			<result name="listMyOperationLogs">/teacher/teacher_showMyLogs.jsp</result>
+			<allowed-methods>listMyOperationLogs,listMyHomeworkAnswers,listMyHomeworks,getMyRoster,listMyStudents,searchMyStudents</allowed-methods>
 		</action>
 	</package>
 	
@@ -68,24 +67,17 @@
 			<interceptor name="updateStudentInterceptor"
 				class="com.se.interceptor.UpdateStudentInterceptor" />
 		</interceptors>
-		<action name="addStudent" class="com.se.action.StudentAction"
-			method="add">
-			<interceptor-ref name="updateStudentInterceptor" />
-			<interceptor-ref name="defaultStack" />
-			<result name="success">/student/listStudent.jsp</result>
-			<result name="fail">/student/addStudent.jsp</result>
-		</action>
 		<action name="*Student" class="com.se.action.StudentAction"
 			method="{1}">
-			<interceptor-ref name="stuLoginCheckInterceptor" />
-			<interceptor-ref name="defaultStack" />
 			<result name="success">/student/listStudent.jsp</result>
 			<result name="listMyHomeworks">/student/stu_homework.jsp</result>
-			<result name="listMyOperationLogs">/test/operations.jsp</result>
+			<result name="listMyOperationLogs">/student/stu_showMyLogs.jsp</result>
 			<result name="updateSuccess">/test/studentUpdate.jsp</result>
-			<allowed-methods>listMyHomeworks,update,listMyOperationLogs
-							
-			</allowed-methods>
+			<result name="deleteSuccess" type="redirectAction">/teacher/teacher_listMyStudents
+			</result>
+			<result name="addSuccess" type="redirectAction">/teacher/teacher_listMyStudents
+			</result>
+			<allowed-methods>listMyHomeworks,update,listMyOperationLogs,add,delete</allowed-methods>
 		</action>
 	</package>
 	
@@ -163,4 +155,35 @@
 	
 	<!-- ************ lw ************ -->
 	
+
+	<!-- uploadCommonFile -->
+	<package name="commonFile" extends="default">
+		<action name="TcommonFile_*"
+			class="com.se.action.CommonFileAction" method="{1}">
+			<interceptor-ref name="teaLoginCheckInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="uploadCommonFile">/teacher/teacher_uploadCommonFile.jsp</result>
+			<result name="deleteCommonFile" type="redirectAction">
+				<param name="actionName">commonFile_list</param>
+				<param name="namespace">/commonFile</param>
+				<param name="fileId">${fileId}</param>
+				<param name="fileType">${fileType}</param>
+			</result>
+			<allowed-methods>upload,delete</allowed-methods>
+		</action>
+		<action name="commonFile_*"
+			class="com.se.action.CommonFileAction" method="{1}">
+			<interceptor-ref name="loginCheckInterceptor" />
+			<interceptor-ref name="defaultStack" />
+			<result name="listTeacherCommonFiles">/teacher/teacher_manageResource.jsp</result>
+			<result name="listStudentCommonFiles">/student/stu_re_slide.jsp</result>
+			<result name="downloadCommonFile" type="redirectAction">
+				<param name="actionName">downloadFile</param>
+				<param name="namespace">/file</param>
+				<param name="filename">${downloadFile}</param>
+				<param name="packageId">0</param>
+			</result>
+			<allowed-methods>download,list</allowed-methods>
+		</action>
+	</package>
 </struts>

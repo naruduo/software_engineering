@@ -75,7 +75,7 @@
 						<li class="divider">
 						</li>
 						<li>
-							<a href="#">退出登录</a>
+							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
 						</li>
 					</ul>
 				</li>
@@ -123,7 +123,19 @@
 	</div>
 </div>
 
-
+<script>
+    var homeList = "/website/f/api/article/homeList";
+    var ctxf = "/website/f";
+    $('li.dropdown').mouseover(function () {
+        $(this).addClass('open');
+    }).mouseout(function () {
+        $(this).removeClass('open');
+    });
+    $(document).ready(function () {
+        
+        homepages();
+    });
+</script>
 
 
 

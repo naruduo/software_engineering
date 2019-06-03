@@ -9,26 +9,18 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>软件工程精品课</title>
-<link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css.map" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.min.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.min.css.map" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.css.map" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css.map" />
 
+<link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css.map" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css.map" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css.map" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css.map" />
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/bootstarp.js"></script>
-<script type="text/javascript" src="../js/npm.js"></script>
-
   <!-- CSS
   ================================================== -->
   <!-- RS5.0 Main Stylesheet -->
@@ -99,7 +91,7 @@
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#">操作日志</a>
+							<a href="student/listMyOperationLogsStudent.action">操作日志</a>
 						</li>
 						<li>
 							<a href="#">联系我们</a>
@@ -110,7 +102,7 @@
 						<li class="divider">
 						</li>
 						<li>
-							<a href="#">退出登录</a>
+							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
 						</li>
 					</ul>
 				</li>
@@ -118,11 +110,8 @@
 		</div>
 	</div>
 	
-<!-- Static navbar -->
 
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="row">
+   <div class="row">
       <div class="jumbotron">
         <h1>Hello! Software Engineering! </h1>
         <p>软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。它涉及程序设计语言、数据库、软件开发工具、系统平台、标准、设计模式等方面。</p>
@@ -133,9 +122,6 @@
       </div>
 	</div>
 	
-	
-<!-- Start Testimonial
-=========================================== -->
 		
 	<section class="testimonial section" id="testimonial">
 		<div class="container">
@@ -259,30 +245,7 @@
     </div>
 </div>
 
-</div>
 </body>
-<script></script>
-<script src="/website/static/fzsjgw/js/homepage.js"></script>
-<script>
-    var homeList = "/website/f/api/article/homeList";
-    var ctxf = "/website/f";
-    $('li.dropdown').mouseover(function () {
-        $(this).addClass('open');
-    }).mouseout(function () {
-        $(this).removeClass('open');
-    });
-    $(document).ready(function () {
-        
-        homepages();
-    });
-</script>
-             
-   <!-- end Footer Area
-    ========================================== -->
-    
-    <!-- 
-    Essential Scripts
-    =====================================-->
     
   <!-- Main jQuery -->
     <script src="../plugins/jquery/dist/jquery.min.js"></script>
@@ -373,6 +336,18 @@
         });
     });
 </script>          		
-
+<script>
+    var homeList = "/website/f/api/article/homeList";
+    var ctxf = "/website/f";
+    $('li.dropdown').mouseover(function () {
+        $(this).addClass('open');
+    }).mouseout(function () {
+        $(this).removeClass('open');
+    });
+    $(document).ready(function () {
+        
+        homepages();
+    });
+</script>
 </body>
 </html>

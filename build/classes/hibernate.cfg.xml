@@ -29,6 +29,7 @@
 		<mapping class="com.se.pojo.Exp" />
 		<!-- ************* -->
 		
+		<mapping class="com.se.pojo.CommonFile"/>
 	</session-factory>
 
 </hibernate-configuration>

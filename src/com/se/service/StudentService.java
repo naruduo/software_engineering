@@ -39,7 +39,7 @@ public class StudentService {
 	}
 
 	public List<Student> list(Page page) {
-		return dao.list(Student.class, (page.getStart() - 1) * page.getCount(), page.getCount());
+		return dao.list(Student.class, (page.getStart()) * page.getCount(), page.getCount());
 	}
 
 	public void delete(int id) {
@@ -87,7 +87,7 @@ public class StudentService {
 	}
 
 	public boolean getRoster(String filePath, int teacherId) {
-		List<Student> list = dao.list(Student.class);
+		List<Student> list = dao.getTeachersStudent(teacherId);
 
 		try {
 			Workbook wb = new XSSFWorkbook();
@@ -105,7 +105,9 @@ public class StudentService {
 				idCell.setCellValue(String.format("%08d", stu.getId()));
 				nameCell.setCellValue(stu.getName());
 			}
-			wb.write(new FileOutputStream(filePath));
+			File destFile = new File(filePath);
+			if(!destFile.exists()) destFile.createNewFile();
+			wb.write(new FileOutputStream(destFile));
 			wb.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -123,6 +125,10 @@ public class StudentService {
 
 	public List<Student> getTeachersStudents(int teacherId) {
 		return dao.getTeachersStudent(teacherId);
+	}
+	
+	public List<Student> getTeachersStudents(int teacherId,String nameKey) {
+		return dao.getTeachersStudent(teacherId,nameKey);
 	}
 
 	// 5-20

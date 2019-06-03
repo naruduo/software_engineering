@@ -25,7 +25,7 @@
        background-size:contain;
 }
 </style>
-<base href="http://localhost:8080/software_engineering/"/>
+<base href="http://localhost:8081/software_engineering/"/>
 <!-- //custom-theme -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Owl-carousel-CSS -->
@@ -74,36 +74,36 @@
 					<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp" style="font-size:20px">课程主页</a>
 				</li>
 				<li>
-					<a href="<%=request.getContextPath()%>/student/stu_homework.jsp" style="font-size:20px">习题作业</a>
+					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}" style="font-size:20px">习题作业</a>
 				</li>
 				<li class="">
 					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
-					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
+					<a href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp" style="font-size:20px">资源下载</a>
 				</li>
 				<li>
 					<a href="#" style="font-size:20px">练习管理</a>
 				</li>
 				<li>
-					<a href="teacher/teacher_listMyStudents.action" style="font-size:20px">学生管理</a>
+					<a href="teacher/teacher_listMyStudents.action" style="font-size:20px">课程论坛</a>
 				</li>
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#" >操作日志</a>
+							<a href="teacher/teacher_listMyOperationLogs.action" >操作日志</a>
 						</li>
 						<li>
 							<a href="contact_us.jsp">联系我们</a>
 						</li>
 						<li>
-							<a href="#">退出登录</a>
+							<a href="#">更多设置</a>
 						</li>
 						<li class="divider">
 						</li>
 						<li>
-							<a href="#">分割线</a>
+							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
 						</li>
 					</ul>
 				</li>
@@ -188,7 +188,7 @@
 								<h4 class="sub_service_agileits">学生名单</h4>
 								<p>查看您班级的学生</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher_manage.jsp" role="button">GO ! »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/teacher_listMyStudents.action" role="button">GO ! »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>
@@ -207,7 +207,7 @@
 								<h4 class="sub_service_agileits">添加学生</h4>
 								<p>为您的班级新增成员</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="addStudent.jsp" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/teacher_addStudent.jsp" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>
@@ -226,7 +226,7 @@
 								<h4 class="sub_service_agileits">发布通知</h4>
 								<p>新建一条通知公告</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher_notifyEditor.jsp" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/teacher_notifyEditor.jsp" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>
@@ -245,7 +245,7 @@
 								<h4 class="sub_service_agileits">上传大纲</h4>
 								<p>更新或新建一份教学大纲</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="upload.jsp" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/upload.jsp" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>
@@ -280,10 +280,10 @@
 								</div>
 							</div>
 							<div class="col-xs-9 wthree_banner_bottom_grid_right">
-								<h4 class="sub_service_agileits">即将上线</h4>
-								<p>敬请期待</p>
+								<h4 class="sub_service_agileits">更新资源</h4>
+								<p>上传新的教学资源</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="contact_us.jsp" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/teacher_uploadCommonFile.jsp" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>

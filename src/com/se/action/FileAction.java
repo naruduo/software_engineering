@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.se.dao.OperationLogDao;
 import com.se.pojo.Student;
+import com.se.service.FileService;
 import com.se.service.OperationLogService;
 import com.se.service.StudentService;
 import com.se.util.FileUtils;
@@ -25,17 +26,19 @@ public class FileAction extends ActionSupport {
 	private String uploadFileFileName;
 	private String uploadFileContentType;
 	private OperationLogService os = new OperationLogService();
-	private int packageId;// 老师或学生的Id，表示的下载文件的文件夹
+	private int packageId = -1;// 老师或学生的Id，表示的下载文件的文件夹
 
 	public String download() throws Exception {
 		// 根据传来的文件名，获取到具体的完整的路径
+		System.out.println("HERE");
 		String realPath = ServletActionContext.getServletContext()
 				.getRealPath(File.separator + "download" + File.separator + packageId);
-		System.out.println(realPath + "," + filename);
 		returnFile = new File(realPath, filename);
+		System.out.println(realPath);
+		System.out.println(returnFile);
 		if (!returnFile.exists())
 			return "fail";
-		System.out.println(returnFile);
+
 		// 找到文件，响应到浏览器，弹出下载
 		os.add("下载", filename, (int) ServletActionContext.getContext().getSession().get("USER"));
 		filename = new String(filename.getBytes(), "ISO-8859-1");
@@ -43,17 +46,11 @@ public class FileAction extends ActionSupport {
 	}
 
 	public String upload() {
-		String realPath = ServletActionContext.getServletContext().getRealPath(File.separator + "download");
-		System.out.println(realPath);
-		int userId = (int) ActionContext.getContext().getSession().get("USER");
-		File destDir = new File(realPath + File.separator + userId);
-		if (!destDir.exists())
-			destDir.mkdir();
-		System.out.println(destDir);
-		File destFile = new File(destDir, uploadFileFileName);
-		FileUtils.copy(uploadFile, destFile);
-		os.add("上传", uploadFileFileName, (int) ServletActionContext.getContext().getSession().get("USER"));
-		return "uploadSuccess";
+		FileService fs = new FileService();
+		if (fs.upload(packageId, uploadFileFileName, uploadFile))
+			return "uploadSuccess";
+		else
+			return "uploadFail";
 	}
 
 	// 提供给Struts2框架调用，用来获得要下载的文件的流数据
@@ -69,14 +66,11 @@ public class FileAction extends ActionSupport {
 	}
 
 	public String delete() {
-		String realPath = ServletActionContext.getServletContext()
-				.getRealPath(File.separator + "download" + File.separator + SessionUtils.getUserId());
-		File destFile = new File(realPath, filename);
-		if (!destFile.exists())
+		FileService fs = new FileService();
+		if (fs.delete(packageId, filename))
+			return "deleteSuccess";
+		else
 			return "deleteFail";
-		destFile.delete();
-		os.add("删除", filename, (int) ServletActionContext.getContext().getSession().get("USER"));
-		return "deleteSuccess";
 	}
 
 	public String getFilename() {

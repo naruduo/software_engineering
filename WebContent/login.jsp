@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="http://localhost:8080/software_engineering/" />
+<base href="http://localhost:8081/software_engineering/" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <meta name="description">
@@ -32,7 +32,7 @@
 		</div>
 		<br /> <br />
 		<div class="login_logo_1" align="center">
-			<img src="./picture/login_logo_1.PNG" alt="软件工程" />
+			<img src="<%=request.getContextPath()%>/picture/login_logo_1.PNG"  alt="软件工程" />
 		</div>
 		<br /> <br />
 		<div class="wall-warp">

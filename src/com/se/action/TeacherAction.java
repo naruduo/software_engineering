@@ -26,8 +26,9 @@ public class TeacherAction extends ActionSupport {
 	private List<Homework> homeworks;
 	private List<HomeworkAnswer> homeworkAnswers;
 	private List<OperationLog> operations;
-	private Page page = new Page(1, 10000);
+	private Page page = new Page(0,5);
 	private String filename;
+	private String nameKey;
 
 	public String listMyHomeworks() {
 		HomeworkService hs = new HomeworkService();
@@ -47,10 +48,11 @@ public class TeacherAction extends ActionSupport {
 
 	public String getMyRoster() {
 		StudentService ss = new StudentService();
-		filename = SessionUtils.getUserId() + File.separator + "Roster.xlsx";
-		String filePath = SessionUtils.getRealPath(File.separator + "WEB-INF" + File.separator + "download");
+		filename = "Roster.xlsx";
+		String filePath = SessionUtils
+				.getRealPath(File.separator + "download" + File.separator + SessionUtils.getUserId());
 		ss.getRoster(filePath + File.separator + filename, SessionUtils.getUserId());
-		System.out.println(filename);
+		id = SessionUtils.getUserId();
 		return "getMyRoster";
 	}
 
@@ -60,12 +62,17 @@ public class TeacherAction extends ActionSupport {
 		ActionContext.getContext().put("operations", operations);
 		return "listMyOperationLogs";
 	}
-	
+
 	public String listMyStudents() {
 		StudentService ss = new StudentService();
-		ActionContext.getContext().put("studentlist", ss.list(page));
-		System.out.println(ss.list(page));
+		ActionContext.getContext().put("students", ss.getTeachersStudents(SessionUtils.getUserId()));
 		return "listMyStudents";
+	}
+
+	public String searchMyStudents() {
+		StudentService ss = new StudentService();
+		ActionContext.getContext().put("students", ss.getTeachersStudents(SessionUtils.getUserId(), nameKey));
+		return "searchMyStudents";
 	}
 
 	public Integer getId() {
@@ -142,5 +149,13 @@ public class TeacherAction extends ActionSupport {
 	 */
 	
 	/***********************************************************/
+
+	public String getNameKey() {
+		return nameKey;
+	}
+
+	public void setNameKey(String nameKey) {
+		this.nameKey = nameKey;
+	}
 
 }

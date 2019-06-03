@@ -15,7 +15,7 @@
   
   <meta name="author" content="">
 
-  <title>Bingo | Responsive Multipurpose Parallax HTML5 Template</title>
+  <title>资源下载</title>
 
 <!-- Mobile Specific Meta
   ================================================== -->
@@ -27,6 +27,7 @@
   <!-- CSS
   ================================================== -->
   <!-- RS5.0 Main Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="../css/footer_base.css" />
   <link rel="stylesheet" type="text/css" href="../plugins/revo-slider/css/settings.css">
   <!-- RS5.0 Layers and Navigation Styles -->
   <link rel="stylesheet" type="text/css" href="../plugins/revo-slider/css/layers.css">
@@ -82,24 +83,81 @@
 
 
 <!-- TODO insert header here -->
-<h2>HEADER</h2>
+<div><h1>软件工程精品课</h1></div>
 
-
+   	<ul class="nav nav-tabs"  bgcolor="#3f51b6">
+				<li >
+					<a href="StudentIndex.jsp"  style="font-size:20px">课程主页</a>
+				</li>
+				<li>
+					<a href="stu_notify.jsp"  style="font-size:20px">通知公告</a>
+				</li>
+				<li>
+					<a href="stu_homework.jsp"  style="font-size:20px">习题作业</a>
+				</li>
+				<li>
+					<a href="stu_experience.jsp" style="font-size:20px">实验教学</a>
+				</li>
+				<li class="active">
+					<a href="stu_resource.jsp"  style="font-size:20px">资源下载</a>
+				</li>
+				<li>
+					<a href="#"  style="font-size:20px">在线练习</a>
+				</li>
+				<li>
+					<a href="#"  style="font-size:20px">学习社区</a>
+				</li>
+				<li class="dropdown pull-right">
+					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">操作日志</a>
+						</li>
+						<li>
+							<a href="#">设置栏目</a>
+						</li>
+						<li>
+							<a href="#">更多设置</a>
+						</li>
+						<li class="divider">
+						</li>
+						<li>
+							<a href="#">分割线</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+<br/>
 
 <!--
 Start About Section
 ==================================== -->
-<section class="service-2 section">
+<section class="service-2 section"  style="padding:0px">
   <div class="container">
     <div class="row">
 
       <!-- section title -->
       <div class="title text-center"  >
-        <h2>What You Can Get</h2>
-        <p>这里有软件工程的课程资源 </p>
+        <h1>What You Can Get</h1>
+        <p><strong>这里有软件工程的课程资源 </strong></p>
         <div class="border"></div>
       </div>
       <!-- /section title -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <div class="col-md-4 text-center">
         <img src="../images/about/member.jpg" class="inline-block" alt="">
@@ -109,29 +167,29 @@ Start About Section
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="service-item">
               <i class="tf-ion-ios-alarm-outline"></i>
-              <h4>课件</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui venenatis.</p>
+              <h4><a href="commonFile/commonFile_list.action?fileType=1">课件</a></h4>
+              <p></p>
             </div>
           </div><!-- END COL -->
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="service-item">
               <i class="tf-ion-ios-briefcase-outline"></i>
-              <h4>试卷</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui venenatis.</p>
+              <h4><a href="commonFile/commonFile_list.action?fileType=2">试卷</a></h4>
+              <p></p>
             </div>
           </div><!-- END COL -->
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="service-item">
               <i class="tf-ion-ios-email-outline"></i>
               <h4>习题</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui venenatis.</p>
+              <p></p>
             </div>
           </div><!-- END COL -->
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="service-item">
               <i class="tf-ion-ios-locked-outline"></i>
               <h4>其它</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui venenatis.</p>
+              <p></p>
             </div>
           </div><!-- END COL -->
         </div>
@@ -141,136 +199,73 @@ Start About Section
 </section>   <!-- End section -->
 
 
-
-<!-- Start Testimonial
-=========================================== -->
-		
-	<section class="testimonial section" id="testimonial">
-		<div class="container">
-			<div class="row">				
-				<div class="col-lg-12">
-					<!-- testimonial wrapper -->
-					<div class="testimonial-slider">
-						<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<img src="../images/client-logo/clients-1.jpg" class="img-responsive" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>Abul Mal Muhit</h3>
-								<span>CEO , Company Name</span>
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-				
-						<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<img src="../images/client-logo/clients-1.jpg" class="img-responsive" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>Abul Mal Muhit</h3>
-								<span>CEO , Company Name</span>
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-					
-						<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<img src="../images/client-logo/clients-1.jpg" class="img-responsive" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>Abul Mal Muhit</h3>
-								<span>CEO , Company Name</span>
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-					</div>
-				</div> 		<!-- end col lg 12 -->
-			</div>	    <!-- End row -->
-		</div>       <!-- End container -->
-	</section>    <!-- End Section -->
-
-
-<footer id="footer" class="bg-one">
-  <div class="top-footer">
+ <div class="fd-f-link">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <h3>about</h3>
-          <p>Integer posuere erat a ante venenati dapibus posuere velit aliquet. Fusce dapibus, tellus cursus commodo, tortor mauris sed posuere.</p>
+        <div class="fd-fl-title">
+            <span class="fd-flt-span1">友情链接</span>
+            <span class="fd-flt-span2">Friendship Link</span>
         </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <ul>
-            <li><h3>Our Services</h3></li>
-            <li><a href="#">Graphic Design</a></li>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-          </ul>
+        <div>
+            
+                <a href="http://www.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer01.PNG">
+                </a>
+            
+                <a href="http://jwch.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer02.PNG">
+                </a>
+            
+                <a href="http://zsb.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer03.PNG">
+                </a>
+            
+                <a href="http://yjsy.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer04.PNG">
+                </a>
+            
         </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <ul>
-            <li><h3>Quick Links</h3></li>
-            <li><a href="#">Partners</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">FAQ’s</a></li>
-            <li><a href="#">Badges</a></li>
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <ul>
-            <li><h3>Connect with us Socially</h3></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Youtube</a></li>
-            <li><a href="#">Pinterest</a></li>
-          </ul>
-        </div>
-        <!-- End of .col-sm-3 -->
-
-      </div>
-    </div> <!-- end container -->
-  </div>
-  <div class="footer-bottom">
-    <h5>Copyright 2016. All rights reserved.</h5> <h6>Design and Developed by Themefisher. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></h6>
-  </div>
-</footer> <!-- end footer -->
+    </div>
+</div>
 
 
-    <!-- end Footer Area
-    ========================================== -->
     
+
+
+<div class="fd-f-bottom">
+    <div class="container">
+        <div class="fd-fb-logo">
+            <img src="../picture/footer05.PNG">
+        </div>
+        <div class="fd-fb-public">
+          <span class="fd-fbp-span1">
+              学院地址：福州市闽侯县学园路2号福州大学数学与计算机科学学院
+          </span>
+          <span class="fd-fbp-span2">
+              版权声明：© 2019
+              福州大学软件学院19春季软工实践G013. 版权所有. 保留所有权利
+          </span>
+        </div>
+    </div>
+</div>
+
+<script src="/website/static/fzsjgw/js/homepage.js"></script>
+<script>
+    var homeList = "/website/f/api/article/homeList";
+    var ctxf = "/website/f";
+    $('li.dropdown').mouseover(function () {
+        $(this).addClass('open');
+    }).mouseout(function () {
+        $(this).removeClass('open');
+    });
+    $(document).ready(function () {
+        
+        homepages();
+    });
+</script>
+
+
+
+
     <!-- 
     Essential Scripts
     =====================================-->
