@@ -67,7 +67,7 @@ public class Teacher {
 	 */
 	
 	/*
-	 * 实验报告与教师关联
+	 * 实验与教师关联
 	 * 一对多
 	 */
 	@OneToMany(cascade = CascadeType.ALL

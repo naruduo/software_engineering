@@ -3,12 +3,11 @@ package com.se.dao;
 import java.io.Serializable;
 import java.util.List;
 
-import org.hibernate.*;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.se.util.HibernateUtil;
-import com.se.pojo.*;
-
-import java.lang.Class;
 
 /*
  * 通过类的反射机制来造轮子
@@ -16,7 +15,7 @@ import java.lang.Class;
  * entity		实体对象
  * getSimpleName()获取类名
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class BaseDAO<T> {
 
 	// 新增记录

@@ -56,10 +56,9 @@
 				<param name="filename">${filename}</param>
 			</result>
 			<result name="listMyOperationLogs">/test/operations.jsp</result>
-			<result name="listMyExperiences">/student/stu_experience.jsp</result>
 			<!-- <result name="{1}">/admin/listMine/{1}.jsp</result> -->
 			<allowed-methods>listMyOperationLogs,listMyHomeworkAnswers,listMyHomeworks,getMyRoster,listMyStudents
-							,listMyExperiences
+							
 			</allowed-methods>
 		</action>
 	</package>
@@ -83,10 +82,9 @@
 			<result name="success">/student/listStudent.jsp</result>
 			<result name="listMyHomeworks">/student/stu_homework.jsp</result>
 			<result name="listMyOperationLogs">/test/operations.jsp</result>
-			<result name="listMyTeacherExps">/student/stu_experience.jsp</result>
 			<result name="updateSuccess">/test/studentUpdate.jsp</result>
 			<allowed-methods>listMyHomeworks,update,listMyOperationLogs
-							,listMyTeacherExps
+							
 			</allowed-methods>
 		</action>
 	</package>
@@ -144,5 +142,25 @@
 			<allowed-methods>submit,add,getDetail,score</allowed-methods>
 		</action>
 	</package>
+	
+	<!-- ************ lw ************ -->
+	
+	<package name="exp" namespace="/exp" extends="default">
+		
+		<action name="*Exp" class="com.se.action.ExpAction" method="{1}">
+			<!-- 不同角色 不同视图 -->
+			<!-- 获取单个实验信息 -->
+			<result name="getStudentExp">/student/stu_experienceEditor.jsp</result>
+			<result name="getTeacherExp">/teacher/teacher_experienceEditor.jsp</result>
+			<!-- 获取某教师发布的所有实验信息 -->
+			<result name="listStudentExps">/student/stu_experience.jsp</result>
+			<result name="listTeacherExps">/teacher/teacher_experience.jsp</result>
+			<result name="ExpError">/login.jsp</result>
+			<allowed-methods>list, get, update, upload</allowed-methods>
+		</action>
+		
+	</package>
+	
+	<!-- ************ lw ************ -->
 	
 </struts>

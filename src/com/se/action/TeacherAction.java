@@ -141,18 +141,6 @@ public class TeacherAction extends ActionSupport {
 	 * 
 	 */
 	
-	//获取教师实验数据
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public String listMyExperiences() {
-		//初始
-		Map req = (Map)ActionContext.getContext().get("request");
-		//获得教师id
-		Integer tid = SessionUtils.getUserId();
-		//将数据放入request
-		req.put("exps", teacherService.listExp(tid, page));
-		return "listMyExperiences";
-	}
-	
 	/***********************************************************/
 
 }

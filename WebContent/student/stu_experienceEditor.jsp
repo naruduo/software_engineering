@@ -30,18 +30,23 @@
 <div class="container">
 	<div class="row">
 		<div class="span12">
-		<h3>
+		 <p class="bg-primary">欢迎您：${USER}，${student.name}同学
+		 	<a href="<%=request.getContextPath()%>/logoutUser.action" class="pull-right bg-primary">登出</a>
+		 </p>
+		
+		
+			<h3>
 				软件工程精品课
 			</h3>
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
-				<li class="active" >
+				<li >
 					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
 				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/student/stu_homework.jsp" style="font-size:20px">习题作业</a>
 				</li>
-				<li class="">
-					<a href="<%=request.getContextPath()%>/student/stu_experience.action?id=${USER}" style="font-size:20px">实验教学</a>
+				<li class="active" >
+					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
@@ -72,42 +77,43 @@
 					</ul>
 				</li>
 			</ul>
+		</div>
+	</div>
 	
 	
 
 			<h3>
-				编辑实验内容
+				编辑实验报告内容
 			</h3>
+			
+			<fieldset>
+				<legend>实验信息</legend>
+				<label>实验名</label>
+				<p>${exp.expName}</p>
+            	<label>发布时间</label>
+				<p>${exp.releaseTime}</p>
+				<label>截止时间</label>
+				<p>${exp.deadline}</p>
+			</fieldset>
+			
 			<form action="<%=request.getContextPath()%>/sepak/uploadExpDoc.action" method="post" enctype="multipart/form-data">
-					<fieldset>
-					<legend contenteditable="true">实验信息</legend>
-					<label contenteditable="true">实验名</label>
-					<input type="text" placeholder="TODO：jsp">
-					<label class="checkbox" contenteditable="true">
-					</label>
-                    <label contenteditable="true">截止时间</label>
-					<input type="text"placeholder="TODO：jsp">
-					<label class="checkbox" contenteditable="true">
-					</label>
-					<input name="uploadFile" type="file" />
-					</fieldset>
-					<br />
-					<br />
-					<button class="btn" type="submit">提交</button>
-					<br />
-					<br />
+			<div class="uploader">
+				<input name="uploadFile" type="file" />
+				<br />
+			</div>
 			</form>
 			<div id="summernote"><p>请上传实验报告或在此处编辑实验报告</p></div>
-            <script>
-              $(document).ready(function() {
-                  $('#summernote').summernote();
-              });
-            </script>
-            <button class="btn" type="submit">提交</button>
-			<h3>
-				这是页脚
-			</h3>
-		</div>
+            	<script>
+              		$(document).ready(function() {
+                 		$('#summernote').summernote();
+             		});
+            	</script>
+            	<button class="btn" type="submit">提交</button>
+				<h3>
+					这是页脚
+				</h3>
+			</div>
+			</form>
 	</div>
 </div>
 </body>

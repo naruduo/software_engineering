@@ -34,44 +34,46 @@
 <script type="text/javascript" src="../js/npm.js"></script>
 </head>
 <body>
-<div class="container-fluid">
-	<div class="row-fluid">
+<div class="container">
+	<div class="row">
 		<div class="span12">
-		 <p class="bg-primary">欢迎您：221600114，权威同学</p>
+		 <p class="bg-primary">欢迎您：${USER}，${teacher.name}老师
+		 	<a href="<%=request.getContextPath()%>/logoutUser.action" class="pull-right bg-primary">登出</a>
+		 </p>
 		
 			<h3>
 				软件工程精品课
 			</h3>
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
+				<li >
+					<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp" style="font-size:20px">课程主页</a>
+				</li>
+				<li>
+					<a href="<%=request.getContextPath()%>/student/stu_homework.jsp" style="font-size:20px">习题作业</a>
+				</li>
 				<li class="active">
-					<a href="StudentIndex.jsp">课程主页</a>
+					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyExperiences.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
-					<a href="stu_homework.jsp">习题作业</a>
-				</li>
-				<li class="">
-					<a href="teacher_experience.jsp">实验教学</a>
+					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
 				</li>
 				<li>
-					<a href="stu_resource.jsp">资源下载</a>
+					<a href="#" style="font-size:20px">练习管理</a>
 				</li>
 				<li>
-					<a href="#">在线练习</a>
-				</li>
-				<li>
-					<a href="#">学习社区</a>
+					<a href="teacher/teacher_listMyStudents.action" style="font-size:20px">学生管理</a>
 				</li>
 				<li class="dropdown pull-right">
-					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<strong class="caret"></strong></a>
+					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#">操作</a>
+							<a href="#" >操作日志</a>
 						</li>
 						<li>
-							<a href="#">设置栏目</a>
+							<a href="contact_us.jsp">联系我们</a>
 						</li>
 						<li>
-							<a href="#">更多设置</a>
+							<a href="#">退出登录</a>
 						</li>
 						<li class="divider">
 						</li>
@@ -84,49 +86,36 @@
 		</div>
 	</div>
 	
-	
-     <h3>
-				编辑实验(目前两种上传实验的方法)
-	</h3>
-			<form>
-					<fieldset>
-					<legend contenteditable="true">实验信息</legend>
-					<label contenteditable="true">实验名</label>
-					<input type="text" placeholder="Type something…">
-					<label class="checkbox" contenteditable="true">
-					</label>
-                    <label contenteditable="true">截止时间</label>
-					<input type="text" placeholder="Type something…">
-					<label class="checkbox" contenteditable="true">
-					</label>
-					</fieldset>
+
+			
+			<form action="<%=request.getContextPath()%>/exp/updateExp.action" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="exp.expId" value="${exp.expId}"/>
+				<fieldset>
+					<br />
+					<legend>实验信息</legend>
+					<label>实验名</label>
+					<label>${exp.expName}</label>
+					<label>截止时间</label>
+					<input type="text" name="exp.deadline" value="${exp.deadline}">
+					<br />
+					<br />
+				</fieldset>
+				<div class="uploader">
+					<input name="uploadFile" type="file" />
+					<br />
+					<br />
+				</div>
+			
+				<div id="summernote"><p>输入实验描述</p></div>
+            	<script>
+             		$(document).ready(function() {
+                		$('#summernote').summernote();
+             		});
+            	</script>
+            	<button class="btn" type="submit">提交</button>
+            	<br />
+            	<br />
 			</form>
-			<div id="summernote"><p>输入实验描述</p></div>
-            <script>
-              $(document).ready(function() {
-                  $('#summernote').summernote();
-              });
-            </script>
-            <button class="btn" type="button">提交</button>
-  
-  
-  	<form action="" method="post" enctype="multipart/form-data">
-					<fieldset>
-					<legend contenteditable="true">实验信息</legend>
-					<label contenteditable="true">实验名：</label>
-					<input type="text" placeholder="TODO：jsp">
-					<label class="checkbox" contenteditable="true">
-					</label>
-                    <label contenteditable="true">截止时间：</label>
-					<input type="text" placeholder="TODO：jsp">
-					<label class="checkbox" contenteditable="true">
-					</label>
-					<label contenteditable="true">上传实验报告：</label>
-					<input type="file" name="file" value="文件路径">
-                    <input id="submit_form" type="submit" class="btn btn-success save" value="上传">
-					</fieldset>
-    </form>
-  
   
   
   

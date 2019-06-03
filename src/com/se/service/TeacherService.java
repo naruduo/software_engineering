@@ -31,8 +31,4 @@ public class TeacherService {
 		return td.get(Teacher.class, id);
 	}
 	
-	public List<Exp> listExp(int tid, Page p) {
-		return td.listExpsWithPage(tid, p);
-	}
-	
 }

@@ -191,18 +191,6 @@ public class StudentAction extends ActionSupport {
 	 * 
 	 */
 	
-	
-	//列出该学生教师的实验文件
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public String listMyTeacherExps() {
-		//获取学生号
-		Integer sid = SessionUtils.getUserId();
-		//将实验列表放入请求
-		Map req = (Map)ActionContext.getContext().get("request");
-		req.put("exps", ss.listTeacherExps(sid, page));
-		return "listMyTeacherExps";
-	}
-	
 	/************************************************************/	
 	
 }

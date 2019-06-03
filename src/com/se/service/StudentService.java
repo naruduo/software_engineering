@@ -142,12 +142,6 @@ public class StudentService {
 	 * 
 	 */
 	
-	//获取我的教师的文件
-	public List<Exp> listTeacherExps(int sid, Page p) {
-		Student stu = dao.get(sid);
-		return new TeacherService().listExp(stu.getTeacherId(), p);
-	}
-	
 	
 	/*********************************************************/
 	
