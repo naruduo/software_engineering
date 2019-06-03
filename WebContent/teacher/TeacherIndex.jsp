@@ -98,12 +98,12 @@
 							<a href="contact_us.jsp">联系我们</a>
 						</li>
 						<li>
-							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
+							<a href="#">更多设置</a>
 						</li>
 						<li class="divider">
 						</li>
 						<li>
-							<a href="#">分割线</a>
+							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
 						</li>
 					</ul>
 				</li>
@@ -226,7 +226,7 @@
 								<h4 class="sub_service_agileits">发布通知</h4>
 								<p>新建一条通知公告</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher_notifyEditor.jsp" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/teacher_notifyEditor.jsp" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>
@@ -245,7 +245,7 @@
 								<h4 class="sub_service_agileits">上传大纲</h4>
 								<p>更新或新建一份教学大纲</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="upload.jsp" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/upload.jsp" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>

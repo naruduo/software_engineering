@@ -50,7 +50,7 @@ $('#testfile').fileinput({
     <br/>
     <input type="file" id="inputfile" name="uploadFile">
     <br/>
-    <button type="button" class="btn btn-primary">上传</button>
+    <button type="submit" class="btn btn-primary">上传</button>
     
     
   </div>

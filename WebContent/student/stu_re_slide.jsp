@@ -65,7 +65,7 @@
 							<li><a href="#">联系我们</a></li>
 							<li><a href="#">更多设置</a></li>
 							<li class="divider"></li>
-							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
+							<li><a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a></li>
 						</ul></li>
 				</ul>
 
