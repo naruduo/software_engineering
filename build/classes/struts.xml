@@ -57,6 +57,9 @@
 				<param name="filename">${filename}</param>
 				<param name="packageId">${id}</param>
 			</result>
+			<result name="listMyOperationLogs">/test/operations.jsp</result>
+			<!-- <result name="{1}">/admin/listMine/{1}.jsp</result> -->
+
 			<result name="listMyOperationLogs">/teacher/teacher_showMyLogs.jsp</result>
 			<allowed-methods>listMyOperationLogs,listMyHomeworkAnswers,listMyHomeworks,getMyRoster,listMyStudents,searchMyStudents</allowed-methods>
 		</action>
@@ -147,6 +150,15 @@
 			<!-- 获取某教师发布的所有实验信息 -->
 			<result name="listStudentExps">/student/stu_experience.jsp</result>
 			<result name="listTeacherExps">/teacher/teacher_experience.jsp</result>
+			<!-- 下载实验信息 -->
+			<result type="chain" name="downloadFile">
+				<param name="actionName">downloadFile</param>
+			</result>
+			<!-- 更新返回 -->
+			<result type="chain" name="updateCompletion">
+				<param name="actionName">getExp</param>
+			</result>
+			<result name="uploadCompletion">/teacher/teacher_experienceEditor.jsp</result>
 			<result name="ExpError">/login.jsp</result>
 			<allowed-methods>list, get, update, upload</allowed-methods>
 		</action>
@@ -186,4 +198,5 @@
 			<allowed-methods>download,list</allowed-methods>
 		</action>
 	</package>
+
 </struts>

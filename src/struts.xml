@@ -150,6 +150,15 @@
 			<!-- 获取某教师发布的所有实验信息 -->
 			<result name="listStudentExps">/student/stu_experience.jsp</result>
 			<result name="listTeacherExps">/teacher/teacher_experience.jsp</result>
+			<!-- 下载实验信息 -->
+			<result type="chain" name="downloadFile">
+				<param name="actionName">downloadFile</param>
+			</result>
+			<!-- 更新返回 -->
+			<result type="chain" name="updateCompletion">
+				<param name="actionName">getExp</param>
+			</result>
+			<result name="uploadCompletion">/teacher/teacher_experienceEditor.jsp</result>
 			<result name="ExpError">/login.jsp</result>
 			<allowed-methods>list, get, update, upload</allowed-methods>
 		</action>

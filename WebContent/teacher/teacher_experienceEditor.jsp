@@ -32,12 +32,19 @@
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/bootstarp.js"></script>
 <script type="text/javascript" src="../js/npm.js"></script>
+	<script type="text/javascript">
+		function inform() {
+			var res = "${result}";
+			if(typeof res != "undefined" && res != null && res != "")
+		        alert(res);
+		}
+	</script>
 </head>
-<body>
+<body onload="inform()">
 <div class="container">
 	<div class="row">
 		<div class="span12">
-		 <p class="bg-primary">欢迎您：${USER}，${teacher.name}老师
+		 <p class="bg-primary">欢迎您：${USER}，${teacher.name}老师${result}
 		 	<a href="<%=request.getContextPath()%>/logoutUser.action" class="pull-right bg-primary">登出</a>
 		 </p>
 		
@@ -52,7 +59,7 @@
 					<a href="<%=request.getContextPath()%>/student/stu_homework.jsp" style="font-size:20px">习题作业</a>
 				</li>
 				<li class="active">
-					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyExperiences.action" style="font-size:20px">实验教学</a>
+					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
@@ -88,19 +95,28 @@
 	
 
 			
-			<form action="<%=request.getContextPath()%>/exp/updateExp.action" method="post" enctype="multipart/form-data">
+			<form action="<c:if test="${exp != null}">
+								<%=request.getContextPath()%>/exp/updateExp.action
+						</c:if>
+						<c:if test="${exp == null}">
+							<%=request.getContextPath()%>/exp/uploadExp.action
+						</c:if>"
+				method="post" enctype="multipart/form-data">
 				<input type="hidden" name="exp.expId" value="${exp.expId}"/>
 				<fieldset>
 					<br />
 					<legend>实验信息</legend>
-					<label>实验名</label>
-					<label>${exp.expName}</label>
+					<c:if test="${exp != null}">
+						<label>实验名</label>
+						<label>${exp.expName}</label>
+					</c:if>
 					<label>截止时间</label>
 					<input type="text" name="exp.deadline" value="${exp.deadline}">
 					<br />
 					<br />
 				</fieldset>
 				<div class="uploader">
+					<label>实验文档将会用作实验名！</label>
 					<input name="uploadFile" type="file" />
 					<br />
 					<br />

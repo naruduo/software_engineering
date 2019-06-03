@@ -48,7 +48,7 @@ public class ExpAction extends ActionSupport {
 			else
 				RequestUtils.getRequest().put("result", "实验新建成功~~~");
 		}	
-		return "listTeacherExps";
+		return "uploadCompletion";
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -64,7 +64,7 @@ public class ExpAction extends ActionSupport {
 			RequestUtils.getRequest().put("result", "实验已成功更新~~~");
 		Teacher tea = (Teacher)((Map)ActionContext.getContext().getSession()).get("teacher");
 		exps = expService.listMyExps(tea.getId(), page);
-		return "listTeacherExps";
+		return "updateCompletion";
 	}
 	
 	

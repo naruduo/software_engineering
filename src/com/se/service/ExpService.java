@@ -69,19 +69,9 @@ public class ExpService {
 		exp.setExpName(uploadFileName);
 		exp.setReleaseTime(new Date());
 		exp.setTeacher(teacher);
-		//开启事务
-		Session session = HibernateUtil.getSession();
-		Transaction trans = session.beginTransaction();
 		//保存文件
-		try {
-			session.save(exp);
-			trans.commit();
-		} catch(HibernateException he) {
-			//事务执行失败 -> 删除文件、回滚
-			he.printStackTrace();
-			fileService.delete(teacher.getId(), uploadFileName);
-			return false;
-		}
+		HibernateUtil.getSession().save(exp);
+		HibernateUtil.closeSession();
 		return true;
 	}
 	

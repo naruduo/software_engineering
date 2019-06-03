@@ -20,15 +20,8 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstarp.js"></script>
 <script type="text/javascript" src="js/npm.js"></script>
-	<script type="text/javascript">
-		function inform() {
-			var res = ${result}
-			if(typeof res != "undefined" && res != null && res != "")
-		        alert(res);
-		}
-	</script>
 </head>
-<body onload="inform()">
+<body>
 <div class="container">
 	<div class="row">
 		<div class="span12">
@@ -47,7 +40,7 @@
 					<a href="<%=request.getContextPath()%>/student/stu_homework.jsp" style="font-size:20px">习题作业</a>
 				</li>
 				<li class="active">
-					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyExperiences.action" style="font-size:20px">实验教学</a>
+					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
@@ -109,11 +102,12 @@
 					<a class="btn btn-lg btn-primary" href="<%=request.getContextPath()%>/exp/getExp.action?exp.expId=${exp.expId}" role="button">编辑</a>
 				</td>	
 			</tr>
-		</c:forEach>
+		</c:forEach>	
 	</tbody>
 </table>
-
+			
 			<div class="text-center">
+			<a href="<%=request.getContextPath()%>/teacher/teacher_experienceEditor.jsp"><span class="glyphicon glyphicon-plus"></span>新建一个实验</a>
 				<%@include file="../include/adminPage.jsp"%>
 			</div>
 			
