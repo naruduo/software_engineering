@@ -140,8 +140,7 @@
 	
 	<!-- ************ lw ************ -->
 	
-	<package name="exp" namespace="/exp" extends="default">
-		
+	<package name="exp" namespace="/exp" extends="default">		
 		<action name="*Exp" class="com.se.action.ExpAction" method="{1}">
 			<!-- 不同角色 不同视图 -->
 			<!-- 获取单个实验信息 -->
@@ -156,14 +155,59 @@
 				<param name="packageId">${packageId}</param>
 			</result>
 			<!-- 更新返回 -->
-			<result type="chain" name="updateCompletion">
+			<result type="redirectAction" name="updateCompletion">
 				<param name="actionName">getExp</param>
+				<param name="result">${result}</param>
+				<param name="exp.expId">${exp.expId}</param>
 			</result>
 			<result name="uploadCompletion">/teacher/teacher_experienceEditor.jsp</result>
+			<result type="redirectAction" name="deleteCompletion">
+				<param name="actionName">listExp</param>
+				<param name="result">${result}</param>
+			</result>
 			<result name="ExpError">/login.jsp</result>
-			<allowed-methods>list, get, update, upload, download</allowed-methods>
+			<allowed-methods>list, get, update, upload, download, delete</allowed-methods>
+		</action>	
+	</package>
+	
+	<!-- 实验报告 -->
+	<package name="expdoc" namespace="/expdoc" extends="default">
+		<action name="*ExpDoc" class="com.se.action.ExpDocAction" method="{1}">
+			<!-- 上传返回 -->
+			<result type="redirectAction" name="uploadCompletion">
+				<param name="actionName">listExp</param>
+				<param name="namespace">/exp</param>
+				<param name="result">${result}</param>
+			</result>
+			<!-- 某学生的所有实验报告信息 -->
+			<result name="listStuExpDocs">
+				/test/myExpDoc.jsp
+			</result>
+			<!-- 删除某个实验报告 -->
+			<result type="redirectAction" name="deleteCompletion">
+				<param name="actionName">listStusExpDoc</param>
+				<param name="namespace">/expdoc</param>
+				<param name="result">${result}</param>
+			</result>
+			<!-- 更新某个报告 -->
+			<result type="redirectAction" name="updateCompletion">
+				<param name="actionName">listStusExpDoc</param>
+				<param name="namespace">/expdoc</param>
+				<param name="result">${result}</param>
+			</result>
+			<!-- 某个实验下的所有实验 -->
+			<result name="listExpsExpDocs">
+				/test/expsExpDoc.jsp
+			</result>
+			<!-- 打分 -->
+			<result type="redirectAction" name="markCompletion">
+				<param name="actionName">listExpsExpDoc</param>
+				<param name="namespace">/expdoc</param>
+				<param name="expDoc.exp.expId">${expDoc.exp.expId}</param>
+			</result>
+			<!-- 允许访问的方法 -->
+			<allowed-methods>upload, listStus, delete, update, listExps, mark</allowed-methods>
 		</action>
-		
 	</package>
 	
 	<!-- ************ lw ************ -->

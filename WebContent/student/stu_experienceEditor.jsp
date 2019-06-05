@@ -24,9 +24,17 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/bootstarp.js"></script>
   <script type="text/javascript" src="js/npm.js"></script>
-  
+  	<script type="text/javascript">
+		function inform() {
+			var res = "${result}";
+			if(typeof res != "undefined" && res != null && res != "")
+		        alert(res);
+			if(res == "您已与服务器断开连接")
+				window.location.href = "<%=request.getContextPath()%>/login.jsp";
+		}
+	</script>
 </head>
-<body>
+<body onload="inform()">
 <div class="container">
 	<div class="row">
 		<div class="span12">
@@ -79,42 +87,41 @@
 			</ul>
 		</div>
 	</div>
-	
-	
-
 			<h3>
 				编辑实验报告内容
 			</h3>
 			
-			<fieldset>
-				<legend>实验信息</legend>
-				<label>实验名</label>
-				<p>${exp.expName}</p>
-            	<label>发布时间</label>
-				<p>${exp.releaseTime}</p>
-				<label>截止时间</label>
-				<p>${exp.deadline}</p>
-			</fieldset>
+			<form action="<%=request.getContextPath()%>/expdoc/uploadExpDoc.action" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="exp.expId" value="${exp.expId}" />
+				<fieldset>
+					<legend>实验信息</legend>
+					<br />
+					<label>实验名</label>
+					<p>${exp.expName}</p>
+					<br />
+            		<label>发布时间</label>
+					<p>${exp.releaseTime}</p>
+					<br />
+					<label>截止时间</label>
+					<p>${exp.deadline}</p>
+					<br />
+				</fieldset>
 			
-			<form action="<%=request.getContextPath()%>/sepak/uploadExpDoc.action" method="post" enctype="multipart/form-data">
-			<div class="uploader">
-				<input name="uploadFile" type="file" />
-				<br />
-			</div>
-			</form>
-			<div id="summernote"><p>请上传实验报告或在此处编辑实验报告</p></div>
-            	<script>
-              		$(document).ready(function() {
-                 		$('#summernote').summernote();
-             		});
-            	</script>
-            	<button class="btn" type="submit">提交</button>
-				<h3>
-					这是页脚
-				</h3>
-			</div>
-			</form>
+				<div class="uploader">
+					<input name="uploadFile" type="file" />
+					<br />
+				</div>
+				<div id="summernote"><p>请上传实验报告或在此处编辑实验报告</p></div>
+            		<script>
+              			$(document).ready(function() {
+                 			$('#summernote').summernote();
+             			});
+            		</script>
+            		<button class="btn" type="submit">提交</button>
+            </form>
+			<h3>
+				这是页脚
+			</h3>
 	</div>
-</div>
 </body>
 </html>

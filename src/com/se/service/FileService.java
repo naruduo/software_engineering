@@ -18,7 +18,6 @@ public class FileService {
 		if (!destDir.exists())
 			destDir.mkdirs();
 		File destFile = new File(destDir, uploadFileName);
-		System.out.println(destFile.getAbsolutePath());
 		FileUtils.copy(uploadFile, destFile);
 		os.add("上传", uploadFileName, (int) ServletActionContext.getContext().getSession().get("USER"));
 		return true;
@@ -33,6 +32,7 @@ public class FileService {
 		if (!destFile.exists())
 			return false;
 		destFile.delete();
+		System.out.println(1);
 		os.add("删除", filename, (int) ServletActionContext.getContext().getSession().get("USER"));
 		return true;
 	}

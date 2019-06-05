@@ -20,8 +20,15 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstarp.js"></script>
 <script type="text/javascript" src="js/npm.js"></script>
+	<script type="text/javascript">
+		function inform() {
+			var res = "${result}";
+			if(typeof res != "undefined" && res != null && res != "")
+		        alert(res);
+		}
+	</script>
 </head>
-<body>
+<body onload="inform()">
 <div class="container">	
 	<div class="row">
 		<div class="span12">
@@ -96,7 +103,7 @@
 		<c:forEach items="${exps}" var="exp">
 			<tr class="success">
 				<td>${exp.expId}</td>
-				<td><a href="<%=request.getContextPath()%>/downloadFile.action?filename=${exp.expName}">${exp.expName}</a></td>
+				<td><a href="<%=request.getContextPath()%>/exp/downloadExp.action?filename=${exp.expName}">${exp.expName}</a></td>
 				<td>${exp.releaseTime}</td>
 				<td>${exp.deadline}</td>
 				<td>

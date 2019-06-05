@@ -44,7 +44,7 @@
 <div class="container">
 	<div class="row">
 		<div class="span12">
-		 <p class="bg-primary">欢迎您：${USER}，${teacher.name}老师${result}
+		 <p class="bg-primary">欢迎您：${USER}，${teacher.name}老师
 		 	<a href="<%=request.getContextPath()%>/logoutUser.action" class="pull-right bg-primary">登出</a>
 		 </p>
 		

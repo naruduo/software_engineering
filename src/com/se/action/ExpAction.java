@@ -5,14 +5,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.sql.Delete;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.se.pojo.Exp;
 import com.se.pojo.Student;
 import com.se.pojo.Teacher;
 import com.se.service.ExpService;
+import com.se.util.HibernateUtil;
 import com.se.util.Page;
-import com.se.util.RequestUtils;
 import com.se.util.SessionUtils;
 
 
@@ -20,18 +22,15 @@ import com.se.util.SessionUtils;
 public class ExpAction extends ActionSupport {
 	
 	private Exp exp;
-	//The property of a file
 	private int packageId = -1;
-	private String filename;
 	private File uploadFile;
 	private String uploadFileFileName;
 	private String uploadFileContentType;
-	private Date deadline;
 	private List<Exp> exps;
-	private Page page = new Page(0, 5);
 	private ExpService expService = new ExpService();
+	private String result;
+	private Page page = new Page(0, 5);
 	
-	@SuppressWarnings("unchecked")
 	public String download() {
 		if("Teacher".equals(SessionUtils.getRole()))
 			packageId = SessionUtils.getUserId();
@@ -39,37 +38,55 @@ public class ExpAction extends ActionSupport {
 			packageId = ((Student)SessionUtils.getHttpSession().get("Student")).getTeacherId();
 		return "downloadFile";
 	}
+	
+	public String delete() {
+		if(expService.delete(exp, SessionUtils.getUserId())) 
+			result = "删除成功~~~";
+		else
+			result = "删除失败~~~";
+		return "deleteCompletion";
+	}
 
-	@SuppressWarnings("unchecked")
 	public String upload() {
-		if(uploadFile == null||exp.getDeadline() == null)
+		if(uploadFile == null||exp.getDeadline() == null) {
 			//文件名、文件、截止时间都不能为空
-			RequestUtils.getRequest().put("result", "文件或文件截止时间不能为空");
+			result = "文件或文件截止时间不能为空";
+			exp = null;
+		}
 		else {
 			Map httpSession = (Map)ActionContext.getContext().getSession();
 			Teacher teacher = (Teacher)httpSession.get("teacher");
-			if(!expService.upload(exp, uploadFileFileName, uploadFile, teacher))
+			if(!expService.upload(exp, uploadFileFileName, uploadFile, teacher)) {
 				//上传失败
-				RequestUtils.getRequest().put("result", "抱歉，文件上传失败。。。");
+				result = "抱歉，文件上传失败。。。";
+				exp = null;
+			}
 			else
-				RequestUtils.getRequest().put("result", "实验新建成功~~~");
+				result = "实验新建成功~~~";
 		}	
 		return "uploadCompletion";
 	}
 	
-	@SuppressWarnings("unchecked")
 	public String update() {
-		//获取教师id
-		int tid = SessionUtils.getUserId();
-		//更新文件
-		if(!expService.update(exp, uploadFileFileName, uploadFile, tid))
-			//失败
-			RequestUtils.getRequest().put("result", "抱歉，上传文件失败。。。");
-		else
-			//成功
-			RequestUtils.getRequest().put("result", "实验已成功更新~~~");
-		Teacher tea = (Teacher)((Map)ActionContext.getContext().getSession()).get("teacher");
-		exps = expService.listMyExps(tea.getId(), page);
+		if(exp == null)
+			result = "抱歉，出了点bug，请与管理员联系。";
+		else {
+			if(exp.getDeadline() == null)
+				result = "时间不能为空哦~.~";
+			else {
+				//获取教师id
+				int tid = SessionUtils.getUserId();
+				//更新文件
+				if(!expService.update(exp, uploadFileFileName, uploadFile, tid)) {
+					//失败
+					result = "抱歉，上传文件失败。。。";
+					exp = expService.getExp(exp.getExpId());
+				}
+				else 
+					//成功
+					result = "实验已成功更新~~~";
+			}
+		}
 		return "updateCompletion";
 	}
 	
@@ -80,14 +97,20 @@ public class ExpAction extends ActionSupport {
 	public String list() {
 		Map session = SessionUtils.getHttpSession();
 		String role = session.get("ROLE").toString();
-		//根据角色获取教师id
-		if("Student".equals(role)) {
-			Student stu = (Student)session.get("student");
-			exps = expService.listMyExps(stu.getTeacherId(), page);
-		} else if("Teacher".equals(role)) {
-			Teacher tea = (Teacher)session.get("teacher");
-			exps = expService.listMyExps(tea.getId(), page);
+		try {
+			//根据角色获取教师id
+			if("Student".equals(role)) {
+				Student stu = (Student)session.get("student");
+				exps = expService.listMyExps(stu.getTeacherId(), page);
+			} else if("Teacher".equals(role)) {
+				Teacher tea = (Teacher)session.get("teacher");
+				exps = expService.listMyExps(tea.getId(), page);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			result = "您已与服务器断开连接";
 		}
+		HibernateUtil.closeSession();
 		return "list" + role + "Exps";
 	}
 	
@@ -110,14 +133,6 @@ public class ExpAction extends ActionSupport {
 		this.uploadFileFileName = uploadFileFileName;
 	}
 
-	public Date getDeadline() {
-		return deadline;
-	}
-
-	public void setDeadline(Date deadline) {
-		this.deadline = deadline;
-	}
-
 	public File getUploadFile() {
 		return uploadFile;
 	}
@@ -132,14 +147,6 @@ public class ExpAction extends ActionSupport {
 
 	public void setUploadFileContentType(String uploadFileContentType) {
 		this.uploadFileContentType = uploadFileContentType;
-	}
-
-	public String getFilename() {
-		return filename;
-	}
-
-	public void setFilename(String filename) {
-		this.filename = filename;
 	}
 
 	public List<Exp> getExps() {
@@ -172,6 +179,14 @@ public class ExpAction extends ActionSupport {
 
 	public void setPackageId(int packageId) {
 		this.packageId = packageId;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
 	}
 	
 }

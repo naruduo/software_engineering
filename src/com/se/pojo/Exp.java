@@ -15,20 +15,12 @@ public class Exp {
 	
 	@Column(name="exp_name")
 	private String expName;
-	
-	/*@OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE}, 
-			fetch=FetchType.LAZY, 
-			targetEntity=ExpDoc.class, 
-			mappedBy="exp")
-	private List<Exp> expDocs;*/
 
 	@Column(name="exp_address")
 	private String expAddress;
 	
-	@ManyToOne(fetch=FetchType.LAZY, 
-			targetEntity=Teacher.class)
-	@JoinColumn(name="teacher_id", 
-		referencedColumnName="teacher_id")
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="teacher_id")
 	private Teacher teacher;
 
 	@Column(name="release_time")
@@ -46,14 +38,6 @@ public class Exp {
 	public void setExpId(Integer expId) {
 		this.expId = expId;
 	}
-	
-	/*public List<Exp> getExpDocs() {
-		return expDocs;
-	}
-
-	public void setExpDocs(List<Exp> expDocs) {
-		this.expDocs = expDocs;
-	}*/
 	
 	public String getExpAddress() {
 		return expAddress;

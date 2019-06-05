@@ -17,37 +17,55 @@ import com.se.util.Page;
 public class ExpService {
 	
 	private ExpDAO expDAO = new ExpDAO();
+	private FileService fileService = new FileService();
 	
 	public Exp getExp(int expId) {
 		return expDAO.get(Exp.class, expId);
 	}
 	
 	/**
+	 * 删除某个实验
+	 */
+	public boolean delete(Exp exp, int tid) {
+		try {
+			System.out.println(tid + "" + exp.getExpId().toString() + exp.getExpName());
+			if(!fileService.delete(tid, exp.getExpName()))
+				return false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		expDAO.delete(Exp.class, exp.getExpId());
+		return true;
+	}
+	
+	/**
 	 * 教师更新实验信息
 	 */
 	public boolean update(Exp exp, String uploadFileName, File uploadFile, int tid) {
-		//获取原文件信息
-		Exp oldExp = expDAO.get(Exp.class, exp.getExpId());
-		/*
-		 * 如果上传文件的文件名不为空
-		 * 则删除原文件
-		 * 上传新文件
-		 */
-		if(uploadFileName != null&&!"".equals(uploadFileName)) {
-			exp.setExpName(uploadFileName);
-			oldExp.setExpName(exp.getExpName());
-			FileService fileService = new FileService();
-			if(!fileService.delete(tid, oldExp.getExpName()))
-				//原文件删除失败 返回否
-				return false;
-			if(!fileService.upload(tid, uploadFileName, uploadFile))
-				//上传文件失败 返回否
-				return false;
+		try {
+			//获取原文件信息
+			Exp oldExp = expDAO.get(Exp.class, exp.getExpId());
+			/*
+			 * 如果上传文件的文件名不为空
+			 * 则删除原文件
+			 * 上传新文件
+			 */
+			if(uploadFileName != null) {
+				exp.setExpName(uploadFileName);
+				oldExp.setExpName(exp.getExpName());
+				fileService = new FileService();
+				fileService.delete(tid, oldExp.getExpName());
+				fileService.upload(tid, uploadFileName, uploadFile);
+			}
+			if(exp.getDeadline() != null)
+				oldExp.setDeadline(exp.getDeadline());
+			expDAO.update(oldExp);
+			exp = oldExp;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
 		}
-		//更改截止时间
-		if(exp.getDeadline() != null)
-			oldExp.setDeadline(exp.getDeadline());
-		expDAO.update(oldExp);
 		return true;
 	}
 	
@@ -61,7 +79,7 @@ public class ExpService {
 	 * @param teacher 更改文件的教师信息
 	 */
 	public boolean upload(Exp exp, String uploadFileName, File uploadFile, Teacher teacher) {
-		FileService fileService = new FileService();
+		fileService = new FileService();
 		if(!fileService.upload(teacher.getId(), uploadFileName, uploadFile))
 			//上传失败
 			return false;

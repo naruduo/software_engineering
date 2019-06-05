@@ -27,6 +27,7 @@
 		
 		<!-- created by lw -->
 		<mapping class="com.se.pojo.Exp" />
+		<mapping class="com.se.pojo.ExpDoc" />
 		<!-- ************* -->
 		
 		<mapping class="com.se.pojo.CommonFile"/>

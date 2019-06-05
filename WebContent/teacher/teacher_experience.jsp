@@ -20,8 +20,15 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstarp.js"></script>
 <script type="text/javascript" src="js/npm.js"></script>
+	<script type="text/javascript">
+		function inform() {
+			var res = "${result}";
+			if(typeof res != "undefined" && res != null && res != "")
+		        alert(res);
+		}
+	</script>
 </head>
-<body>
+<body onload="inform()">
 <div class="container">
 	<div class="row">
 		<div class="span12">
@@ -88,7 +95,8 @@
 			<th>实验名称</th>
 			<th>发布时间</th>
 			<th>截止时间</th>
-			<th>操作</th>
+			<th class="text-center">编辑</th>
+			<th class="text-center">删除</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -98,9 +106,16 @@
 				<td><a href="<%=request.getContextPath()%>/exp/downloadExp.action?filename=${exp.expName}">${exp.expName}</a></td>
 				<td>${exp.releaseTime}</td>
 				<td>${exp.deadline}</td>
-				<td>
-					<a class="btn btn-lg btn-primary" href="<%=request.getContextPath()%>/exp/getExp.action?exp.expId=${exp.expId}" role="button">编辑</a>
-				</td>	
+				<td class="text-center">
+					<a class="btn btn-primary" href="<%=request.getContextPath()%>/exp/getExp.action?exp.expId=${exp.expId}" role="button">
+						<span class="glyphicon glyphicon-edit"></span>
+					</a>
+				</td>
+				<td class="text-center">
+					<a class="btn btn-primary" href="<%=request.getContextPath()%>/exp/deleteExp.action?exp.expId=${exp.expId}&exp.expName=${exp.expName}" role="button">
+						<span class="glyphicon glyphicon-trash"></span>
+					</a>
+				</td>
 			</tr>
 		</c:forEach>	
 	</tbody>
