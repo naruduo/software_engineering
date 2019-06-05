@@ -20,12 +20,17 @@
 		<mapping class="com.se.pojo.OperationLog" />
 		<mapping class="com.se.pojo.Homework" />
 		<mapping class="com.se.pojo.HomeworkAnswer" />
-		<!-- <mapping class="com.se.pojo.Exp" /> -->
 		<mapping class="com.se.pojo.Teacher" />
 		<mapping class="com.se.pojo.Student" />
 		<mapping class="com.se.pojo.TestScore" />
 		<mapping class="com.se.pojo.OnlineTest" />
 		<mapping class="com.se.pojo.CommonFile"/>
+		
+		<!-- created by lw -->
+		<mapping class="com.se.pojo.Exp" />
+		<mapping class="com.se.pojo.ExpDoc" />
+		<!-- ************* -->
+		
 	</session-factory>
 
 </hibernate-configuration>

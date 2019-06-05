@@ -15,5 +15,11 @@ public class SessionUtils {
 
 	public static String getRole() {
 		return (String) ActionContext.getContext().getSession().get("ROLE");
+	}	
+	
+	@SuppressWarnings("rawtypes")
+	public static Map getHttpSession() {
+		return (Map)ActionContext.getContext().getSession();
 	}
+	
 }

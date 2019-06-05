@@ -55,4 +55,34 @@ public class Teacher {
 	public String toString() {
 		return "Teacher [name=" + name + ", id=" + id + ", password=" + password + "]";
 	}
+	
+		/***********************************************/
+	
+	/*
+	 * 
+	 * foreign key
+	 * 2019-5-31
+	 * created by lw
+	 * 
+	 */
+	
+	/*
+	 * 实验与教师关联
+	 * 一对多
+	 */
+	@OneToMany(cascade = CascadeType.ALL
+			,targetEntity = Exp.class,
+			mappedBy = "teacher")
+	private List<Exp> exps;
+	
+	public void setExps(List<Exp> exps) {
+		this.exps = exps;
+	}
+	
+	public List<Exp> getExps() {
+		return exps;
+	}
+	
+	/**********************************************/
+	
 }

@@ -20,13 +20,20 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstarp.js"></script>
 <script type="text/javascript" src="js/npm.js"></script>
+	<script type="text/javascript">
+		function inform() {
+			var res = "${result}";
+			if(typeof res != "undefined" && res != null && res != "")
+		        alert(res);
+		}
+	</script>
 </head>
-<body>
+<body onload="inform()">
 <div class="container">	
 	<div class="row">
 		<div class="span12">
-		 <p class="bg-primary">欢迎您：${USER}，${stu.name}同学
-		 	<a href="<%=request.getContextPath()%>/logout.action" class="pull-right bg-primary">登出</a>
+		 <p class="bg-primary">欢迎您：${USER}，${student.name}同学
+		 	<a href="<%=request.getContextPath()%>/logoutUser.action" class="pull-right bg-primary">登出</a>
 		 </p>
 		
 		
@@ -41,7 +48,7 @@
 					<a href="<%=request.getContextPath()%>/student/stu_homework.jsp" style="font-size:20px">习题作业</a>
 				</li>
 				<li class="active" >
-					<a href="<%=request.getContextPath()%>/student/stu_experience.action?id=${USER}" style="font-size:20px">实验教学</a>
+					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
@@ -96,10 +103,12 @@
 		<c:forEach items="${exps}" var="exp">
 			<tr class="success">
 				<td>${exp.expId}</td>
-				<td><a href="<%=request.getContextPath()%>/sepak/downloadExp.action?filename=${exp.expName}">${exp.expName}</a></td>
+				<td><a href="<%=request.getContextPath()%>/exp/downloadExp.action?filename=${exp.expName}">${exp.expName}</a></td>
 				<td>${exp.releaseTime}</td>
 				<td>${exp.deadline}</td>
-				<td><a class="btn btn-lg btn-primary" href="stu_experienceEditor.jsp" role="button">提交</a></td>	
+				<td>
+					<a class="btn btn-lg btn-primary" href="<%=request.getContextPath()%>/exp/getExp.action?exp.expId=${exp.expId}" role="button">提交</a>
+				</td>	
 			</tr>
 		</c:forEach>
 	</tbody>
