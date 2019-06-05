@@ -16,7 +16,7 @@ public class FileService {
 			packageId = SessionUtils.getUserId();
 		File destDir = new File(realPath + File.separator + packageId);
 		if (!destDir.exists())
-			destDir.mkdir();
+			destDir.mkdirs();
 		File destFile = new File(destDir, uploadFileName);
 		FileUtils.copy(uploadFile, destFile);
 		os.add("上传", uploadFileName, (int) ServletActionContext.getContext().getSession().get("USER"));
