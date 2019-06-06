@@ -13,17 +13,11 @@
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
   <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
-  <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />
-  <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css.map" />
-  <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
-  <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css.map" />
-  <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-  <link type="text/css" rel="stylesheet" href="css/bootstrap.css.map" />
-  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css.map" />
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/bootstarp.js"></script>
-  <script type="text/javascript" src="js/npm.js"></script>
+  <link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.min.css" />
+  <link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/bootstarp.js"></script>
+  <script type="text/javascript" src="../js/npm.js"></script>
   	<script type="text/javascript">
 		function inform() {
 			var res = "${result}";
@@ -35,7 +29,7 @@
 	</script>
 </head>
 <body onload="inform()">
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 		<div class="span12">
 		 <p class="bg-primary">欢迎您：${USER}，${student.name}同学
@@ -43,9 +37,9 @@
 		 </p>
 		
 		
-			<h3>
+			<h1>
 				软件工程精品课
-			</h3>
+			</h1>
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
 				<li >
 					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
@@ -86,7 +80,7 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+	
 			<h3>
 				编辑实验报告内容
 			</h3>
@@ -123,5 +117,21 @@
 				这是页脚
 			</h3>
 	</div>
+</div>
+
+
+<script>
+    var homeList = "/website/f/api/article/homeList";
+    var ctxf = "/website/f";
+    $('li.dropdown').mouseover(function () {
+        $(this).addClass('open');
+    }).mouseout(function () {
+        $(this).removeClass('open');
+    });
+    $(document).ready(function () {
+        
+        homepages();
+    });
+</script>
 </body>
 </html>

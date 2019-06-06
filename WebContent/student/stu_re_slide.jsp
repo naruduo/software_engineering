@@ -7,30 +7,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css.map" />
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/bootstarp.js"></script>
-<script type="text/javascript" src="js/npm.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <title>课件下载</title>
-
-
 </head>
 <body>
 
-
-
-	<div  class="container">
+	<div  class="container-fluid">
 		<div class="row">
 			<div class="span12">
 
@@ -40,23 +23,27 @@
 						class="pull-right bg-primary">登出</a>
 				</p>
 
-				<h3>软件工程精品课</h3>
+				<h1>软件工程精品课</h1>
 
 				<ul class="nav nav-tabs" bgcolor="#3f51b6">
-					<li><a
-						href="<%=request.getContextPath()%>/student/StudentIndex.jsp"
-						style="font-size: 20px">课程主页</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/student/listMyHomeworkStudent.action"
-						style="font-size: 20px">习题作业</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/student/stu_experience.action?id=${USER}"
-						style="font-size: 20px">实验教学</a></li>
-					<li class="active"><a
-						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
-						style="font-size: 20px">资源下载</a></li>
-					<li><a href="#" style="font-size: 20px">在线练习</a></li>
-					<li><a href="#" style="font-size: 20px">学习社区</a></li>
+				<li class="active" >
+					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
+				</li>
+				<li>
+					<a href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action" style="font-size:20px">习题作业</a>
+				</li>
+				<li class="">
+					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
+				</li>
+				<li>
+					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
+				</li>
+				<li>
+					<a href="#" style="font-size:20px">在线练习</a>
+				</li>
+				<li>
+					<a href="#" style="font-size:20px">学习社区</a>
+				</li>
 					<li class="dropdown pull-right"><a href="#"
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
@@ -93,15 +80,9 @@
 					</c:forEach>
 
 				</table>
-				<div class="pageDiv">
+				<div class="text-center">
 					<%@include file="../include/adminPage.jsp"%>
 				</div>
-				<!--  在数据库和后端代码弄好之后去掉注释
-			<div class="text-center"> -->
-				<%--	<%@include file="../include/adminPage.jsp"%>
-			 --%>
-				<!-- 	</div> -->
-
 
 				<h3>这是页脚</h3>
 			</div>
