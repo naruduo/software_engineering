@@ -18,14 +18,8 @@
 <link href="http://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
 <!-- common css -->
 <link type="text/css" rel="stylesheet" href="css/footer_base.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css.map" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.css.map" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css.map" />
 
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -36,8 +30,6 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstarp.js"></script>
 <script type="text/javascript" src="js/npm.js"></script>
-
-
 </head>
 <body>
 
@@ -46,13 +38,13 @@
 	<div class="row">
 		<div class="span12">
 		
-		 <p class="bg-primary">欢迎您：${USER}，${stu.name}同学
+		 <p class="bg-primary">欢迎您：${USER} 同学
 		 	<a href="<%=request.getContextPath()%>/logout.action" class="pull-right bg-primary">登出</a>
 		 </p>
 		
-		<h3>
+		<h1>
 			软件工程精品课
-		</h3>
+		</h1>
 			
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
 				<li >
@@ -62,7 +54,7 @@
 					<a href="<%=request.getContextPath()%>/student/listMyHomeworkStudent.action" style="font-size:20px">习题作业</a>
 				</li>
 				<li class="">
-					<a href="<%=request.getContextPath()%>/student/stu_experience.action?id=${USER}" style="font-size:20px">实验教学</a>
+					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
@@ -175,8 +167,18 @@
     </div>
 </div>
 		
-</div>
-</div>
-</div>
+<script>
+    var homeList = "/website/f/api/article/homeList";
+    var ctxf = "/website/f";
+    $('li.dropdown').mouseover(function () {
+        $(this).addClass('open');
+    }).mouseout(function () {
+        $(this).removeClass('open');
+    });
+    $(document).ready(function () {
+        
+        homepages();
+    });
+</script>
 </body>
 </html>

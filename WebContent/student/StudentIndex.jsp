@@ -61,13 +61,13 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="span12">
-		 <p class="bg-primary">欢迎您：${USER}，${stu.name}同学
+		 <p class="bg-primary">欢迎您：${USER} 同学
 		 	<a href="<%=request.getContextPath()%>/user/logoutUser.action" class="pull-right bg-primary">登出</a>
 		 </p>
 		
-			<h3>
+			<h1>
 				软件工程精品课
-			</h3>
+			</h1>
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
 				<li class="active" >
 					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
