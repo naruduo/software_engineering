@@ -66,9 +66,9 @@
 		 	<a href="<%=request.getContextPath()%>/logout.action" class="pull-right bg-primary">登出</a>
 		 </p>
 		
-			<h3>
+			<h1>
 				软件工程精品课
-			</h3>
+			</h1>
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
 				<li class="active">
 					<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp" style="font-size:20px">课程主页</a>

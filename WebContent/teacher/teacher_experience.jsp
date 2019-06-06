@@ -9,17 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>学生实验教学</title>
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css.map" />
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/bootstarp.js"></script>
-<script type="text/javascript" src="js/npm.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script type="text/javascript">
 		function inform() {
 			var res = "${result}";
@@ -29,16 +19,16 @@
 	</script>
 </head>
 <body onload="inform()">
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 		<div class="span12">
 		 <p class="bg-primary">欢迎您：${USER}，${teacher.name}老师
 		 	<a href="<%=request.getContextPath()%>/logoutUser.action" class="pull-right bg-primary">登出</a>
 		 </p>
 		
-			<h3>
+			<h1>
 				软件工程精品课
-			</h3>
+			</h1>
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
 				<li >
 					<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp" style="font-size:20px">课程主页</a>
@@ -79,7 +69,7 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+
 			
 			
 			
@@ -130,6 +120,6 @@
 				这是页脚
 			</h3>
 		</div>
-		
+</div>		
 </body>
 </html>
