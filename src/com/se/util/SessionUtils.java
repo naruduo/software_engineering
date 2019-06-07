@@ -17,11 +17,14 @@ public class SessionUtils {
 
 	public static String getRole() {
 		return (String) ActionContext.getContext().getSession().get("ROLE");
-	}	
-	
+	}
+
 	@SuppressWarnings("rawtypes")
 	public static Map getHttpSession() {
-		return (Map)ActionContext.getContext().getSession();
+		return (Map) ActionContext.getContext().getSession();
 	}
-	
+
+	public static void put(String param, Object value) {
+		ActionContext.getContext().put(param, value);
+	}
 }

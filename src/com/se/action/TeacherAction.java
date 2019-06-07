@@ -2,6 +2,7 @@ package com.se.action;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -38,9 +39,14 @@ public class TeacherAction extends ActionSupport {
 
 	public String listMyHomeworkAnswers() {
 		HomeworkAnswerService has = new HomeworkAnswerService();
-		homeworkAnswers = has.list(homeworkId, SessionUtils.getUserId());
-		ActionContext.getContext().put("homeworkAnswers", homeworkAnswers);
-
+		HomeworkService hs = new HomeworkService();
+		listMyStudents();
+		System.out.println(homeworkId);
+		System.out.println(hs);
+		Homework hw = hs.get(homeworkId);
+		Map<Integer, HomeworkAnswer> map = has.map(homeworkId);
+		SessionUtils.put("homework", hw);
+		SessionUtils.put("homeworkAnswers", map);
 		return "listMyHomeworkAnswers";
 	}
 

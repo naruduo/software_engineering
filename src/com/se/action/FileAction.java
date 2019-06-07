@@ -30,12 +30,11 @@ public class FileAction extends ActionSupport {
 
 	public String download() throws Exception {
 		// 根据传来的文件名，获取到具体的完整的路径
-		System.out.println("HERE");
+		if (packageId == -1)
+			packageId = SessionUtils.getUserId();
 		String realPath = ServletActionContext.getServletContext()
 				.getRealPath(File.separator + "download" + File.separator + packageId);
 		returnFile = new File(realPath, filename);
-		System.out.println(realPath);
-		System.out.println(returnFile);
 		if (!returnFile.exists())
 			return "fail";
 

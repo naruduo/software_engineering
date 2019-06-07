@@ -43,7 +43,7 @@
 			method="{1}">
 			<interceptor-ref name="teaLoginCheckInterceptor" />
 			<interceptor-ref name="defaultStack" />
-			<result name="listMyHomeworks">/test/teacherhomework.jsp</result>
+			<result name="listMyHomeworks">/teacher/teacher_homework.jsp</result>
 			<result name="listMyHomeworkAnswers">/test/teacherhomeworkAnswers.jsp</result>
 			<result name="listMyStudents">/teacher/teacher_manageStudents.jsp</result>
 			<result name="searchMyStudents">/teacher/teacher_manageStudents.jsp</result>
@@ -54,6 +54,7 @@
 				<param name="packageId">${id}</param>
 			</result>
 			<result name="listMyOperationLogs">/teacher/teacher_showMyLogs.jsp</result>
+			<result name="listMyHomeworkAnswers">/teacher/teacher_homeworkMark.jsp</result>
 			<allowed-methods>listMyOperationLogs,listMyHomeworkAnswers,listMyHomeworks,getMyRoster,listMyStudents,searchMyStudents</allowed-methods>
 		</action>
 	</package>
@@ -117,13 +118,18 @@
 			<interceptor-ref name="defaultStack" />
 			<result name="addSuccess">/test/studenthomework.jsp</result>
 			<result name="getDetailSuccess">/student/stu_homeworkEditor.jsp</result>
-			<result name="submitSuccess">/test/studentAnswerHomework.jsp</result>
+			<result name="submitSuccess" type="redirectAction">/student/listMyHomeworksStudent.action
+			</result>
+			<result name="packSuccess" type="redirectAction">
+				<param name="namespace">/file</param>
+				<param name="actionName">downloadFile</param>
+				<param name="filename">${packFileName}</param>
+			</result>
 			<result name="scoreSuccess" type="redirectAction">
 				<param name="namespace">/teacher</param>
-				<param name="actionName">teacher_listMyHomeworkAnswers</param>
-				<param name="homeworkId">${homeworkId}</param>
+				<param name="actionName">teacher_listMyHomeworks</param>
 			</result>
-			<allowed-methods>submit,add,getDetail,score</allowed-methods>
+			<allowed-methods>pack,submit,add,getDetail,score</allowed-methods>
 		</action>
 	</package>
 	<!-- uploadCommonFile -->
@@ -156,11 +162,12 @@
 			<allowed-methods>download,list</allowed-methods>
 		</action>
 	</package>
-	
+
 	<!-- ************ lw ************ -->
-	
-	<package name="exp" namespace="/exp" extends="default">		
-		<action name="*Exp" class="com.se.action.ExpAction" method="{1}">
+
+	<package name="exp" namespace="/exp" extends="default">
+		<action name="*Exp" class="com.se.action.ExpAction"
+			method="{1}">
 			<!-- 不同角色 不同视图 -->
 			<!-- 获取单个实验信息 -->
 			<result name="getStudentExp">/student/stu_experienceEditor.jsp</result>
@@ -186,12 +193,13 @@
 			</result>
 			<result name="ExpError">/login.jsp</result>
 			<allowed-methods>list, get, update, upload, download, delete</allowed-methods>
-		</action>	
+		</action>
 	</package>
-	
+
 	<!-- 实验报告 -->
 	<package name="expdoc" namespace="/expdoc" extends="default">
-		<action name="*ExpDoc" class="com.se.action.ExpDocAction" method="{1}">
+		<action name="*ExpDoc" class="com.se.action.ExpDocAction"
+			method="{1}">
 			<!-- 上传返回 -->
 			<result type="redirectAction" name="uploadCompletion">
 				<param name="actionName">listExp</param>
@@ -228,7 +236,7 @@
 			<allowed-methods>upload, listStus, delete, update, listExps, mark</allowed-methods>
 		</action>
 	</package>
-	
+
 	<!-- ************ lw ************ -->
-	
+
 </struts>
