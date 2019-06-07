@@ -8,11 +8,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>学生实验教学</title>
+<title>教师习题作业</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
+<link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
 <script type="text/javascript">
 	function inform() {
 		var res = "${result}";
@@ -36,25 +37,23 @@
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp"
 						style="font-size: 20px">课程主页</a></li>
+					<li class="active" ><a  href="<%=request.getContextPath()%>/student/stu_homework.jsp" style="font-size: 20px">习题作业</a></li>
 					<li><a
-						href="<%=request.getContextPath()%>/student/stu_homework.jsp"
-						style="font-size: 20px">习题作业</a></li>
-					<li class="active"><a
 						href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
-						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
+						href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp"
 						style="font-size: 20px">资源下载</a></li>
 					<li><a href="#" style="font-size: 20px">练习管理</a></li>
 					<li><a href="teacher/teacher_listMyStudents.action"
-						style="font-size: 20px">学生管理</a></li>
+						style="font-size: 20px">课程论坛</a></li>
 					<li class="dropdown pull-right"><a href="#"
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">操作日志</a></li>
+							<li><a href="teacher/teacher_listMyOperationLogs.action">操作日志</a></li>
 							<li><a href="contact_us.jsp">联系我们</a></li>
-							<li><a href="#">退出登录</a></li>
+							<li><a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a></li>
 							<li class="divider"></li>
 							<li><a href="#">分割线</a></li>
 						</ul></li>
@@ -81,8 +80,7 @@
 							<td>${homework.deadline}</td>
 							<td class="text-center">
 								<button>
-									<a
-										href="../homework/deleteHomework.action?homeworkId=${homework.id}">删除</a>
+									<a href="../homework/deleteHomework.action?homeworkId=${homework.id}">删除</a>
 								</button>
 								<button>
 									<a
@@ -101,7 +99,67 @@
 				<%@include file="../include/adminPage.jsp"%>
 			</div>
 
-			<h3>这是页脚</h3>
+			
+			
+			
+<div class="row">
+ <div class="fd-f-link">
+    <div class="container">
+        <div class="fd-fl-title">
+            <span class="fd-flt-span1">友情链接</span>
+            <span class="fd-flt-span2">Friendship Link</span>
+        </div>
+        <div>
+            
+                <a href="http://www.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer01.PNG">
+                </a>
+            
+                <a href="http://jwch.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer02.PNG">
+                </a>
+            
+                <a href="http://zsb.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer03.PNG">
+                </a>
+            
+                <a href="http://yjsy.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer04.PNG">
+                </a>
+            
+        </div>
+    </div>
+</div>
+
+
+    
+
+
+<div class="fd-f-bottom">
+    <div class="container">
+        <div class="fd-fb-logo">
+            <img src="../picture/footer05.PNG">
+        </div>
+        <div class="fd-fb-public">
+          <span class="fd-fbp-span1">
+              学院地址：福州市闽侯县学园路2号福州大学数学与计算机科学学院
+          </span>
+          <span class="fd-fbp-span2">
+              版权声明：© 2019
+              福州大学软件学院19春季软工实践G013. 版权所有. 保留所有权利
+          </span>
+        </div>
+    </div>
+</div>
+</div>
+			
+			
+			
+			
+			
+			
+			
+			
 		</div>
 	</div>
 </body>

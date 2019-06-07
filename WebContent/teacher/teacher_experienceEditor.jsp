@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>软件工程精品课</title>
+<title>教师实验编辑</title>
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
@@ -98,7 +98,7 @@
 				<input type="hidden" name="exp.expId" value="${exp.expId}"/>
 				<fieldset>
 					<br />
-					<legend>实验信息</legend>
+					<legend>编辑实验信息</legend>
 					<c:if test="${exp != null}">
 						<label>实验名</label>
 						<label>${exp.expName}</label>
