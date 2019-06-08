@@ -157,6 +157,8 @@ public class BaseDAO<T> {
 		String hql = "FROM " + entityClazz.getSimpleName() + " en";
 		//添加搜索限制
 		hql += " WHERE " + "en." + fkName + "=?1";
+		//按时间降序排列
+		hql += " ORDER BY en.time desc";
 		Query query = HibernateUtil.getSession().createQuery(hql);
 		query.setParameter(1, fkValue);
 		p.setTotal(query.list().size());
