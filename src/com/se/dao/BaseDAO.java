@@ -16,7 +16,7 @@ import com.se.util.Page;
  * entity		实体对象
  * getSimpleName()获取类名
  */
-@SuppressWarnings({"unchecked", "rawtypes"})
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class BaseDAO<T> {
 
 	// 新增记录
@@ -91,6 +91,7 @@ public class BaseDAO<T> {
 	// 返回是否成功增加
 	public void save(T entity) {
 		HibernateUtil.getSession().save(entity);
+		HibernateUtil.closeSession();
 	}
 
 	// 按id删除记录
@@ -145,25 +146,26 @@ public class BaseDAO<T> {
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
-	
+
 	/**
 	 * 按页及外键获取部分实体
-	 * @param fkName 外键名称
+	 * 
+	 * @param fkName  外键名称
 	 * @param fkValue 外键值
-	 * @param p 页信息
+	 * @param p       页信息
 	 * @return 该页实体信息
 	 */
 	public List<T> listByPageAndFKey(Class<T> entityClazz, String fkName, Integer fkValue, Page p) {
 		String hql = "FROM " + entityClazz.getSimpleName() + " en";
-		//添加搜索限制
+		// 添加搜索限制
 		hql += " WHERE " + "en." + fkName + "=?1";
-		//按时间降序排列
+		// 按时间降序排列
 		hql += " ORDER BY en.time desc";
 		Query query = HibernateUtil.getSession().createQuery(hql);
 		query.setParameter(1, fkValue);
 		p.setTotal(query.list().size());
 		query.setFirstResult(p.getStart()).setMaxResults(p.getCount());
-		//返回查询结果
+		// 返回查询结果
 		return query.list();
 	}
 
