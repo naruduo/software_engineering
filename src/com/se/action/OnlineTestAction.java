@@ -6,7 +6,8 @@ import com.se.service.OnlineTestService;
 
 public class OnlineTestAction extends ActionSupport {
 	OnlineTest onlineTest = new OnlineTest();
-	
+	public int chapterId;
+
 	public String add() {
 		OnlineTestService ots = new OnlineTestService();
 		ots.save(onlineTest);
@@ -17,9 +18,9 @@ public class OnlineTestAction extends ActionSupport {
 //		
 //	}
 //
-//	public String list() {
-//
-//	}
+	public String list() {
+		
+	}
 
 	public OnlineTest getOnlineTest() {
 		return onlineTest;

@@ -162,9 +162,20 @@
 			<allowed-methods>download,list</allowed-methods>
 		</action>
 	</package>
+	<package name="courseChapter" extends="default">
+		<action name="*CourseChapter"
+			class="com.se.action.CourseChapterAction" method="{1}">
+			<result name="list" type="redirectAction">courseChapter/listCourseChapter
+			</result>
+			<result name="studentList">../student/stu_listChapters.jsp</result>
+			<result name="teacherList">../teacher/teacher_listChapters.jsp</result>
+			<allowed-methods>add,list,delete</allowed-methods>
+		</action>
+	</package>
 
 	<!-- ************ lw ************ -->
 
+	<!-- 实验 -->
 	<package name="exp" namespace="/exp" extends="default">
 		<action name="*Exp" class="com.se.action.ExpAction"
 			method="{1}">
@@ -237,6 +248,21 @@
 		</action>
 	</package>
 
-	<!-- ************ lw ************ -->
+	<!-- 问题 -->
+	<!-- <package name="puzzlePkg" namespace="/puzzle" extends="default"> <action 
+		name="*Puzzle" class="com.se.action.PuzzleAction" method="{1}"> <result name="listAllPuzzle"> 
+		/bbs/listAllPuzzle.jsp </result> <result name="listStusPuzzle"> /bbs/listMine/listMyPuzzles.jsp 
+		</result> <result type="chain" name="listPuzzlesSolution"> <param name="actionName">listPuzzlesSolution</param> 
+		<param name="namespace">/solution</param> <param name="puzzleId">${puzzle.puzzleId}</param> 
+		</result> <allowed-methods>listAll, listStus, save, getDetail</allowed-methods> 
+		</action> </package> -->
 
+	<!-- 回答 -->
+	<!-- <package name="solutionPkg" namespace="/solution" extends="default"> 
+		<action name="*Solution" class="com.se.action.SolutionAction" method="{1}"> 
+		<result name="listPuzzlesSolution"> /bbs/showPuzzle.jsp </result> <result 
+		type="redirectAction" name="getDetailPuzzle"> <param name="actionName">getDetailPuzzle</param> 
+		<param name="namespace">/puzzle</param> <param name="puzzle.puzzleId">${puzzleId}</param> 
+		</result> <allowed-methods>listPuzzles, save, like</allowed-methods> </action> 
+		</package> <!\\-\\- ************ lw ************ -->
 </struts>
