@@ -1,6 +1,6 @@
 package com.se.service;
 
-import java.util.List;
+import java.util.*;
 
 import com.se.dao.CourseChapterDAO;
 import com.se.pojo.CourseChapter;
@@ -23,5 +23,13 @@ public class CourseChapterService {
 
 	public void delete(int id) {
 		ccd.delete(CourseChapter.class, id);
+	}
+
+	public Map<Integer, CourseChapter> map() {
+		Map<Integer, CourseChapter> map = new HashMap();
+		List<CourseChapter> ccs = list();
+		for (CourseChapter cc : ccs)
+			map.put(cc.getId(), cc);
+		return map;
 	}
 }

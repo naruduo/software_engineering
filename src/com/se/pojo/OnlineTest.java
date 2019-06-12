@@ -11,8 +11,6 @@ public class OnlineTest {
 	@Column(name = "ol_hw_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "kno_type")
-	private String knowledgeType;
 	private String question;
 	private String choiceA;
 	private String choiceB;
@@ -23,6 +21,8 @@ public class OnlineTest {
 	private int trueFreq;
 	@Column(name = "ans_freq")
 	private int ansFreq;
+	@Column(name = "kno_type")
+	private int courseChapterId;
 
 	public int getId() {
 		return id;
@@ -30,14 +30,6 @@ public class OnlineTest {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getKnowledgeType() {
-		return knowledgeType;
-	}
-
-	public void setKnowledgeType(String knowledgeType) {
-		this.knowledgeType = knowledgeType;
 	}
 
 	public String getQuestion() {
@@ -104,11 +96,19 @@ public class OnlineTest {
 		this.ansFreq = ansFreq;
 	}
 
+	public int getCourseChapterId() {
+		return courseChapterId;
+	}
+
+	public void setCourseChapterId(int courseChapterId) {
+		this.courseChapterId = courseChapterId;
+	}
+
 	@Override
 	public String toString() {
-		return "OnlineTest [id=" + id + ", knowledgeType=" + knowledgeType + ", question=" + question + ", choiceA="
-				+ choiceA + ", choiceB=" + choiceB + ", choiceC=" + choiceC + ", choiceD=" + choiceD + ", answer="
-				+ answer + ", trueFreq=" + trueFreq + ", ansFreq=" + ansFreq + "]";
+		return "OnlineTest [id=" + id + ", question=" + question + ", choiceA=" + choiceA + ", choiceB=" + choiceB
+				+ ", choiceC=" + choiceC + ", choiceD=" + choiceD + ", answer=" + answer + ", trueFreq=" + trueFreq
+				+ ", ansFreq=" + ansFreq + "]";
 	}
 
 }

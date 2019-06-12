@@ -173,6 +173,14 @@
 		</action>
 	</package>
 
+	<package name="onlineTest" extends="default">
+		<action name="*OnlineTest"
+			class="com.se.action.OnlineTestAction" method="{1}">
+			<result name="teacherList">../teacher/teacher_manageOnlineTests.jsp</result>
+			<allowed-methods>teacherList,add,teacherAdd</allowed-methods>
+		</action>
+	</package>
+
 	<!-- ************ lw ************ -->
 
 	<!-- 实验 -->

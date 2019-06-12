@@ -25,8 +25,6 @@ public class HomeworkAnswerServiceTest {
 
 	@Test
 	public void getHomeworkAnswers() {
-		for (HomeworkAnswer ha : has.list(34, 1002))
-			System.out.println(ha);
 	}
 
 	public static void main(String[] args) {

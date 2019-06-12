@@ -20,6 +20,7 @@
 			<th>章节名</th>
 			<th>章节描述</th>
 			<th>删除</th>
+			<th>管理练习</th>
 		</thead>
 		<tbody>
 			<%
@@ -31,6 +32,10 @@
 				<td><button>
 						<a
 							href="../courseChapter/deleteCourseChapter.action?courseChapter.id=<%=cc.getId()%>">删除</a>
+					</button></td>
+				<td><button>
+						<a
+							href="../onlineTest/teacherListOnlineTest.action?chapterId=<%=cc.getId()%>">管理习题</a>
 					</button></td>
 			</tr>
 			<%
