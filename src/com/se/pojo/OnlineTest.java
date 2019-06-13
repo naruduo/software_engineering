@@ -11,12 +11,12 @@ public class OnlineTest {
 	@Column(name = "ol_hw_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String question;
-	private String choiceA;
-	private String choiceB;
-	private String choiceC;
-	private String choiceD;
-	private String answer;
+	private String question = "";
+	private String choiceA = "";
+	private String choiceB = "";
+	private String choiceC = "";
+	private String choiceD = "";
+	private String answer = "";
 	@Column(name = "true_freq")
 	private int trueFreq;
 	@Column(name = "ans_freq")
@@ -108,7 +108,7 @@ public class OnlineTest {
 	public String toString() {
 		return "OnlineTest [id=" + id + ", question=" + question + ", choiceA=" + choiceA + ", choiceB=" + choiceB
 				+ ", choiceC=" + choiceC + ", choiceD=" + choiceD + ", answer=" + answer + ", trueFreq=" + trueFreq
-				+ ", ansFreq=" + ansFreq + "]";
+				+ ", ansFreq=" + ansFreq + ", courseChapterId=" + courseChapterId + "]";
 	}
 
 }

@@ -177,7 +177,10 @@
 		<action name="*OnlineTest"
 			class="com.se.action.OnlineTestAction" method="{1}">
 			<result name="teacherList">../teacher/teacher_manageOnlineTests.jsp</result>
-			<allowed-methods>teacherList,add,teacherAdd</allowed-methods>
+			<result name="teacherAdd">../teacher/teacher_addOnlineTest.jsp</result>
+			<result name="showList" type="redirectAction">onlineTest/teacherListOnlineTest
+			</result>
+			<allowed-methods>teacherList,addAndUpdate,teacherAdd</allowed-methods>
 		</action>
 	</package>
 

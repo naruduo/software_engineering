@@ -8,6 +8,7 @@
 
 <%
 	List<OnlineTest> onlineTests = (List<OnlineTest>) request.getAttribute("onlineTests");
+	CourseChapter chapter = (CourseChapter) request.getAttribute("courseChapter");
 %>
 <!DOCTYPE html>
 <html>
@@ -16,9 +17,11 @@
 <title>管理习题</title>
 </head>
 <body>
+	<h3><%=chapter.getUnitName()%>-<%=chapter.getUnitDesc()%>习题
+	</h3>
 	<button>
 		<a
-			href="<%=request.getContextPath()%>/teacher/teacher_uploadCommonFile.jsp">添加题目</a>
+			href="<%=request.getContextPath()%>/onlineTest/teacherAddOnlineTest.action?">添加题目</a>
 	</button>
 	<table border="1">
 		<thead>
@@ -34,7 +37,8 @@
 		%>
 		<tr>
 			<td><%=ot.getId()%></td>
-			<td><%=ot.getQuestion()%></td>
+			<td
+				style="max-width: 300px; white-space: nowrap; overflow: hidden; word-break: keep-all; text-overflow: ellipsis;"><%=ot.getQuestion()%></td>
 			<td><%=ot.getAnsFreq()%></td>
 			<td><%=ot.getAnsFreq() == 0 ? 0 : ot.getTrueFreq() * 100.0 / ot.getAnsFreq()%>%</td>
 			<td><button>
@@ -43,7 +47,7 @@
 				</button></td>
 			<td><button>
 					<a
-						href="../onlineTest/addOnlineTest.action?onlineTest.id=<%=ot.getId()%>">修改</a>
+						href="../onlineTest/teacherAddOnlineTest.action?onlineTest.id=<%=ot.getId()%>">修改</a>
 				</button></td>
 		</tr>
 		<%

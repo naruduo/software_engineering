@@ -100,11 +100,13 @@ public class BaseDAO<T> {
 		Query query = HibernateUtil.getSession().createQuery(hql);
 		query.setParameter("id", id);
 		query.executeUpdate();
+		HibernateUtil.closeSession();
 	}
 
 	// 按对象删除记录
 	public void delete(T entity) {
 		HibernateUtil.getSession().delete(entity);
+		HibernateUtil.closeSession();
 	}
 
 	// 更新
@@ -120,7 +122,9 @@ public class BaseDAO<T> {
 		String hql = "SELECT count(*) FROM " + entityClazz.getSimpleName();
 		Session session = HibernateUtil.getSession();
 		Query query = session.createQuery(hql);
-		return (Long) query.uniqueResult();
+		Long count = (Long) query.uniqueResult();
+		HibernateUtil.closeSession();
+		return count;
 	}
 
 	// 根据id加载对象
@@ -132,6 +136,7 @@ public class BaseDAO<T> {
 	public List<T> list(Class<T> entityClazz) {
 		String hql = "SELECT en FROM " + entityClazz.getSimpleName() + " en";
 		Query query = HibernateUtil.getSession().createQuery(hql);
+		List<T> list = query.getResultList();
 		return query.list();
 	}
 

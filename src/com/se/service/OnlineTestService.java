@@ -23,8 +23,16 @@ public class OnlineTestService {
 		otd.add(ot);
 	}
 
+	public void update(OnlineTest ot) {
+		otd.update(ot);
+	}
+
 	public void delete(OnlineTest ot) {
 		otd.delete(ot);
+	}
+
+	public void delete(int onlineTestId) {
+		otd.delete(OnlineTest.class, onlineTestId);
 	}
 
 	public long getTotal(int chapterId) {

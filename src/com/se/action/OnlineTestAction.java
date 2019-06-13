@@ -10,29 +10,47 @@ import com.se.util.SessionUtils;
 
 public class OnlineTestAction extends ActionSupport {
 	OnlineTest onlineTest = new OnlineTest();
-	private int chapterId;
+	private OnlineTestService ots = new OnlineTestService();
+	private static int chapterId;
 	private Page page = new Page(0, 8);
 
 	public String teacherAdd() {
 		CourseChapterService ccs = new CourseChapterService();
+		if (onlineTest.getId() != 0)
+			onlineTest = ots.get(onlineTest.getId());
 		SessionUtils.put("courseChapters", ccs.list());
 		return "teacherAdd";
 	}
 
-	public String add() {
+	public String addAndUpdate() {
+		chapterId = onlineTest.getCourseChapterId();
+		System.out.println(onlineTest);
 		OnlineTestService ots = new OnlineTestService();
-		ots.save(onlineTest);
-		return "addSuccess";
+		if (onlineTest.getId() == 0)
+			ots.save(onlineTest);
+		else {
+			OnlineTest ot = ots.get(onlineTest.getId());
+			onlineTest.setAnsFreq(ot.getAnsFreq());
+			onlineTest.setTrueFreq(ot.getTrueFreq());
+			ots.update(onlineTest);
+		}
+		return "showList";
 	}
 
 	public String teacherList() {
 		CourseChapterService ccs = new CourseChapterService();
 		OnlineTestService ots = new OnlineTestService();
 		page.setTotal(ots.getTotal(chapterId));
-		SessionUtils.put("courseChapters", ccs.list());
+		SessionUtils.put("courseChapter", ccs.get(chapterId));
 		SessionUtils.put("onlineTests", ots.listCourseOnlineTests(page, chapterId));
 		System.out.println(ots.listCourseOnlineTests(page, chapterId));
 		return "teacherList";
+	}
+
+	public String delete() {
+		OnlineTestService ots = new OnlineTestService();
+		ots.delete(onlineTest.getId());
+		return "showList";
 	}
 
 	public OnlineTest getOnlineTest() {
