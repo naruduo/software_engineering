@@ -1,5 +1,6 @@
 package com.se.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -47,4 +48,12 @@ public class OnlineTestService {
 		HibernateUtil.closeSession();
 		return onlineTests;
 	}
+
+	public List<OnlineTest> getRandomOnlineTests(int courseId, int count) {
+		List<OnlineTest> onlineTests = listCourseOnlineTests(new Page(0, Integer.MAX_VALUE), courseId);
+		Collections.shuffle(onlineTests);
+		onlineTests = onlineTests.subList(0, count - 1);
+		return onlineTests;
+	}
+
 }

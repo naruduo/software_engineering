@@ -26,7 +26,8 @@
 				<td><%=cc.getUnitName()%></td>
 				<td><%=cc.getUnitDesc()%></td>
 				<td><button>
-						<a href="test">练习</a>
+						<a
+							href="../onlineTest/stuGetOnlineTest.action?chapterId=<%=cc.getId()%>">练习</a>
 					</button></td>
 			</tr>
 			<%

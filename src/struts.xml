@@ -180,7 +180,8 @@
 			<result name="teacherAdd">../teacher/teacher_addOnlineTest.jsp</result>
 			<result name="showList" type="redirectAction">onlineTest/teacherListOnlineTest
 			</result>
-			<allowed-methods>teacherList,addAndUpdate,teacherAdd</allowed-methods>
+			<result name="stuTests">../student/stu_onlineTests.jsp</result>
+			<allowed-methods>stuGet,stuScore,teacherList,addAndUpdate,teacherAdd</allowed-methods>
 		</action>
 	</package>
 
