@@ -35,9 +35,11 @@ public class FileAction extends ActionSupport {
 		String realPath = ServletActionContext.getServletContext()
 				.getRealPath(File.separator + "download" + File.separator + packageId);
 		returnFile = new File(realPath, filename);
+		System.out.print(realPath);
 		if (!returnFile.exists())
 			return "fail";
-
+		
+		
 		// 找到文件，响应到浏览器，弹出下载
 		os.add("下载", filename, (int) ServletActionContext.getContext().getSession().get("USER"));
 		filename = new String(filename.getBytes(), "ISO-8859-1");
