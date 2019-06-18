@@ -25,25 +25,6 @@
 <link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
 
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-<<<<<<< HEAD
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous">
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/bootstarp.js"></script>
-<script type="text/javascript" src="js/npm.js"></script>
-=======
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -57,86 +38,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
->>>>>>> c8984e86bcff987355fec7c21abee25cba2ab9e6
 </head>
 <body>
-
-
-	<<<<<<< HEAD
-	<div class="container-fluid">
-		<div class="row">
-			<div class="span12">
-
-				<p class="bg-primary">
-					欢迎您：${USER} 同学 <a
-						href="<%=request.getContextPath()%>/logout.action"
-						class="pull-right bg-primary">登出</a>
-				</p>
-
-				<h1>软件工程精品课</h1>
-
-				<ul class="nav nav-tabs" bgcolor="#3f51b6">
-					<li><a
-						href="<%=request.getContextPath()%>/student/StudentIndex.jsp"
-						style="font-size: 20px">课程主页</a></li>
-					<li class="active"><a
-						href="<%=request.getContextPath()%>/student/listMyHomeworkStudent.action"
-						style="font-size: 20px">习题作业</a></li>
-					<li class=""><a
-						href="<%=request.getContextPath()%>/exp/listExp.action"
-						style="font-size: 20px">实验教学</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
-						style="font-size: 20px">资源下载</a></li>
-					<li><a href="#" style="font-size: 20px">在线练习</a></li>
-					<li><a href="#" style="font-size: 20px">学习社区</a></li>
-					<li class="dropdown pull-right"><a href="#"
-						data-toggle="dropdown" class="dropdown-toggle"
-						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">操作日志</a></li>
-							<li><a href="#">联系我们</a></li>
-							<li><a href="#">更多设置</a></li>
-							<li class="divider"></li>
-							<li><a href="#">退出登录</a></li>
-						</ul></li>
-				</ul>
-
-
-				<h3>作业列表</h3>
-
-				<table class="table table-bordered" contenteditable="false">
-					<thead>
-						<tr>
-							<th>作业编号</th>
-							<th>作业名称</th>
-							<th>发布时间</th>
-							<th>截止时间</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<c:forEach items="${homeworks}" var="homework">
-							<tr class="success">
-								<td>${homework.id}</td>
-								<td><a
-									href="<%=request.getContextPath()%>/sepak/downloadExp.action?filename=${homework.name}">${homework.name}</a></td>
-								<td>${homework.releaseTime}</td>
-								<td>${homework.deadline}</td>
-								<td><button>
-										<a
-											href="file/downloadFile.action?filename=${homework.address}&packageId=${homework.teacher.id}">作业要求</a>
-									</button>
-									<button>
-										<a
-											href="homeworkAnswer/getDetailHomeworkAnswer.action?homeworkId=${homework.id}"
-											role="button">提交</a>
-									</button></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
 				<div class="container-fluid">
 					<div class="row">
 						<div class="span12">
@@ -212,6 +115,8 @@
 						</div>
 					</div>
 				</div>
+				
+				
 				<div class="fd-f-link">
 					<div class="container">
 						<div class="fd-fl-title">
@@ -221,8 +126,7 @@
 						<div>
 
 							<a href="http://www.fzu.edu.cn/" target="view_window"
-								style="margin-left: 40px"> <img
-								style="width: 20%; height: 10%" src="../picture/footer01.PNG">
+								style="margin-left: 40px"> <img style="width: 20%; height: 10%" src="../picture/footer01.PNG">
 							</a> <a href="http://jwch.fzu.edu.cn/" target="view_window"
 								style="margin-left: 40px"> <img
 								style="width: 20%; height: 10%" src="../picture/footer02.PNG">

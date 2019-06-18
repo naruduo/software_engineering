@@ -63,7 +63,9 @@
 </head>
 
 <body id="body">
-
+ <p class="bg-primary">欢迎您：${USER} 同学
+		 	<a href="<%=request.getContextPath()%>/user/logoutUser.action" class="pull-right bg-primary">登出</a>
+		 </p>
  <!--
   Start Preloader
   ==================================== -->

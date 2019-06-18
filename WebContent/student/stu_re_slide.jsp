@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <title>课件下载</title>
 </head>
@@ -18,7 +19,7 @@
 			<div class="span12">
 
 				<p class="bg-primary">
-					欢迎您：${USER}，${stu.name}同学 <a
+					欢迎您：${USER} 同学 <a
 						href="<%=request.getContextPath()%>/logout.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
@@ -26,7 +27,7 @@
 				<h1>软件工程精品课</h1>
 
 				<ul class="nav nav-tabs" bgcolor="#3f51b6">
-				<li class="active" >
+				<li class="" >
 					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
 				</li>
 				<li>
@@ -35,7 +36,7 @@
 				<li class="">
 					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
-				<li>
+				<li class="active">
 					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
 				</li>
 				<li>
@@ -84,10 +85,16 @@
 					<%@include file="../include/adminPage.jsp"%>
 				</div>
 
-				<h3>这是页脚</h3>
+				
+
+				
 			</div>
 		</div>
 	</div>
+
+
+
+
 
 <script>
     var homeList = "/website/f/api/article/homeList";
