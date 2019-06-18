@@ -9,6 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>学生实验教学</title>
+<link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
 <link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css" />
 <link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css.map" />
 <link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.min.css" />
@@ -112,9 +113,73 @@
 				<%@include file="../include/adminPage.jsp"%>
 			</div>
 			
-			<h3>
-				这是页脚
-			</h3>
-		</div>		
+			
+			
+			
+			
+			<div class="fd-f-link">
+    <div class="container">
+        <div class="fd-fl-title">
+            <span class="fd-flt-span1">友情链接</span>
+            <span class="fd-flt-span2">Friendship Link</span>
+        </div>
+        <div>
+            
+                <a href="http://www.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer01.PNG">
+                </a>
+            
+                <a href="http://jwch.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer02.PNG">
+                </a>
+            
+                <a href="http://zsb.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer03.PNG">
+                </a>
+            
+                <a href="http://yjsy.fzu.edu.cn/" target="view_window" style="margin-left: 40px">
+                    <img style="width: 20%; height: 10%" src="../picture/footer04.PNG">
+                </a>
+            
+        </div>
+    </div>
+</div>
+
+
+    
+
+
+<div class="fd-f-bottom">
+    <div class="container">
+        <div class="fd-fb-logo">
+            <img src="../picture/footer05.PNG">
+        </div>
+        <div class="fd-fb-public">
+          <span class="fd-fbp-span1">
+              学院地址：福州市闽侯县学园路2号福州大学数学与计算机科学学院
+          </span>
+          <span class="fd-fbp-span2">
+              版权声明：© 2019
+              福州大学软件学院19春季软工实践G013. 版权所有. 保留所有权利
+          </span>
+        </div>
+    </div>
+</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+</div>			
+			
+</div>		
 </body>
 </html>

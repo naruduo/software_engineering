@@ -82,7 +82,7 @@
 					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
 				</li>
 				<li>
-					<a href="#" style="font-size:20px">在线练习</a>
+					<a href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action" style="font-size:20px">在线练习</a>
 				</li>
 				<li>
 					<a href="#" style="font-size:20px">学习社区</a>

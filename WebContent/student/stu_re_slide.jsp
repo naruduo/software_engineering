@@ -5,20 +5,27 @@
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	int fileType = (int) request.getAttribute("fileType");
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<title>课件下载</title>
+<link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<title><%=fileType == 1 ? "课件" : "试卷"%>下载</title>
 </head>
 <body>
 
-	<div  class="container-fluid">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="span12">
 
 				<p class="bg-primary">
-					欢迎您：${USER}，${stu.name}同学 <a
+					欢迎您：${USER} 同学 <a
 						href="<%=request.getContextPath()%>/logout.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
@@ -26,24 +33,20 @@
 				<h1>软件工程精品课</h1>
 
 				<ul class="nav nav-tabs" bgcolor="#3f51b6">
-				<li class="active" >
-					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action" style="font-size:20px">习题作业</a>
-				</li>
-				<li class="">
-					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
-				</li>
-				<li>
-					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
-				</li>
-				<li>
-					<a href="#" style="font-size:20px">在线练习</a>
-				</li>
-				<li>
-					<a href="#" style="font-size:20px">学习社区</a>
-				</li>
+					<li class=""><a
+						href="<%=request.getContextPath()%>/student/StudentIndex.jsp"
+						style="font-size: 20px">课程主页</a></li>
+					<li><a
+						href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action"
+						style="font-size: 20px">习题作业</a></li>
+					<li class=""><a
+						href="<%=request.getContextPath()%>/exp/listExp.action"
+						style="font-size: 20px">实验教学</a></li>
+					<li class="active"><a
+						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
+						style="font-size: 20px">资源下载</a></li>
+					<li><a href="#" style="font-size: 20px">在线练习</a></li>
+					<li><a href="#" style="font-size: 20px">学习社区</a></li>
 					<li class="dropdown pull-right"><a href="#"
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
@@ -52,12 +55,14 @@
 							<li><a href="#">联系我们</a></li>
 							<li><a href="#">更多设置</a></li>
 							<li class="divider"></li>
-							<li><a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a></li>
 						</ul></li>
 				</ul>
 
 
-				<h3>课件列表</h3>
+				<h3><%=fileType == 1 ? "课件" : "试卷"%>列表
+				</h3>
 
 				<table class="table table-bordered" contenteditable="false">
 					<thead>
@@ -84,23 +89,29 @@
 					<%@include file="../include/adminPage.jsp"%>
 				</div>
 
-				<h3>这是页脚</h3>
+
+
+
 			</div>
 		</div>
 	</div>
 
-<script>
-    var homeList = "/website/f/api/article/homeList";
-    var ctxf = "/website/f";
-    $('li.dropdown').mouseover(function () {
-        $(this).addClass('open');
-    }).mouseout(function () {
-        $(this).removeClass('open');
-    });
-    $(document).ready(function () {
-        
-        homepages();
-    });
-</script>
+
+
+
+
+	<script>
+		var homeList = "/website/f/api/article/homeList";
+		var ctxf = "/website/f";
+		$('li.dropdown').mouseover(function() {
+			$(this).addClass('open');
+		}).mouseout(function() {
+			$(this).removeClass('open');
+		});
+		$(document).ready(function() {
+
+			homepages();
+		});
+	</script>
 </body>
 </html>

@@ -34,9 +34,7 @@
 		<div class="span12">
 		 <p class="bg-primary">欢迎您：${USER}，${student.name}同学
 		 	<a href="<%=request.getContextPath()%>/logoutUser.action" class="pull-right bg-primary">登出</a>
-		 </p>
-		
-		
+		 </p>	
 			<h1>
 				软件工程精品课
 			</h1>
@@ -89,16 +87,12 @@
 				<input type="hidden" name="exp.expId" value="${exp.expId}" />
 				<fieldset>
 					<legend>实验信息</legend>
-					<br />
 					<label>实验名</label>
 					<p>${exp.expName}</p>
-					<br />
             		<label>发布时间</label>
 					<p>${exp.releaseTime}</p>
-					<br />
 					<label>截止时间</label>
 					<p>${exp.deadline}</p>
-					<br />
 				</fieldset>
 			
 				<div class="uploader">
@@ -111,11 +105,8 @@
                  			$('#summernote').summernote();
              			});
             		</script>
-            		<button class="btn" type="submit">提交</button>
+            		<button class="btn btn-primary" type="submit">提交</button>
             </form>
-			<h3>
-				这是页脚
-			</h3>
 	</div>
 </div>
 

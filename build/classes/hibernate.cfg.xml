@@ -24,13 +24,16 @@
 		<mapping class="com.se.pojo.Student" />
 		<mapping class="com.se.pojo.TestScore" />
 		<mapping class="com.se.pojo.OnlineTest" />
-		<mapping class="com.se.pojo.CommonFile"/>
-		
+		<mapping class="com.se.pojo.CommonFile" />
+		<mapping class="com.se.pojo.CourseChapter" />
+
 		<!-- created by lw -->
 		<mapping class="com.se.pojo.Exp" />
 		<mapping class="com.se.pojo.ExpDoc" />
+		<!-- <mapping class="com.se.pojo.Puzzle" /> <mapping class="com.se.pojo.Solution" 
+			/> -->
 		<!-- ************* -->
-		
+
 	</session-factory>
 
 </hibernate-configuration>
