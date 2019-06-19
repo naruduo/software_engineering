@@ -61,10 +61,10 @@
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#">操作日志</a>
+							<a href="student/listMyOperationLogsStudent.action">操作日志</a>
 						</li>
 						<li>
-							<a href="#">联系我们</a>
+							<a href="../contact_us.jsp">联系我们</a>
 						</li>
 						<li>
 							<a href="#">更多设置</a>
@@ -72,7 +72,7 @@
 						<li class="divider">
 						</li>
 						<li>
-							<a href="#">退出登录</a>
+							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
 						</li>
 					</ul>
 				</li>

@@ -94,7 +94,7 @@
 							<a href="student/listMyOperationLogsStudent.action">操作日志</a>
 						</li>
 						<li>
-							<a href="#">联系我们</a>
+							<a href="../contact_us.jsp">联系我们</a>
 						</li>
 						<li>
 							<a href="#">更多设置</a>

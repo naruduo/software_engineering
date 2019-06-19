@@ -88,35 +88,32 @@
 <div><h1>软件工程精品课</h1></div>
 
    	<ul class="nav nav-tabs"  bgcolor="#3f51b6">
-				<li >
-					<a href="StudentIndex.jsp"  style="font-size:20px">课程主页</a>
+				<li class="active" >
+					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
 				</li>
 				<li>
-					<a href="stu_notify.jsp"  style="font-size:20px">通知公告</a>
+					<a href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action" style="font-size:20px">习题作业</a>
+				</li>
+				<li class="">
+					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
-					<a href="stu_homework.jsp"  style="font-size:20px">习题作业</a>
+					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
 				</li>
 				<li>
-					<a href="stu_experience.jsp" style="font-size:20px">实验教学</a>
-				</li>
-				<li class="active">
-					<a href="stu_resource.jsp"  style="font-size:20px">资源下载</a>
+					<a href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action" style="font-size:20px">在线练习</a>
 				</li>
 				<li>
-					<a href="#"  style="font-size:20px">在线练习</a>
-				</li>
-				<li>
-					<a href="#"  style="font-size:20px">学习社区</a>
+					<a href="#" style="font-size:20px">学习社区</a>
 				</li>
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#">操作日志</a>
+							<a href="student/listMyOperationLogsStudent.action">操作日志</a>
 						</li>
 						<li>
-							<a href="#">设置栏目</a>
+							<a href="../contact_us.jsp">联系我们</a>
 						</li>
 						<li>
 							<a href="#">更多设置</a>
@@ -124,7 +121,7 @@
 						<li class="divider">
 						</li>
 						<li>
-							<a href="#">分割线</a>
+							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
 						</li>
 					</ul>
 				</li>
