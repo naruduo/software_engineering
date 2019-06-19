@@ -65,6 +65,9 @@
 				<li class="active" >
 					<a href="<%=request.getContextPath()%>/student/StudentIndex.jsp" style="font-size:20px">课程主页</a>
 				</li>
+				<li  >
+					<a href="<%=request.getContextPath()%>/notificationView/browseMyNotificationView.action" style="font-size:20px">通知公告</a>
+				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action" style="font-size:20px">习题作业</a>
 				</li>

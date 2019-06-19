@@ -4,6 +4,12 @@
 <%@include file="../include/header.jsp" %>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
+<%
+	List<CourseChapter> courseChapters = (List<CourseChapter>) request.getAttribute("courseChapters");
+%>
+<%
+				CourseChapter cc;
+			%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -72,6 +78,9 @@
 			<ul class="nav nav-tabs"  bgcolor="#3f51b6">
 				<li class="active">
 					<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp" style="font-size:20px">课程主页</a>
+				</li>
+				<li>
+					<a href="<%=request.getContextPath()%>/notification/browseMyNotification.action" style="font-size:20px">通知公告</a>
 				</li>
 				<li>
 					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}" style="font-size:20px">习题作业</a>
@@ -226,7 +235,7 @@
 								<h4 class="sub_service_agileits">发布通知</h4>
 								<p>新建一条通知公告</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="teacher/teacher_notifyEditor.jsp" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>
@@ -264,7 +273,7 @@
 								<h4 class="sub_service_agileits">更新习题</h4>
 								<p>修改在线练习的题库</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="######" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>

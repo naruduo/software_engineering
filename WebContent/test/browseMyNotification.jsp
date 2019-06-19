@@ -9,6 +9,9 @@
 <title>教师通知公告</title>
 </head>
 <body>
+
+<div class="text-center"><h2>教师通知公告</h2></div>
+
 <div class ="tableContainer">
     <input id ="currentPage" type ="hidden" value =" @ViewData[ "currentPage"] "/>
     <input id ="totalPages" type ="hidden" value =" @ViewData["totalPages" ] " />
@@ -52,7 +55,9 @@
     	<a href="<%=request.getContextPath()%>/test/newNotification.jsp"><span class="glyphicon glyphicon-plus"></span>新建通知</a>
     </p>
     <ul id ="example"></ul>
+    <div class="text-center">
     <%@include file="../../include/adminPage.jsp"%>
+    </div>
 </div >	
 
 
