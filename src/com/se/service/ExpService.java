@@ -57,6 +57,7 @@ public class ExpService {
 				fileService = new FileService();
 				fileService.delete(tid, oldExp.getExpName());
 				fileService.upload(tid, uploadFileName, uploadFile);
+				notificationService.autoCreateNoti(oldExp.getExpName() + "有一些改动o！");
 			}
 			if(exp.getDeadline() != null)
 				oldExp.setDeadline(exp.getDeadline());
@@ -90,6 +91,7 @@ public class ExpService {
 		//保存文件
 		HibernateUtil.getSession().save(exp);
 		HibernateUtil.closeSession();
+		notificationService.autoCreateNoti("有新的实验辣！");
 		return true;
 	}
 	

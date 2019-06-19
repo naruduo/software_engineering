@@ -61,6 +61,21 @@ public class NotificationService {
 	}
 	
 	/**
+	 * 自动创建通知
+	 * @param message 通知内容
+	 * @return 是否创建成功
+	 */
+	public Boolean autoCreateNoti(String message) {
+		if(CheckParamUtils.isEmpty(message))
+			return false;
+		Notification nNotification = new Notification();
+		nNotification.setNotiContent(message);
+		nNotification.setReleaseTime(new Date());
+		nNotification.setTeacher(new TeacherService().get(SessionUtils.getUserId()));
+		return create(nNotification);
+	}	
+	
+	/**
 	 * 编辑通知
 	 */
 	public Boolean edit(Notification notification) {
