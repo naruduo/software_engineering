@@ -38,7 +38,7 @@
 }
 
 .testimonial {
-  background: #5BB12F;
+  background: #0B0C0B;
 }
 
 .team .member-photo .mask {
@@ -145,5 +145,3 @@
 .comment-reply-form input:focus, .comment-reply-form textarea:focus {
   border: 1px solid #5BB12F;
 }
-
-/*# sourceMappingURL=../maps/colors/green.css.map */

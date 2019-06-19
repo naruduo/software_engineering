@@ -11,16 +11,9 @@
 <title>软件工程精品课</title>
 
 <link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.css.map" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css.map" />
-<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
   <!-- CSS
   ================================================== -->
   <!-- RS5.0 Main Stylesheet -->
@@ -113,6 +106,7 @@
 
    <div class="row">
       <div class="jumbotron">
+      <div style="margin-bottom:0px">
         <h1>Hello! Software Engineering! </h1>
         <p>软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。它涉及程序设计语言、数据库、软件开发工具、系统平台、标准、设计模式等方面。</p>
         <p>
@@ -121,7 +115,7 @@
       </div> 
       </div>
 	</div>
-	
+</div>	
 		
 	<section class="testimonial section" id="testimonial">
 		<div class="container">
