@@ -18,7 +18,7 @@ public class ExpService {
 	
 	private ExpDAO expDAO = new ExpDAO();
 	private FileService fileService = new FileService();
-	
+	private NotificationService notificationService = new NotificationService();
 	public Exp getExp(int expId) {
 		return expDAO.get(Exp.class, expId);
 	}

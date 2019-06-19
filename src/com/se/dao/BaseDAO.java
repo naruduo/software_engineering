@@ -165,7 +165,7 @@ public class BaseDAO<T> {
 		// 添加搜索限制
 		hql += " WHERE " + "en." + fkName + "=?1";
 		// 按时间降序排列
-		hql += " ORDER BY en.time desc";
+		hql += " ORDER BY id desc";
 		Query query = HibernateUtil.getSession().createQuery(hql);
 		query.setParameter(1, fkValue);
 		p.setTotal(query.list().size());
