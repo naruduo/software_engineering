@@ -42,7 +42,7 @@
 					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li>
-					<a href="<%=request.getContextPath()%>/student/stu_resource.jsp" style="font-size:20px">资源下载</a>
+					<a href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp" style="font-size:20px">资源下载</a>
 				</li>
 				<li>
 					<a href="#" style="font-size:20px">练习管理</a>

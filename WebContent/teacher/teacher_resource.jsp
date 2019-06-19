@@ -83,6 +83,9 @@
 
 
 <!-- TODO insert header here -->
+ <p class="bg-primary">欢迎您：${USER}，${teacher.name}老师
+		 	<a href="<%=request.getContextPath()%>/logout.action" class="pull-right bg-primary">登出</a>
+		 </p>
 <div><h1>软件工程精品课</h1></div>
 
    	<ul class="nav nav-tabs"  bgcolor="#3f51b6">

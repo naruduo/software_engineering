@@ -11,9 +11,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <title>批阅</title>
 </head>
 <body>
+<p class="bg-primary">欢迎您：${USER}，${teacher.name}老师
+		 	<a href="<%=request.getContextPath()%>/logout.action" class="pull-right bg-primary">登出</a>
+		 </p>
 	<h1><%=hw.getName()%></h1>
 	<button>
 		<a

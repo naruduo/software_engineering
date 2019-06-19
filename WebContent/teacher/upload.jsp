@@ -7,7 +7,7 @@
 <title>上传文件</title>
 </head>
 <body>
-	<form action="../file/uploadFile.action" method="post"
+	<form role="form" action="../file/uploadFile.action" method="post"
 		enctype="multipart/form-data">
 		<input type="file" name="uploadFile" /><br /> <input type="submit"
 			value="上传" />

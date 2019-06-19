@@ -94,7 +94,7 @@
 				<legend contenteditable="false">作业信息</legend>
 				<label contenteditable="false">作业名：</label> 
 				<input type="text"
-					placeholder="TODO：jsp" name="hwName"> <span>${hwNameError}</span><br />
+					placeholder="请输入作业名称" name="hwName"> <span>${hwNameError}</span><br />
 				<label contenteditable="false">截止时间：</label> <input type="date"
 					name="deadline"> </label><span>${deadlineError}</span> <br /> <label
 					contenteditable="false">上传作业要求：</label> <input type="file"
