@@ -44,9 +44,11 @@
 	<br />
 	<table class="table table=bordered">
 		<thead>
+		 <tr>
 			<th><font size="5">操作时间</font></th>
 			<th><font size="5">操作</font></th>
 			<th><font size="5">文件名</font></th>
+		 </tr>
 		</thead>
 		<tbody>
 			<%

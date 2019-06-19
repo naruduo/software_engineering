@@ -14,23 +14,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理习题</title>
+<link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css.map" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.min.css" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.min.css.map" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
+<title>管理在线练习</title>
 </head>
 <body>
 	<h3><%=chapter.getUnitName()%>-<%=chapter.getUnitDesc()%>习题
 	</h3>
-	<button>
-		<a
-			href="<%=request.getContextPath()%>/onlineTest/teacherAddOnlineTest.action?">添加题目</a>
-	</button>
-	<table border="1">
+	
+	<table class="table table-bordered">
 		<thead>
+		 <tr>
 			<th>题目ID</th>
 			<th>题目名</th>
 			<th>做题次数</th>
 			<th>正确率</th>
 			<th>删除</th>
 			<th>修改</th>
+		 </tr>
 		</thead>
 		<%
 			for (OnlineTest ot : onlineTests) {
@@ -42,12 +48,10 @@
 			<td><%=ot.getAnsFreq()%></td>
 			<td><%=ot.getAnsFreq() == 0 ? 0 : ot.getTrueFreq() * 100.0 / ot.getAnsFreq()%>%</td>
 			<td><button>
-					<a
-						href="../onlineTest/deleteOnlineTest.action?onlineTest.id=<%=ot.getId()%>">删除</a>
+					<a href="../onlineTest/deleteOnlineTest.action?onlineTest.id=<%=ot.getId()%>">删除</a>
 				</button></td>
 			<td><button>
-					<a
-						href="../onlineTest/teacherAddOnlineTest.action?onlineTest.id=<%=ot.getId()%>">修改</a>
+					<a href="../onlineTest/teacherAddOnlineTest.action?onlineTest.id=<%=ot.getId()%>">修改</a>
 				</button></td>
 		</tr>
 		<%
@@ -55,7 +59,12 @@
 		%>
 
 	</table>
-	<div class="pageDiv">
+	
+	<button>
+		<a	href="<%=request.getContextPath()%>/onlineTest/teacherAddOnlineTest.action?">添加题目</a>
+	</button>
+	
+	<div class="text-center">
 		<%@include file="../include/adminPage.jsp"%>
 	</div>
 </body>
