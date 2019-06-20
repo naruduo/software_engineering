@@ -32,7 +32,8 @@
 		</div>
 		<br /> <br />
 		<div class="login_logo_1" align="center">
-			<img src="<%=request.getContextPath()%>/picture/login_logo_1.PNG"  alt="软件工程" />
+			<img src="<%=request.getContextPath()%>/picture/login_logo_1.PNG"
+				alt="软件工程" />
 		</div>
 		<br /> <br />
 		<div class="wall-warp">
@@ -48,7 +49,7 @@
 							name="password"
 							onfocus="hideErrorInfo(&#39;form-ipt-error-l-password&#39;);"
 							id="lPassword" /> <span>${passworderror}</span></li>
-						<h1>${loginerror}</h1>
+						<h4 style="color: red">${loginerror}</h4>
 					</ul>
 
 					<input type="submit" class="wall-sub-btn" value="登录" />

@@ -113,7 +113,7 @@
         <h1>Hello! Software Engineering! </h1>
         <p>软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。它涉及程序设计语言、数据库、软件开发工具、系统平台、标准、设计模式等方面。</p>
         <p>
-          <a class="btn btn-lg btn-primary" href="../download/course_outline.docx" role="button">查看大纲! &raquo;</a>
+          <a class="btn btn-lg btn-primary" href="commonFile/commonFile_download.action?fileId=${syllabusId}" role="button">查看大纲! &raquo;</a>
         </p>
       </div> 
       </div>

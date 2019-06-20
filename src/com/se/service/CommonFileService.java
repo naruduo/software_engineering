@@ -38,4 +38,8 @@ public class CommonFileService {
 	public Long total(int fileType) {
 		return cfd.getTypeTotal(fileType);
 	}
+
+	public CommonFile getLatest(int fileType) {
+		return cfd.getType(fileType, 0, 1).get(0);
+	}
 }

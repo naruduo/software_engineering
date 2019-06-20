@@ -8,8 +8,10 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.se.pojo.CommonFile;
 import com.se.pojo.Student;
 import com.se.pojo.Teacher;
+import com.se.service.CommonFileService;
 import com.se.service.StudentService;
 import com.se.service.TeacherService;
 import com.se.util.SessionUtils;
@@ -28,6 +30,8 @@ public class UserAction extends ActionSupport {
 			ActionContext.getContext().getSession().put("USER", id);
 			ActionContext.getContext().getSession().put("ROLE", "Student");
 			ActionContext.getContext().getSession().put("student", student);
+			CommonFileService cfs = new CommonFileService();
+			ActionContext.getContext().getSession().put("syllabusId", cfs.getLatest(3).getId());
 			return "StudentLoginSuccess";
 		} else {
 			TeacherService ts = new TeacherService();

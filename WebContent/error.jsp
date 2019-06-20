@@ -7,6 +7,7 @@
 <title>错误</title>
 </head>
 <body>
-
+	<h1><%=request.getAttribute("error")%></h1>
+	<a href="<%=request.getContextPath()%>/user/indexUser.action">回到主页</a>
 </body>
 </html>
