@@ -19,10 +19,11 @@
 <title>练习章节列表</title>
 </head>
 <body>
+<div class="text-center">
 <h3>
 	在线练习习题管理
 </h3>
-
+</div>
 	<table class="table table-bordered">
 		<thead>
 		 <tr>
@@ -54,9 +55,15 @@
 		</tbody>
 	</table>
 	
+<div class="text-center">
 	<button type="botton" class="btn btn-success">
 		<a href="../teacher/teacher_addCourseChapter.jsp">添加章节</a>
 	</button>
 	
+	&nbsp;
+	<button type="botton" class="btn btn-success">
+    	<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp">返回主页</a>
+    </button>
+</div>	
 </body>
 </html>

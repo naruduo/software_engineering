@@ -235,7 +235,7 @@
 								<h4 class="sub_service_agileits">发布通知</h4>
 								<p>新建一条通知公告</p>
 								<div class="agileits-button two service">
-									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="" role="button">GO ！ »</a>
+									<a class="btn btn-primary btn-lg hvr-underline-from-left" href="<%=request.getContextPath()%>/test/newNotification.jsp" role="button">GO ！ »</a>
 								</div>
 							</div>
 							<div class="clearfix"> </div>

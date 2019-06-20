@@ -36,7 +36,7 @@
 					<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp" style="font-size:20px">课程主页</a>
 				</li>
 				<li>
-					<a href="<%=request.getContextPath()%>/student/stu_homework.jsp" style="font-size:20px">习题作业</a>
+					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}" style="font-size:20px">习题作业</a>
 				</li>
 				<li class="active">
 					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
@@ -45,7 +45,7 @@
 					<a href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp" style="font-size:20px">资源下载</a>
 				</li>
 				<li>
-					<a href="#" style="font-size:20px">练习管理</a>
+					<a href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action" style="font-size:20px">练习管理</a>
 				</li>
 				<li>
 					<a href="teacher/teacher_listMyStudents.action" style="font-size:20px">课程论坛</a>
@@ -54,18 +54,18 @@
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size:20px">个人中心<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#" >操作日志</a>
+							<a href="teacher/teacher_listMyOperationLogs.action" >操作日志</a>
 						</li>
 						<li>
 							<a href="contact_us.jsp">联系我们</a>
 						</li>
 						<li>
-							<a href="#">退出登录</a>
+							<a href="#">更多设置</a>
 						</li>
 						<li class="divider">
 						</li>
 						<li>
-							<a href="#">分割线</a>
+							<a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
 						</li>
 					</ul>
 				</li>

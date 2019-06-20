@@ -64,5 +64,10 @@
 	<div class="text-center">
 		<%@include file="../include/adminPage.jsp"%>
 	</div>
+	<div class="text-center">
+	<button type="botton" class="btn btn-success">
+    	<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp">返回主页</a>
+    </button>
+    </div>
 </body>
 </html>

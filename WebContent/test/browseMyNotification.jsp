@@ -53,7 +53,10 @@
     </table>
     <p class="text-center">
     	<a href="<%=request.getContextPath()%>/test/newNotification.jsp"><span class="glyphicon glyphicon-plus"></span>新建通知</a>
+    	&nbsp;
+    	<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp"><span class="glyphicon glyphicon-plus"></span>返回主页</a>
     </p>
+    
     <ul id ="example"></ul>
     <div class="text-center">
     <%@include file="../../include/adminPage.jsp"%>

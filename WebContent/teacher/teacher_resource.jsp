@@ -90,22 +90,22 @@
 
    	<ul class="nav nav-tabs"  bgcolor="#3f51b6">
 				<li >
-					<a href="StudentIndex.jsp"  style="font-size:20px">课程主页</a>
+					<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp"  style="font-size:20px">课程主页</a>
 				</li>
 				<li>
-					<a href="stu_notify.jsp"  style="font-size:20px">通知公告</a>
+					<a href="<%=request.getContextPath()%>/notification/browseMyNotification.action" style="font-size:20px">通知公告</a>
 				</li>
 				<li>
-					<a href="stu_homework.jsp"  style="font-size:20px">习题作业</a>
+					<a href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}" style="font-size:20px">习题作业</a>
 				</li>
-				<li>
-					<a href="stu_experience.jsp" style="font-size:20px">实验教学</a>
+				<li class="">
+					<a href="<%=request.getContextPath()%>/exp/listExp.action" style="font-size:20px">实验教学</a>
 				</li>
 				<li class="active">
-					<a href="stu_resource.jsp"  style="font-size:20px">资源下载</a>
+					<a href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp" style="font-size:20px">资源下载</a>
 				</li>
 				<li>
-					<a href="#"  style="font-size:20px">在线练习</a>
+					<a href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"  style="font-size:20px">在线练习</a>
 				</li>
 				<li>
 					<a href="#"  style="font-size:20px">学习社区</a>
