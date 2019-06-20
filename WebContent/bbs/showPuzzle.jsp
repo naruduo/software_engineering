@@ -67,7 +67,7 @@ function like(solutionId) {
 		<form action="<%=request.getContextPath()%>/solution/saveSolution.action" method="post">
 			<div class="form-group">
 				<input type="hidden" name="puzzleId" id="puzzleId" value="${puzzle.puzzleId}">
-				<label>回答：</label>
+				<label>回答：</label> 
 				<textarea name="content" rows="10" cols="40" id="content"  placeholder="请输入回答"></textarea>
 				<br />
 				<br />
