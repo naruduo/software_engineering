@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
-<%@ include file="../include/studentHeader.jsp"%>
+<%@ include file="../include/teacherHeader.jsp"%>
 <%
 	List<CourseChapter> chapters = (List<CourseChapter>) request.getAttribute("courseChapters");
 	OnlineTest onlineTest = (OnlineTest) request.getAttribute("onlineTest");

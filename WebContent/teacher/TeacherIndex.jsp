@@ -4,7 +4,7 @@
 <%@include file="../include/header.jsp"%>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
-<%@ include file="../include/studentHeader.jsp"%>
+<%@ include file="../include/teacherHeader.jsp"%>
 <%
 	List<CourseChapter> courseChapters = (List<CourseChapter>) request.getAttribute("courseChapters");
 %>

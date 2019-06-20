@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
-<%@ include file="../include/studentHeader.jsp"%>
+<%@ include file="../include/teacherHeader.jsp"%>
 <%
 	Homework hw = (Homework) request.getAttribute("homework");
 	Map<Integer, HomeworkAnswer> has = (Map<Integer, HomeworkAnswer>) request.getAttribute("homeworkAnswers");
