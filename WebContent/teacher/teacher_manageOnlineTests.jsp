@@ -46,6 +46,8 @@
 					<li class="active"><a
 						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 						style="font-size: 20px">练习管理</a></li>
+					<li><a href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
+						style="font-size: 20px">学生管理</a></li>
 					<li><a href="teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">课程论坛</a></li>
 					<li class="dropdown pull-right"><a href="#"

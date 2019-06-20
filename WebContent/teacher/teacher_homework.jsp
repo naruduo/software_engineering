@@ -41,10 +41,10 @@
 					<li><a
 						href="<%=request.getContextPath()%>/notification/browseMyNotification.action"
 						style="font-size: 20px">通知公告</a></li>
-					<li class="active"><a
+					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}"
 						style="font-size: 20px">习题作业</a></li>
-					<li class=""><a
+					<li class="active"><a
 						href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
@@ -53,6 +53,9 @@
 					<li><a
 						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 						style="font-size: 20px">练习管理</a></li>
+					<li><a
+						href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
+						style="font-size: 20px">学生管理</a></li>
 					<li><a href="teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">课程论坛</a></li>
 					<li class="dropdown pull-right"><a href="#"
@@ -72,7 +75,7 @@
 			</div>
 		</div>
 		<h3>作业列表</h3>
-		<table class="table table-bordered" style="font-size: 30px">
+		<table class="table table-bordered" style="font-size: 15px">
 			<thead>
 				<tr>
 					<th>作业编号</th>
