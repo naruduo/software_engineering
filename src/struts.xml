@@ -178,6 +178,8 @@
 			class="com.se.action.OnlineTestAction" method="{1}">
 			<result name="teacherList">../teacher/teacher_manageOnlineTests.jsp</result>
 			<result name="teacherAdd">../teacher/teacher_addOnlineTest.jsp</result>
+			<result name="teacherAddFail" type="chain">teacherAddOnlineTest
+			</result>
 			<result name="showList" type="redirectAction">onlineTest/teacherListOnlineTest
 			</result>
 			<result name="stuTests">../student/stu_onlineTests.jsp</result>
@@ -276,11 +278,13 @@
 		type="redirectAction" name="getDetailPuzzle"> <param name="actionName">getDetailPuzzle</param> 
 		<param name="namespace">/puzzle</param> <param name="puzzle.puzzleId">${puzzleId}</param> 
 		</result> <allowed-methods>listPuzzles, save, like</allowed-methods> </action> 
-		</package> <!\\-\\- ************ lw ************ -->	
+		</package> <!\\-\\- ************ lw ************ -->
 	<!-- 通知 -->
-	
-	<package name="noti" namespace="/notification" extends="default">
-		<action name="*Notification" class="com.se.action.NotificationAction" method="{1}">
+
+	<package name="noti" namespace="/notification"
+		extends="default">
+		<action name="*Notification"
+			class="com.se.action.NotificationAction" method="{1}">
 			<result name="browseMyNotification">/test/browseMyNotification.jsp</result>
 			<result name="showNotification">/test/editNotification.jsp</result>
 			<result name="listMyNotification" type="redirectAction">
@@ -289,17 +293,19 @@
 			<allowed-methods>browseMy, getThe, delete, create, edit</allowed-methods>
 		</action>
 	</package>
-	
+
 	<!-- 通知浏览记录 -->
-	<package name="notiview" namespace="/notificationView" extends="default">
-		<action name="*NotificationView" class="com.se.action.NotificationViewAction" method="{1}">
+	<package name="notiview" namespace="/notificationView"
+		extends="default">
+		<action name="*NotificationView"
+			class="com.se.action.NotificationViewAction" method="{1}">
 			<result name="browseNotisNotificationView">/test/browseNotisNotificationView.jsp</result>
 			<result name="browseMyNotificationView">/test/browseMyNotificationView.jsp</result>
 			<result name="listMyNotificationView" type="redirectAction">
 				<param name="actionName">browseMyNotificationView</param>
-			</result>			
+			</result>
 			<allowed-methods>browseNotis, browseMy, mark</allowed-methods>
 		</action>
-		
-	</package>	
+
+	</package>
 </struts>

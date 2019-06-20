@@ -10,6 +10,7 @@ import com.se.pojo.CourseChapter;
 import com.se.pojo.OnlineTest;
 import com.se.service.CourseChapterService;
 import com.se.service.OnlineTestService;
+import com.se.util.CheckParamUtils;
 import com.se.util.Page;
 import com.se.util.SessionUtils;
 
@@ -23,6 +24,7 @@ public class OnlineTestAction extends ActionSupport {
 	private Map<Integer, String> answers = new HashMap<Integer, String>();
 	private int chapterId = -1;
 	private Page page = new Page(0, 8);
+	private Map<String, String> errors = new HashMap<String, String>();
 
 	public String teacherAdd() {
 		CourseChapterService ccs = new CourseChapterService();
@@ -33,6 +35,23 @@ public class OnlineTestAction extends ActionSupport {
 	}
 
 	public String addAndUpdate() {
+		boolean flag = false;
+		if (CheckParamUtils.isEmpty(onlineTest.getQuestion())) {
+			errors.put("question", "问题不可以为空！");
+			flag = true;
+		}
+		if (CheckParamUtils.isEmpty(onlineTest.getChoiceA()) || CheckParamUtils.isEmpty(onlineTest.getChoiceB())
+				|| CheckParamUtils.isEmpty(onlineTest.getChoiceC())
+				|| CheckParamUtils.isEmpty(onlineTest.getChoiceD())) {
+			errors.put("choice", "选项不可以为空！");
+			flag = true;
+		}
+		if (flag) {
+			CourseChapterService ccs = new CourseChapterService();
+			SessionUtils.put("courseChapters", ccs.list());
+			return "teacherAddFail";
+		}
+
 		chapterIds.put(SessionUtils.getUserId(), onlineTest.getCourseChapterId());
 		if (onlineTest.getId() == 0)
 			ots.save(onlineTest);
@@ -119,6 +138,14 @@ public class OnlineTestAction extends ActionSupport {
 
 	public void setAnswers(Map<Integer, String> answers) {
 		this.answers = answers;
+	}
+
+	public Map<String, String> getErrors() {
+		return errors;
+	}
+
+	public void setErrors(Map<String, String> errors) {
+		this.errors = errors;
 	}
 
 }
