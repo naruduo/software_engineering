@@ -19,87 +19,81 @@
 <title><%=fileType == 1 ? "课件" : "试卷"%>下载</title>
 </head>
 <body>
-
 	<div class="container-fluid">
 		<div class="row">
 			<div class="span12">
-
 				<p class="bg-primary">
 					欢迎您：${USER} 同学 <a
-						href="<%=request.getContextPath()%>/logout.action"
+						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
 
 				<h1>软件工程精品课</h1>
-
 				<ul class="nav nav-tabs" bgcolor="#3f51b6">
-					<li class=""><a
+					<li><a
 						href="<%=request.getContextPath()%>/student/StudentIndex.jsp"
 						style="font-size: 20px">课程主页</a></li>
 					<li><a
+						href="<%=request.getContextPath()%>/notificationView/browseMyNotificationView.action"
+						style="font-size: 20px">通知公告</a></li>
+					<li><a
 						href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action"
 						style="font-size: 20px">习题作业</a></li>
-					<li class=""><a
-						href="<%=request.getContextPath()%>/exp/listExp.action"
+					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li class="active"><a
 						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
 						style="font-size: 20px">资源下载</a></li>
-					<li><a href="#" style="font-size: 20px">在线练习</a></li>
+					<li><a
+						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
+						style="font-size: 20px">在线练习</a></li>
 					<li><a href="#" style="font-size: 20px">学习社区</a></li>
 					<li class="dropdown pull-right"><a href="#"
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">操作日志</a></li>
-							<li><a href="#">联系我们</a></li>
+							<li><a href="student/listMyOperationLogsStudent.action">操作日志</a>
+							</li>
+							<li><a href="../contact_us.jsp">联系我们</a></li>
 							<li><a href="#">更多设置</a></li>
 							<li class="divider"></li>
 							<li><a
-								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a></li>
+								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
+							</li>
 						</ul></li>
 				</ul>
-
-
-				<h3><%=fileType == 1 ? "课件" : "试卷"%>列表
-				</h3>
-
-				<table class="table table-bordered" contenteditable="false">
-					<thead>
-						<th>文件ID</th>
-						<th>文件名</th>
-						<th>发布时间</th>
-						<th>下载次数</th>
-						<th>操作</th>
-					</thead>
-					<c:forEach items="${commonFiles}" var="cf">
-						<tr class="success">
-							<td>${cf.id}</td>
-							<td>${cf.fileName}</td>
-							<td>${cf.releaseTime}</td>
-							<td>${cf.downloadTimes}</td>
-							<td><button>
-									<a href="commonFile/commonFile_download.action?fileId=${cf.id}">下载</a>
-								</button></td>
-						</tr>
-					</c:forEach>
-
-				</table>
-				<div class="text-center">
-					<%@include file="../include/adminPage.jsp"%>
-				</div>
-
-
-
-
 			</div>
 		</div>
+
+
+		<h3><%=fileType == 1 ? "课件" : "试卷"%>列表
+		</h3>
+
+		<table class="table table-bordered">
+			<thead>
+				<th>文件ID</th>
+				<th>文件名</th>
+				<th>发布时间</th>
+				<th>下载次数</th>
+				<th>操作</th>
+			</thead>
+			<c:forEach items="${commonFiles}" var="cf">
+				<tr>
+					<td>${cf.id}</td>
+					<td>${cf.fileName}</td>
+					<td>${cf.releaseTime}</td>
+					<td>${cf.downloadTimes}</td>
+					<td><button>
+							<a href="commonFile/commonFile_download.action?fileId=${cf.id}">下载</a>
+						</button></td>
+				</tr>
+			</c:forEach>
+
+		</table>
+		<div class="text-center">
+			<%@include file="../include/adminPage.jsp"%>
+		</div>
 	</div>
-
-
-
-
-
 	<script>
 		var homeList = "/website/f/api/article/homeList";
 		var ctxf = "/website/f";

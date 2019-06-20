@@ -40,21 +40,22 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="span12">
-
 				<p class="bg-primary">
 					欢迎您：${USER} 同学 <a
-						href="<%=request.getContextPath()%>/logout.action"
+						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
 
 				<h1>软件工程精品课</h1>
-
 				<ul class="nav nav-tabs" bgcolor="#3f51b6">
 					<li><a
 						href="<%=request.getContextPath()%>/student/StudentIndex.jsp"
 						style="font-size: 20px">课程主页</a></li>
+					<li><a
+						href="<%=request.getContextPath()%>/notificationView/browseMyNotificationView.action"
+						style="font-size: 20px">通知公告</a></li>
 					<li class="active"><a
-						href="<%=request.getContextPath()%>/student/listMyHomeworkStudent.action"
+						href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action"
 						style="font-size: 20px">习题作业</a></li>
 					<li class=""><a
 						href="<%=request.getContextPath()%>/exp/listExp.action"
@@ -62,64 +63,66 @@
 					<li><a
 						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
 						style="font-size: 20px">资源下载</a></li>
-					<li><a href="#" style="font-size: 20px">在线练习</a></li>
+					<li><a
+						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
+						style="font-size: 20px">在线练习</a></li>
 					<li><a href="#" style="font-size: 20px">学习社区</a></li>
 					<li class="dropdown pull-right"><a href="#"
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="student/listMyOperationLogsStudent.action">操作日志</a></li>
+							<li><a href="student/listMyOperationLogsStudent.action">操作日志</a>
+							</li>
 							<li><a href="../contact_us.jsp">联系我们</a></li>
-							<li><a href="">更多设置</a></li>
+							<li><a href="#">更多设置</a></li>
 							<li class="divider"></li>
-							<li><a href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
+							</li>
 						</ul></li>
 				</ul>
-
-
-				<h3>作业列表</h3>
-
-				<table class="table table-bordered" contenteditable="false">
-					<thead>
-						<tr>
-							<th>作业编号</th>
-							<th>作业名称</th>
-							<th>发布时间</th>
-							<th>截止时间</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<c:forEach items="${homeworks}" var="homework">
-							<tr class="success">
-								<td>${homework.id}</td>
-								<td><a
-									href="<%=request.getContextPath()%>/sepak/downloadExp.action?filename=${homework.name}">${homework.name}</a></td>
-								<td>${homework.releaseTime}</td>
-								<td>${homework.deadline}</td>
-								<td><button>
-										<a
-											href="file/downloadFile.action?filename=${homework.address}&packageId=${homework.teacher.id}">作业要求</a>
-									</button>
-									<button>
-										<a
-											href="homeworkAnswer/getDetailHomeworkAnswer.action?homeworkId=${homework.id}"
-											role="button">提交</a>
-									</button></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-
-				<div class="text-center">
-					<%@include file="../include/adminPage.jsp"%>
-				</div>
 			</div>
 		</div>
+
+		<h3>作业列表</h3>
+
+		<table class="table table-bordered" contenteditable="false">
+			<thead>
+				<tr>
+					<th>作业编号</th>
+					<th>作业名称</th>
+					<th>发布时间</th>
+					<th>截止时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<c:forEach items="${homeworks}" var="homework">
+					<tr class="success">
+						<td>${homework.id}</td>
+						<td><a
+							href="<%=request.getContextPath()%>/sepak/downloadExp.action?filename=${homework.name}">${homework.name}</a></td>
+						<td>${homework.releaseTime}</td>
+						<td>${homework.deadline}</td>
+						<td><button>
+								<a
+									href="file/downloadFile.action?filename=${homework.address}&packageId=${homework.teacher.id}">作业要求</a>
+							</button>
+							<button>
+								<a
+									href="homeworkAnswer/getDetailHomeworkAnswer.action?homeworkId=${homework.id}"
+									role="button">提交</a>
+							</button></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+
+		<div class="text-center">
+			<%@include file="../include/adminPage.jsp"%>
+		</div>
 	</div>
-
-
 	<div class="fd-f-link">
 		<div class="container">
 			<div class="fd-fl-title">
