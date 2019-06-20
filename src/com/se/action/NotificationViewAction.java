@@ -11,7 +11,7 @@ import com.se.util.SessionUtils;
 public class NotificationViewAction extends ActionSupport {
 
 	private NotificationView notificationView;
-	private Page page = new Page(0, 5);
+	private Page page = new Page(0, 8);
 	private List<NotificationView> notificationViews;
 	private List<Integer> keys;
 	private NotificationViewService nvService = new NotificationViewService();

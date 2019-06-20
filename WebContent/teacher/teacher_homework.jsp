@@ -4,6 +4,7 @@
 <%@include file="../include/header.jsp"%>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
+<%@ include file="../include/studentHeader.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -71,7 +72,7 @@
 			</div>
 		</div>
 		<h3>作业列表</h3>
-		<table class="table table-bordered">
+		<table class="table table-bordered" style="font-size: 30px">
 			<thead>
 				<tr>
 					<th>作业编号</th>

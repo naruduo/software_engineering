@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
-
+<%@ include file="../include/studentHeader.jsp"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -101,8 +101,7 @@
 					<li><a
 						href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action"
 						style="font-size: 20px">习题作业</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/exp/listExp.action"
+					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li class="active"><a
 						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
@@ -127,10 +126,6 @@
 				</ul>
 			</div>
 		</div>
-
-		<!--
-Start About Section
-==================================== -->
 		<section class="service-2 section" style="padding: 0px">
 			<div class="container">
 				<div class="row">

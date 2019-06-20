@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="../include/studentHeader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,25 +98,9 @@
 					</select> <br /> <input type="file" id="inputfile" name="uploadFile">
 					<br />
 					<button type="submit" class="btn btn-primary">上传</button>
-
-
 				</div>
 			</form>
 		</div>
 	</div>
-
-	<!--  origin version
-	<form action="commonFile/TcommonFile_upload.action" method="post"
-		enctype="multipart/form-data">
-		<input type="file" name="uploadFile" /> 
-		<br />
-		<select name="cf.fileType">
-			<option value="1">课件</option>
-			<option value="2">试卷</option>
-		</select> 
-		<br />
-		<button type="submit">上传</button>
-	</form>
--->
 </body>
 </html>

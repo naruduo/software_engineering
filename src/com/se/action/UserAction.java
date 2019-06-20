@@ -66,7 +66,11 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String index() {
-		if (ActionContext.getContext().getSession().get("ROLE").equals("Teacher")) {
+		if (ActionContext.getContext().getSession().get("ROLE") == null
+				|| ActionContext.getContext().getSession().get("USER") == null) {
+			SessionUtils.put("loginerror", "请先登陆");
+			return "fail";
+		} else if (ActionContext.getContext().getSession().get("ROLE").equals("Teacher")) {
 			ActionContext.getContext().put("teacher", new TeacherService().get(SessionUtils.getUserId()));
 			return "TeacherLoginSuccess";
 		} else {

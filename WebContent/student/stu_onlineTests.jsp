@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.se.pojo.*"%>
+<%@ include file="../include/studentHeader.jsp"%>
 <%
 	List<OnlineTest> onlineTests = (List<OnlineTest>) request.getAttribute("onlineTests");
 	Map<Integer, Boolean> marks = (Map<Integer, Boolean>) request.getAttribute("marks");
@@ -101,12 +102,14 @@
 							<p class="text-warning">
 								<%="本题正确率：" + String.format("%.2f", ot.getTrueFreq() * 100.0 / ot.getAnsFreq()) + "%"%>
 							</p>
-							<p><%=marks == null ? "" : (marks.get(ot.getId()) ? "正确" : "错误,正确答案：" + ot.getAnswer())%></p>
+							<p><%="<span style='color:red'>"
+						+ (marks == null ? "" : (marks.get(ot.getId()) ? "正确" : "错误,正确答案：" + ot.getAnswer()))
+						+ "</span>"%></p>
 						</div>
 						<%
 							}
 						%>
-						<input class="btn btn-success" type="submit" value="提交" />
+						<%=marks == null ? "<input class='btn btn-success' type='submit' value='提交' />" : ""%>
 					</form>
 				</div>
 			</div>

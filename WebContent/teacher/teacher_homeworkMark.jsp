@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
+<%@ include file="../include/studentHeader.jsp"%>
 <%
 	Homework hw = (Homework) request.getAttribute("homework");
 	Map<Integer, HomeworkAnswer> has = (Map<Integer, HomeworkAnswer>) request.getAttribute("homeworkAnswers");
@@ -30,17 +31,16 @@
 
 				<h1>软件工程精品课</h1>
 				<ul class="nav nav-tabs" bgcolor="#3f51b6">
-					<li class="active"><a
+					<li><a
 						href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp"
 						style="font-size: 20px">课程主页</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/notification/browseMyNotification.action"
 						style="font-size: 20px">通知公告</a></li>
-					<li><a
+					<li class="active"><a
 						href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}"
 						style="font-size: 20px">习题作业</a></li>
-					<li class=""><a
-						href="<%=request.getContextPath()%>/exp/listExp.action"
+					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp"
@@ -72,15 +72,15 @@
 				class="pull-right bg-primary">登出</a>
 		</p>
 		<h1><%=hw.getName()%></h1>
-		<button>
-			<a
-				href="../homeworkAnswer/packHomeworkAnswer.action?homeworkId=<%=hw.getId()%>">打包下载</a>
-		</button>
 		<form action="../homeworkAnswer/scoreHomeworkAnswer.action?"
 			method="post">
-			<input type="hidden" name="homeworkId" value="<%=hw.getId()%>" /> <input
-				type="submit" value="保存评分" />
-			<table  class="table table=bordered">
+			<input type="hidden" name="homeworkId" value="<%=hw.getId()%>" />
+			<button>
+				<a
+					href="../homeworkAnswer/packHomeworkAnswer.action?homeworkId=<%=hw.getId()%>">打包下载</a>
+			</button>
+			<inputtype ="submit" value="保存评分" />
+			<table class="table table=bordered" style="font-size: 20px">
 				<thead>
 					<th>学号</th>
 					<th>名字</th>

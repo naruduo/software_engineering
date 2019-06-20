@@ -4,11 +4,9 @@
 <%@include file="../include/header.jsp"%>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
+<%@ include file="../include/studentHeader.jsp"%>
 <%
 	List<CourseChapter> courseChapters = (List<CourseChapter>) request.getAttribute("courseChapters");
-%>
-<%
-	CourseChapter cc;
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

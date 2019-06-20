@@ -25,7 +25,7 @@ public class TeacherAction extends ActionSupport {
 	private List<Homework> homeworks;
 	private List<HomeworkAnswer> homeworkAnswers;
 	private List<OperationLog> operations;
-	private Page page = new Page(0,5);
+	private Page page = new Page(0,8);
 	private String filename;
 	private String nameKey;
 

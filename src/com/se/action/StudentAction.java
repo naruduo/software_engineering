@@ -31,7 +31,7 @@ public class StudentAction extends ActionSupport {
 	private String avatarFileName; // 得到文件的名称
 
 	private int onlineTestCount = 10;
-	private Page page = new Page(0, 5);
+	private Page page = new Page(0, 8);
 	private StudentService ss = new StudentService();
 	private List<Homework> homeworks;
 	private List<OperationLog> operations;

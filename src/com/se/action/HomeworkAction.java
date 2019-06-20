@@ -13,6 +13,7 @@ import com.se.pojo.Homework;
 import com.se.pojo.Student;
 import com.se.pojo.Teacher;
 import com.se.service.HomeworkService;
+import com.se.service.NotificationService;
 import com.se.service.StudentService;
 import com.se.util.Page;
 
@@ -28,9 +29,6 @@ public class HomeworkAction extends ActionSupport {
 	private Page page = new Page(1, 1);
 
 	public String add() {
-		System.out.println("D" + deadline);
-		System.out.println("F" + uploadFile);
-		System.out.println("N" + hwName);
 		boolean flag = true;
 		if ("".equals(deadline)) {
 			ActionContext.getContext().put("deadlineError", "截止日期不可以为空");
@@ -71,6 +69,8 @@ public class HomeworkAction extends ActionSupport {
 		HomeworkService hs = new HomeworkService();
 		System.out.println(hw);
 		hs.add(hw);
+		NotificationService ns = new NotificationService();
+		ns.autoCreateNoti("老师添加新作业：" + hw.getName() + ",截止时间" + hw.getDeadline() + "请及时完成！");
 		return "addSuccess";
 	}
 

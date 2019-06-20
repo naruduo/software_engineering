@@ -17,7 +17,7 @@ public class NotificationAction extends ActionSupport {
 	
 	private Notification notification;
 	private List<Notification> notifications;
-	private Page page = new Page(0, 5);
+	private Page page = new Page(0, 8);
 	
 	
 	/* 教师  */

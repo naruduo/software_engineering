@@ -5,7 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="../include/header.jsp"%>
 <%@include file="../include/navigator.jsp"%>
-
+<%@ include file="../include/studentHeader.jsp"%>
 <%
 	List<OnlineTest> onlineTests = (List<OnlineTest>) request.getAttribute("onlineTests");
 	CourseChapter chapter = (CourseChapter) request.getAttribute("courseChapter");

@@ -67,7 +67,7 @@
 		<form action="../homeworkAnswer/submitHomeworkAnswer.action"
 			method="post" enctype="multipart/form-data">
 			<input type="hidden" name="homeworkId" value="<%=homework.getId()%>" />
-			<table  class="table table-bordered">
+			<table class="table table-bordered">
 				<tr>
 					<td>作业名</td>
 					<td><%=homework.getName()%></td>
@@ -108,6 +108,11 @@
  	}
  %>
 					</td>
+				</tr>
+				<tr>
+					<td>得分</td>
+					<td><input type="text" value="<%=ha != null ? ha.getScore() : ""%>"
+						disabled="disabled" /></td>
 				</tr>
 			</table>
 		</form>

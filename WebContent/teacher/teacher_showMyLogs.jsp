@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.se.pojo.*"%>
+<%@ include file="../include/studentHeader.jsp"%>
 <%
 	List<OperationLog> operations = (List<OperationLog>) request.getAttribute("operations");
 %>
@@ -13,6 +14,8 @@
 <title>操作记录</title>
 </head>
 <body>
+
+
 	<h1>操作记录</h1>
 	<br />
 	<table class="table table=bordered">
