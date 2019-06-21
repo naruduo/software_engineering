@@ -1,29 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="../include/header.jsp"%>
 <%@ page import="com.se.pojo.*"%>
+<%@ page import="java.util.*"%>
 <%@ include file="../include/teacherHeader.jsp"%>
 <%
-	List<OperationLog> operations = (List<OperationLog>) request.getAttribute("operations");
+	String oldPasswordError = (String) request.getAttribute("oldPasswordError");
+	String newPasswordError = (String) request.getAttribute("newPasswordError");
+	String confirmPasswordError = (String) request.getAttribute("confirmPasswordError");
 %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<%-- @include file="../include/navigator.jsp"--%>
-<title>操作记录</title>
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
-	rel="stylesheet">
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-	rel="stylesheet">
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>软件工程精品课</title>
+<base href="http://localhost:8081/software_engineering/" />
+<!-- common css -->
+<link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
 <link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css" />
 <link type="text/css" rel="stylesheet"
 	href="../css/bootstrap-theme.css.map" />
@@ -36,6 +31,22 @@
 <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
 <link type="text/css" rel="stylesheet"
 	href="../css/bootstrap.min.css.map" />
+
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/bootstarp.js"></script>
 <script type="text/javascript" src="../js/npm.js"></script>
@@ -61,8 +72,7 @@
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}"
 						style="font-size: 20px">习题作业</a></li>
-					<li class=""><a
-						href="<%=request.getContextPath()%>/exp/listExp.action"
+					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp"
@@ -93,37 +103,31 @@
 				</ul>
 			</div>
 		</div>
-
-		<h1>操作记录</h1>
-		<br />
-		<table class="table table=bordered">
-			<thead>
-				<th><font size="4">操作时间</font></th>
-				<th><font size="4">操作</font></th>
-				<th><font size="4">文件名</font></th>
-			</thead>
-			<tbody>
-				<%
-					for (OperationLog ol : operations) {
-				%>
-				<tr>
-					<td><font size="3"><%=ol.getOperationTime()%></font></td>
-					<td><font size="3"><%=ol.getOperation()%></font></td>
-					<td><font size="3"><%=ol.getFilename()%></font></td>
-				</tr>
-				<%
-					}
-				%>
-			</tbody>
-		</table>
-		<div class="text-center">
-			<%@include file="../include/adminPage.jsp"%>
+		<div style="padding: 60px 400px 10px;">
+			<form class="bs-example bs-example-form" role="form"
+				action="user/changePasswordUser.action" method="post">
+				<div class="input-group">
+					<span class="input-group-addon">&nbsp;&nbsp;旧密码&nbsp;&nbsp;</span>
+					<input type="password" class="form-control" name="oldPassword">
+				</div><%=oldPasswordError != null ? "<p style='color:red'>" + oldPasswordError + "</s>" : ""%>
+				<br> <br>
+				<div class="input-group">
+					<span class="input-group-addon">&nbsp;&nbsp;新密码&nbsp;&nbsp;</span>
+					<input type="password" class="form-control" name="newPassword">
+				</div><%=newPasswordError != null ? "<p style='color:red'>" + newPasswordError + "</p>" : ""%>
+				<br /> <br />
+				<div class="input-group">
+					<span class="input-group-addon">确认密码</span> <input type="password"
+						class="form-control" name="confirmPassword">
+				</div><%=confirmPasswordError != null ? "<p style='color:red'>" + confirmPasswordError + "</p>" : ""%>
+				<br> <br>
+				<center>
+					<button type="submit" class="btn btn-primary">提交</button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button type="reset" class="btn btn-primary">重置</button>
+				</center>
+			</form>
 		</div>
-		<!-- <div class="text-center">
-			<button type="botton" class="btn btn-success">
-				<a href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp">返回主页</a>
-			</button>
-		</div> -->
 	</div>
 </body>
 </html>

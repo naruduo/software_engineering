@@ -74,7 +74,7 @@
 		<h3>在线练习章节列表</h3>
 
 
-		<table class="table table-bordered">
+		<table class="table table-bordered" style="font-size: 17px">
 			<thead>
 				<tr>
 					<th>章节名</th>
@@ -86,7 +86,7 @@
 				<%
 					for (CourseChapter cc : courseChapters) {
 				%>
-				<tr class="success">
+				<tr>
 					<td><%=cc.getUnitName()%></td>
 					<td><%=cc.getUnitDesc()%></td>
 					<td>

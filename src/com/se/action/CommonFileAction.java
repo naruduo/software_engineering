@@ -3,6 +3,7 @@ package com.se.action;
 import java.io.File;
 import java.util.Date;
 
+import org.apache.poi.sl.usermodel.TextRun.FieldType;
 import org.hibernate.Session;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -31,7 +32,8 @@ public class CommonFileAction extends ActionSupport {
 		cf.setFileName(uploadFileFileName);
 		cf.setReleaseTime(new Date());
 		cfs.add(cf);
-		return "uploadCommonFile";
+		fileType = cf.getFileType();
+		return "list";
 	}
 
 	public String download() {
@@ -56,7 +58,7 @@ public class CommonFileAction extends ActionSupport {
 		FileService fs = new FileService();
 		fs.delete(0, filename);
 		cfs.delete(fileId);
-		return "deleteCommonFile";
+		return "list";
 	}
 
 	public CommonFile getCf() {

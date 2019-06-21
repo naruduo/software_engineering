@@ -47,11 +47,12 @@
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp"
-						style="font-size: 20px">资源下载</a></li>
+						style="font-size: 20px">资源管理</a></li>
 					<li class="active"><a
 						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 						style="font-size: 20px">练习管理</a></li>
-					<li><a href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
+					<li><a
+						href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">学生管理</a></li>
 					<li><a href="teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">课程论坛</a></li>
@@ -59,10 +60,12 @@
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="teacher/teacher_listMyOperationLogs.action">操作日志</a>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_listMyOperationLogs.action">操作日志</a>
 							</li>
 							<li><a href="contact_us.jsp">联系我们</a></li>
-							<li><a href="#">更多设置</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_changePassword.jsp">修改密码</a></li>
 							<li class="divider"></li>
 							<li><a
 								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
@@ -90,12 +93,12 @@
 					<tr>
 						<td><%=cc.getUnitName()%></td>
 						<td><%=cc.getUnitDesc()%></td>
-						<td><button>
-								<a
+						<td><button class="btn btn-primary">
+								<a style="text-decoration: none; color: white"
 									href="../courseChapter/deleteCourseChapter.action?courseChapter.id=<%=cc.getId()%>">删除</a>
 							</button></td>
-						<td><button>
-								<a
+						<td><button class="btn btn-primary">
+								<a style="text-decoration: none; color: white"
 									href="../onlineTest/teacherListOnlineTest.action?chapterId=<%=cc.getId()%>">管理习题</a>
 							</button></td>
 					</tr>

@@ -44,8 +44,7 @@
 					<li><a
 						href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action"
 						style="font-size: 20px">习题作业</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/exp/listExp.action"
+					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
@@ -78,10 +77,17 @@
 				method="post">
 				<input id="currentPage" type="hidden" value=" @ViewData[ " currentPage"] "/>
 				<input id="totalPages" type="hidden" value=" @ViewData[" totalPages" ] " />
-				<button type="button" onclick="displayLooking()">未查看</button>
-				<button type="button" onclick="displayLooked()">已查看</button>
-				<button type="button" onclick="displayAll()">全部</button>
-				<table class="table table-hover table-striped">
+				<br /> <br />
+				<button type="button" onclick="displayLooking()"
+					class="btn btn-primary">未查看</button>
+				&nbsp;&nbsp;&nbsp;
+				<button type="button" onclick="displayLooked()"
+					class="btn btn-primary">已查看</button>
+				&nbsp;&nbsp;&nbsp;
+				<button type="button" onclick="displayAll()" class="btn btn-primary">全部</button>
+				<br /> <br />
+				<table class="table table-hover table-striped"
+					style="font-size: 17px">
 					<thead>
 						<tr>
 							<th class="col-md-1 text-center"></th>
@@ -112,10 +118,11 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				<button type="submit">标记为已读</button>
+				<button type="submit" class="btn btn-primary">标记为已读</button>
 			</form>
 			<ul id="example"></ul>
-			<%@include file="../../include/adminPage.jsp"%>
+			<div class="text-center">
+				<%@include file="../../include/adminPage.jsp"%></div>
 		</div>
 	</div>
 

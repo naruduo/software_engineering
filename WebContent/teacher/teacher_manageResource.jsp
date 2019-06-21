@@ -45,7 +45,8 @@
 					<li><a
 						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 						style="font-size: 20px">练习管理</a></li>
-					<li><a href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
+					<li><a
+						href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">学生管理</a></li>
 					<li><a href="teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">课程论坛</a></li>
@@ -53,10 +54,12 @@
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="teacher/teacher_listMyOperationLogs.action">操作日志</a>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_listMyOperationLogs.action">操作日志</a>
 							</li>
 							<li><a href="contact_us.jsp">联系我们</a></li>
-							<li><a href="#">更多设置</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_changePassword.jsp">修改密码</a></li>
 							<li class="divider"></li>
 							<li><a
 								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
@@ -65,11 +68,12 @@
 				</ul>
 			</div>
 		</div>
-
-		<button>
-			<a
+		<br />&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn btn-primary">
+			<a style="text-decoration: none; color: white"
 				href="<%=request.getContextPath()%>/teacher/teacher_uploadCommonFile.jsp">上传资源</a>
 		</button>
+		<br /> <br />
 		<table class="table table-bordered" border="1">
 			<thead>
 				<th>文件ID</th>
@@ -86,12 +90,12 @@
 				<td><%=cf.getFileName()%></td>
 				<td><%=cf.getReleaseTime()%></td>
 				<td><%=cf.getDownloadTimes()%></td>
-				<td><button>
-						<a
+				<td><button class="btn btn-primary">
+						<a style="text-decoration: none; color: white"
 							href="<%=request.getContextPath()%>/commonFile/commonFile_download.action?fileId=<%=cf.getId()%>">下载</a>
 					</button>
-					<button>
-						<a
+					<button class="btn btn-primary">
+						<a style="text-decoration: none; color: white"
 							href="<%=request.getContextPath()%>/commonFile/TcommonFile_delete.action?fileId=<%=cf.getId()%>&fileType=<%=cf.getFileType()%>">删除</a>
 					</button></td>
 			</tr>

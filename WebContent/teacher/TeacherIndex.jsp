@@ -15,9 +15,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>软件工程精品课</title>
 <script type="application/x-javascript">
-	
-	
-	
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
 		}, false);
@@ -25,8 +22,6 @@
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
-
-
 
 </script>
 <style>
@@ -116,7 +111,8 @@
 					<li><a
 						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 						style="font-size: 20px">练习管理</a></li>
-					<li><a href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
+					<li><a
+						href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">学生管理</a></li>
 					<li><a href="teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">课程论坛</a></li>
@@ -127,7 +123,7 @@
 							<li><a href="teacher/teacher_listMyOperationLogs.action">操作日志</a>
 							</li>
 							<li><a href="contact_us.jsp">联系我们</a></li>
-							<li><a href="#">更多设置</a></li>
+							<li><a href="teacher/teacher_changePassword.jsp">修改密码</a></li>
 							<li class="divider"></li>
 							<li><a
 								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>

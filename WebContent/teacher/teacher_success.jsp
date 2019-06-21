@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*"%>
 <%@ page import="com.se.pojo.*"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@include file="../include/header.jsp"%>
-<%@include file="../include/navigator.jsp"%>
+<%@ page import="java.util.*"%>
 <%@ include file="../include/teacherHeader.jsp"%>
 <%
-	List<OnlineTest> onlineTests = (List<OnlineTest>) request.getAttribute("onlineTests");
-	CourseChapter chapter = (CourseChapter) request.getAttribute("courseChapter");
+	String successOperation = (String) request.getAttribute("successOperation");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理在线练习</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<title>${successOperation}</title>
 <%@include file="../include/navigator.jsp"%>
 </head>
 <body>
@@ -26,6 +26,7 @@
 						href="<%=request.getContextPath()%>/logout.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
+
 				<h1>软件工程精品课</h1>
 				<ul class="nav nav-tabs" bgcolor="#3f51b6">
 					<li><a
@@ -37,13 +38,12 @@
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}"
 						style="font-size: 20px">习题作业</a></li>
-					<li class=""><a
-						href="<%=request.getContextPath()%>/exp/listExp.action"
+					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp"
 						style="font-size: 20px">资源管理</a></li>
-					<li class="active"><a
+					<li><a
 						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 						style="font-size: 20px">练习管理</a></li>
 					<li><a
@@ -69,52 +69,8 @@
 				</ul>
 			</div>
 		</div>
-	</div>
-
-	<h3><%=chapter.getUnitName()%>-<%=chapter.getUnitDesc()%>习题
-	</h3>
-	<table class="table table-bordered" style="font-size:17px">
-		<thead>
-			<tr>
-				<th>题目ID</th>
-				<th>题目名</th>
-				<th>做题次数</th>
-				<th>正确率</th>
-				<th>删除</th>
-				<th>修改</th>
-			</tr>
-		</thead>
-		<%
-			for (OnlineTest ot : onlineTests) {
-		%>
-		<tr>
-			<td><%=ot.getId()%></td>
-			<td
-				style="max-width: 300px; white-space: nowrap; overflow: hidden; word-break: keep-all; text-overflow: ellipsis;"><%=ot.getQuestion()%></td>
-			<td><%=ot.getAnsFreq()%></td>
-			<td><%=ot.getAnsFreq() == 0 ? 0 : ot.getTrueFreq() * 100.0 / ot.getAnsFreq()%>%</td>
-			<td><button class="btn btn-primary">
-					<a style="text-decoration: none; color: white"
-						href="../onlineTest/deleteOnlineTest.action?onlineTest.id=<%=ot.getId()%>">删除</a>
-				</button></td>
-			<td><button class="btn btn-primary">
-					<a style="text-decoration: none; color: white"
-						href="../onlineTest/teacherAddOnlineTest.action?onlineTest.id=<%=ot.getId()%>">修改</a>
-				</button></td>
-		</tr>
-		<%
-			}
-		%>
-
-	</table>
-
-	<button class="btn btn-primary">
-		<a style="text-decoration: none; color: white"
-			href="<%=request.getContextPath()%>/onlineTest/teacherAddOnlineTest.action?">添加题目</a>
-	</button>
-	<div class="text-center">
-		<%@include file="../include/adminPage.jsp"%>
-	</div>
+		<h1><%=successOperation%>成功！
+		</h1>
 	</div>
 </body>
 </html>

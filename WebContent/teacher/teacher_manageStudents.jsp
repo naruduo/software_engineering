@@ -79,10 +79,12 @@
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="teacher/teacher_listMyOperationLogs.action">操作日志</a>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_listMyOperationLogs.action">操作日志</a>
 							</li>
 							<li><a href="contact_us.jsp">联系我们</a></li>
-							<li><a href="#">更多设置</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_changePassword.jsp">修改密码</a></li>
 							<li class="divider"></li>
 							<li><a
 								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
@@ -105,21 +107,25 @@
 				class="btn btn-lg btn-primary" role="botton"
 				href="teacher/teacher_addStudent.jsp">添加学生</a> <br />
 		</form>
-		<table class="table table=bordered">
+		<table class="table table=bordered" style="font-size: 17px">
 			<thead>
-				<th><font size="4">学号</font></th>
-				<th><font size="4">姓名</font></th>
-				<th><font size="4">操作</font></th>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>操作</th>
 			</thead>
 			<tbody>
 				<%
 					for (Student s : students) {
 				%>
 				<tr class="success">
-					<td><font size="4"><%=s.getId()%></font></td>
-					<td><font size="4"><%=s.getName()%></font></td>
-					<td><a class="btn btn-lg btn-warning" role="botton"
-						href="student/deleteStudent.action?id=<%=s.getId()%>">删除</a></td>
+					<td><%=s.getId()%></td>
+					<td><%=s.getName()%></td>
+					<td>
+						<button class="btn btn-primary">
+							<a style="text-decoration: none; color: white"
+								href="student/deleteStudent.action?id=<%=s.getId()%>">删除</a>
+						</button>
+					</td>
 				</tr>
 				<%
 					}

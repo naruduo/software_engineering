@@ -52,30 +52,9 @@
 <link rel="stylesheet" type="text/css"
 	href="../css/colors/light-green.css" title="light-green">
 
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
-	rel="stylesheet">
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
-	rel="stylesheet">
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
-<link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css" />
 <link type="text/css" rel="stylesheet"
 	href="../css/bootstrap-theme.css.map" />
 <link type="text/css" rel="stylesheet"
 	href="../css/bootstrap-theme.min.css" />
 <link type="text/css" rel="stylesheet"
 	href="../css/bootstrap-theme.min.css.map" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.css.map" />
-<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
-<link type="text/css" rel="stylesheet"
-	href="../css/bootstrap.min.css.map" />
-<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/bootstarp.js"></script>
-<script type="text/javascript" src="../js/npm.js"></script>

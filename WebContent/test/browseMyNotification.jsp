@@ -30,8 +30,7 @@
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}"
 						style="font-size: 20px">习题作业</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/exp/listExp.action"
+					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp"
@@ -39,6 +38,9 @@
 					<li><a
 						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 						style="font-size: 20px">练习管理</a></li>
+					<li class="active"><a
+						href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
+						style="font-size: 20px">学生管理</a></li>
 					<li><a href="teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">课程论坛</a></li>
 					<li class="dropdown pull-right"><a href="#"
@@ -63,7 +65,7 @@
 
 		<input id="currentPage" type="hidden" value=" @ViewData[ " currentPage"] "/>
 		<input id="totalPages" type="hidden" value=" @ViewData[" totalPages" ] " />
-		<table class="table table-hover table-striped">
+		<table class="table table-hover table-striped" style="font-size:17px">
 			<thead>
 				<tr>
 					<th class="col-md-4 text-center">通知标题</th>

@@ -72,7 +72,7 @@
 		<div class="row">
 			<div class="span12">
 				<p class="bg-primary">
-					欢迎您：${USER} 同学 <a
+					欢迎您：${USER},${student.name} 同学 <a
 						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
@@ -102,10 +102,12 @@
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="student/listMyOperationLogsStudent.action">操作日志</a>
+							<li><a
+								href="<%=request.getContextPath()%>/student/listMyOperationLogsStudent.action">操作日志</a>
 							</li>
 							<li><a href="../contact_us.jsp">联系我们</a></li>
-							<li><a href="#">更多设置</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/student/stu_changePassword.jsp">更多设置</a></li>
 							<li class="divider"></li>
 							<li><a
 								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>

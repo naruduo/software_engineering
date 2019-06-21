@@ -48,10 +48,10 @@
 						style="font-size: 20px">习题作业</a></li>
 					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
-					<li class="active"><a
+					<li><a
 						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
 						style="font-size: 20px">资源下载</a></li>
-					<li><a
+					<li class="active"><a
 						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 						style="font-size: 20px">在线练习</a></li>
 					<li><a href="#" style="font-size: 20px">学习社区</a></li>

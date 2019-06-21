@@ -50,7 +50,7 @@
 
 				<h1>软件工程精品课</h1>
 				<ul class="nav nav-tabs" bgcolor="#3f51b6">
-					<li class="active"><a
+					<li><a
 						href="<%=request.getContextPath()%>/student/StudentIndex.jsp"
 						style="font-size: 20px">课程主页</a></li>
 					<li><a
@@ -59,7 +59,7 @@
 					<li><a
 						href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action"
 						style="font-size: 20px">习题作业</a></li>
-					<li class=""><a
+					<li class="active"><a
 						href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a

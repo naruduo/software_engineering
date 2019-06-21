@@ -85,10 +85,12 @@
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="teacher/teacher_listMyOperationLogs.action">操作日志</a>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_listMyOperationLogs.action">操作日志</a>
 							</li>
 							<li><a href="contact_us.jsp">联系我们</a></li>
-							<li><a href="#">更多设置</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_changePassword.jsp">修改密码</a></li>
 							<li class="divider"></li>
 							<li><a
 								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>

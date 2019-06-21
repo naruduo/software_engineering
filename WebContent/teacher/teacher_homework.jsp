@@ -41,11 +41,10 @@
 					<li><a
 						href="<%=request.getContextPath()%>/notification/browseMyNotification.action"
 						style="font-size: 20px">通知公告</a></li>
-					<li><a
+					<li class="active"><a
 						href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}"
 						style="font-size: 20px">习题作业</a></li>
-					<li class="active"><a
-						href="<%=request.getContextPath()%>/exp/listExp.action"
+					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_resource.jsp"
@@ -62,10 +61,12 @@
 						data-toggle="dropdown" class="dropdown-toggle"
 						style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="teacher/teacher_listMyOperationLogs.action">操作日志</a>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_listMyOperationLogs.action">操作日志</a>
 							</li>
 							<li><a href="contact_us.jsp">联系我们</a></li>
-							<li><a href="#">更多设置</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/teacher/teacher_changePassword.jsp">修改密码</a></li>
 							<li class="divider"></li>
 							<li><a
 								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
@@ -94,12 +95,12 @@
 						<td>${homework.releaseTime}</td>
 						<td>${homework.deadline}</td>
 						<td class="text-center">
-							<button>
-								<a
+							<button class="btn btn-primary">
+								<a style="text-decoration: none; color: white"
 									href="../homework/deleteHomework.action?homeworkId=${homework.id}">删除</a>
 							</button>
-							<button>
-								<a
+							<button class="btn btn-primary">
+								<a style="text-decoration: none; color: white"
 									href="../teacher/teacher_listMyHomeworkAnswers.action?homeworkId=${homework.id}">批阅</a>
 							</button>
 						</td>

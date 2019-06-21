@@ -61,7 +61,7 @@
 		<div class="tableContainer">
 			<input id="currentPage" type="hidden" value=" @ViewData[ " currentPage"] "/>
 			<input id="totalPages" type="hidden" value=" @ViewData[" totalPages" ] " />
-			<table class="table table-hover table-striped">
+			<table class="table table-hover table-striped" style="font-size:17px">
 				<thead>
 					<tr>
 						<th class="col-md-4 text-center">学生学号</th>
