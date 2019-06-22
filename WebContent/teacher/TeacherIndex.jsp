@@ -87,7 +87,7 @@
 			<div class="span12">
 				<p class="bg-primary">
 					欢迎您：${USER}，${teacher.name}老师 <a
-						href="<%=request.getContextPath()%>/logout.action"
+						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
 
@@ -133,6 +133,7 @@
 			</div>
 		</div>
 		<!-- services -->
+		<!-- 
 		<div class="row bg">
 			<div class="services" id="services">
 				<div class="container">
@@ -272,36 +273,27 @@
 			</div>
 		</div>
 		<!-- //services -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		<!-- HEREH -->
+		<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
 		<div class="row">
 			<div class="fd-f-link">
 				<div class="container">

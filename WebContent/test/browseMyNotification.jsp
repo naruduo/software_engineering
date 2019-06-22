@@ -15,7 +15,7 @@
 			<div class="span12">
 				<p class="bg-primary">
 					欢迎您：${USER}，${teacher.name}老师 <a
-						href="<%=request.getContextPath()%>/logout.action"
+						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
 
@@ -38,7 +38,7 @@
 					<li><a
 						href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 						style="font-size: 20px">练习管理</a></li>
-					<li class="active"><a
+					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
 						style="font-size: 20px">学生管理</a></li>
 					<li><a href="teacher/teacher_listMyStudents.action"
@@ -65,7 +65,7 @@
 
 		<input id="currentPage" type="hidden" value=" @ViewData[ " currentPage"] "/>
 		<input id="totalPages" type="hidden" value=" @ViewData[" totalPages" ] " />
-		<table class="table table-hover table-striped" style="font-size:17px">
+		<table class="table table-hover table-striped" style="font-size: 17px">
 			<thead>
 				<tr>
 					<th class="col-md-4 text-center">通知标题</th>

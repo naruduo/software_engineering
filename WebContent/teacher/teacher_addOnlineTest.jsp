@@ -24,7 +24,7 @@
 			<div class="span12">
 				<p class="bg-primary">
 					欢迎您：${USER}，${teacher.name}老师 <a
-						href="<%=request.getContextPath()%>/logout.action"
+						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
 
@@ -69,16 +69,12 @@
 						</ul></li>
 				</ul>
 			</div>
-
-
-
-
 			<h3>管理习题</h3>
 			<form role="form"
 				action="../onlineTest/addAndUpdateOnlineTest.action" method="post">
 				<input name='onlineTest.id' value='<%=onlineTest.getId()%>'
-					type='hidden' /> 请选择该题属于的章节： <select class="form-control"
-					name="onlineTest.courseChapterId">
+					type='hidden' /> <span style="fone-size: 20px">请选择该题属于的章节：
+				</span><select class="form-control" name="onlineTest.courseChapterId">
 					<%
 						for (CourseChapter cc : chapters) {
 					%>

@@ -15,22 +15,22 @@
 			<div class="span12">
 				<p class="bg-primary">
 					欢迎您：${USER}，${teacher.name}老师 <a
-						href="<%=request.getContextPath()%>/logout.action"
+						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
 
 				<h1>软件工程精品课</h1>
 				<ul class="nav nav-tabs" bgcolor="#3f51b6">
-					<li class="active"><a
+					<li><a
 						href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp"
 						style="font-size: 20px">课程主页</a></li>
-					<li><a
+					<li class="active"><a
 						href="<%=request.getContextPath()%>/notification/browseMyNotification.action"
 						style="font-size: 20px">通知公告</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}"
 						style="font-size: 20px">习题作业</a></li>
-					<li class=""><a
+					<li><a
 						href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
@@ -61,7 +61,8 @@
 		<div class="tableContainer">
 			<input id="currentPage" type="hidden" value=" @ViewData[ " currentPage"] "/>
 			<input id="totalPages" type="hidden" value=" @ViewData[" totalPages" ] " />
-			<table class="table table-hover table-striped" style="font-size:17px">
+			<table class="table table-hover table-striped"
+				style="font-size: 17px">
 				<thead>
 					<tr>
 						<th class="col-md-4 text-center">学生学号</th>

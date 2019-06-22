@@ -49,8 +49,6 @@
 	href="../plugins/slick-carousel/slick/slick-theme.css">
 <!-- Main Stylesheet -->
 <link rel="stylesheet" href="../css/style.css">
-
-
 <!-- Colors -->
 <link rel="stylesheet" type="text/css" href="../css/colors/green.css"
 	title="green">
@@ -72,7 +70,7 @@
 		<div class="row">
 			<div class="span12">
 				<p class="bg-primary">
-					欢迎您：${USER},${student.name} 同学 <a
+					欢迎您：${USER},${student.name}同学 <a
 						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
@@ -132,86 +130,61 @@
 			</div>
 		</div>
 	</div>
-
+	<!-- 
 	<section class="testimonial section" id="testimonial">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<!-- testimonial wrapper -->
 				<div class="testimonial-slider">
-					<!-- testimonial single -->
 					<div class="item text-center">
 						<i class="tf-ion-chatbubbles"></i>
-						<!-- client info -->
-						<div class="client-details">
-							<p>单红，男，1972年出生，工学硕士，讲师。2003年4月毕业于昆明理工大学，获计算机应用技术硕士学位，同年7月来福州大学。</p>
-						</div>
-						<!-- /client info -->
-						<!-- client photo -->
-						<div class="client-thumb">
-							<img src="../images/client-logo/clients-1.jpg"
-								class="img-responsive" alt="">
-						</div>
-						<div class="client-meta">
-							<h3>单红</h3>
-							<span>Teacher , Fuzhou University</span>
-						</div>
-						<!-- /client photo -->
-					</div>
-					<!-- /testimonial single -->
-
-					<!-- testimonial single -->
-					<div class="item text-center">
-						<i class="tf-ion-chatbubbles"></i>
-						<!-- client info -->
-						<div class="client-details">
-							<p>汪璟玢，女，1973年生，硕士，副教授，硕士生导师。1994年7月毕业于福州大学计算机系，获学士学位。2003年1月毕业于福州大学计算机系，获硕士学位。主要从事在云计算环境下的海量数据及空间数据管理技术与方法研究</p>
-						</div>
-						<!-- /client info -->
-						<!-- client photo -->
-						<div class="client-thumb">
-							<img src="../images/client-logo/teacher02.PNG"
-								class="img-responsive" alt="">
-						</div>
-						<div class="client-meta">
-							<h3>汪璟玢</h3>
-							<span>Teacher , Fuzhou University</span>
-						</div>
-						<!-- /client photo -->
-					</div>
-					<!-- /testimonial single -->
-
-					<!-- testimonial single -->
-					<div class="item text-center">
-						<i class="tf-ion-chatbubbles"></i>
-						<!-- client info -->
-						<div class="client-details">
-							<p>王灿辉，男，福州大学数学与计算机科学学院副教授，主讲课程：高级语言程序设计、面向对象程序设计、软件工程；研究方向：数据库、分布式系统、管理信息系统（MIS）</p>
-						</div>
-						<!-- /client info -->
-						<!-- client photo -->
-						<div class="client-thumb">
-							<img src="../images/client-logo/teacher_logo1.jpg"
-								class="img-responsive" alt="">
-						</div>
-						<div class="client-meta">
-							<h3>王灿辉</h3>
-							<span>Teacher Fuzhou Univesity</span>
-						</div>
-						<!-- /client photo -->
-					</div>
-					<!-- /testimonial single -->
-				</div>
-			</div>
-			<!-- end col lg 12 -->
-		</div>
-		<!-- End row -->
+	<div class="client-details">
+		<p>单红，男，1972年出生，工学硕士，讲师。2003年4月毕业于昆明理工大学，获计算机应用技术硕士学位，同年7月来福州大学。</p>
 	</div>
-	<!-- End container --> </section>
-	<!-- End Section -->
+	<div class="client-thumb">
+		<img src="../images/client-logo/clients-1.jpg" class="img-responsive"
+			alt="">
+	</div>
+	<div class="client-meta">
+		<h3>单红</h3>
+		<span>Teacher , Fuzhou University</span>
+	</div>
+	</div>
+	<div class="item text-center">
+		<i class="tf-ion-chatbubbles"></i>
+		<div class="client-details">
+			<p>汪璟玢，女，1973年生，硕士，副教授，硕士生导师。1994年7月毕业于福州大学计算机系，获学士学位。2003年1月毕业于福州大学计算机系，获硕士学位。主要从事在云计算环境下的海量数据及空间数据管理技术与方法研究</p>
+		</div>
+		<div class="client-thumb">
+			<img src="../images/client-logo/teacher02.PNG" class="img-responsive"
+				alt="">
+		</div>
+		<div class="client-meta">
+			<h3>汪璟玢</h3>
+			<span>Teacher , Fuzhou University</span>
+		</div>
+	</div>
 
-
-
+	<div class="item text-center">
+		<i class="tf-ion-chatbubbles"></i>
+		<div class="client-details">
+			<p>王灿辉，男，福州大学数学与计算机科学学院副教授，主讲课程：高级语言程序设计、面向对象程序设计、软件工程；研究方向：数据库、分布式系统、管理信息系统（MIS）</p>
+		</div>
+		<div class="client-thumb">
+			<img src="../images/client-logo/teacher_logo1.jpg"
+				class="img-responsive" alt="">
+		</div>
+		<div class="client-meta">
+			<h3>王灿辉</h3>
+			<span>Teacher Fuzhou Univesity</span>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</section>
+	-->
 	<div class="fd-f-link">
 		<div class="container">
 			<div class="fd-fl-title">
@@ -237,11 +210,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 	<div class="fd-f-bottom">
 		<div class="container">
 			<div class="fd-fb-logo">

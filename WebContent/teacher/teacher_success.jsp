@@ -23,7 +23,7 @@
 			<div class="span12">
 				<p class="bg-primary">
 					欢迎您：${USER}，${teacher.name}老师 <a
-						href="<%=request.getContextPath()%>/logout.action"
+						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
 

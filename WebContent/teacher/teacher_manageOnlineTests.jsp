@@ -23,7 +23,7 @@
 			<div class="span12">
 				<p class="bg-primary">
 					欢迎您：${USER}，${teacher.name}老师 <a
-						href="<%=request.getContextPath()%>/logout.action"
+						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
 				<h1>软件工程精品课</h1>
@@ -73,7 +73,7 @@
 
 	<h3><%=chapter.getUnitName()%>-<%=chapter.getUnitDesc()%>习题
 	</h3>
-	<table class="table table-bordered" style="font-size:17px">
+	<table class="table table-bordered" style="font-size: 17px">
 		<thead>
 			<tr>
 				<th>题目ID</th>
@@ -115,6 +115,14 @@
 	<div class="text-center">
 		<%@include file="../include/adminPage.jsp"%>
 	</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<div class="text-center">
+		<span class="fd-fbp-span1"> 学院地址：福州市闽侯县学园路2号福州大学数学与计算机科学学院 </span><br />
+		<span class="fd-fbp-span2"> 版权声明：© 2019 福州大学软件学院19春季软工实践G013.
+			版权所有. 保留所有权利 </span>
 	</div>
 </body>
 </html>

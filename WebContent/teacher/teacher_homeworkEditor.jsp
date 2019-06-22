@@ -4,6 +4,11 @@
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
 <%@ include file="../include/teacherHeader.jsp"%>
+<%
+	Homework hw = (Homework) request.getAttribute("homework");
+%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,19 +24,19 @@
 				<div class="span12">
 					<p class="bg-primary">
 						欢迎您：${USER}，${teacher.name}老师 <a
-							href="<%=request.getContextPath()%>/logout.action"
+							href="<%=request.getContextPath()%>/user/logoutUser.action"
 							class="pull-right bg-primary">登出</a>
 					</p>
 
 					<h1>软件工程精品课</h1>
 					<ul class="nav nav-tabs" bgcolor="#3f51b6">
-						<li class="active"><a
+						<li><a
 							href="<%=request.getContextPath()%>/teacher/TeacherIndex.jsp"
 							style="font-size: 20px">课程主页</a></li>
 						<li><a
 							href="<%=request.getContextPath()%>/notification/browseMyNotification.action"
 							style="font-size: 20px">通知公告</a></li>
-						<li><a
+						<li class="active"><a
 							href="<%=request.getContextPath()%>/teacher/teacher_listMyHomeworks.action?id=${USER}"
 							style="font-size: 20px">习题作业</a></li>
 						<li class=""><a
@@ -43,7 +48,8 @@
 						<li><a
 							href="<%=request.getContextPath()%>/courseChapter/listCourseChapter.action"
 							style="font-size: 20px">练习管理</a></li>
-						<li><a href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
+						<li><a
+							href="<%=request.getContextPath()%>/teacher/teacher_listMyStudents.action"
 							style="font-size: 20px">学生管理</a></li>
 						<li><a href="teacher/teacher_listMyStudents.action"
 							style="font-size: 20px">课程论坛</a></li>
@@ -51,41 +57,46 @@
 							data-toggle="dropdown" class="dropdown-toggle"
 							style="font-size: 20px">个人中心<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
-							<li><a
-								href="<%=request.getContextPath()%>/teacher/teacher_listMyOperationLogs.action">操作日志</a>
-							</li>
-							<li><a href="contact_us.jsp">联系我们</a></li>
-							<li><a
-								href="<%=request.getContextPath()%>/teacher/teacher_changePassword.jsp">修改密码</a></li>
-							<li class="divider"></li>
-							<li><a
-								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
-							</li>
-						</ul></li>
+								<li><a
+									href="<%=request.getContextPath()%>/teacher/teacher_listMyOperationLogs.action">操作日志</a>
+								</li>
+								<li><a href="contact_us.jsp">联系我们</a></li>
+								<li><a
+									href="<%=request.getContextPath()%>/teacher/teacher_changePassword.jsp">修改密码</a></li>
+								<li class="divider"></li>
+								<li><a
+									href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>
+								</li>
+							</ul></li>
 					</ul>
 				</div>
 
-
-				<h3>编辑作业信息</h3>
-
+				<br /> <br />
 				<form action="../homework/addHomework.action" method="post"
 					enctype="multipart/form-data">
 					<fieldset>
-						<legend contenteditable="false">作业信息</legend>
-						<label contenteditable="false">作业名：</label> <input type="text"
-							placeholder="请输入作业名称" name="hwName"> <span>${hwNameError}</span><br />
-						<label contenteditable="false">截止时间：</label> <input type="date"
-							name="deadline"> </label><span>${deadlineError}</span> <br /> <label
-							contenteditable="false">上传作业要求：</label> <input type="file"
-							name="uploadFile" value="文件路径"><span>${uploadFileError}</span><br />
-						<input id="submit_form" type="submit" class="btn btn-success save"
-							value="上传">
+						<legend>编辑作业信息</legend>
+						<p>
+							<span style="fonr-size: 30px; color: black">作业名称：</span><input
+								type="text" placeholder="请输入作业名称" name="hwName"> <span
+								style="fonr-size: 20px; color: red">${hwNameError}</span>
+						</p>
+
+						<p>
+							<span style="fonr-size: 30px; color: black">截止时间：</span><input
+								type="date" name="deadline"><span
+								style="fonr-size: 20px; color: red">${deadlineError}</span>
+						</p>
+						<p>
+							<span style="fonr-size: 20px; color: black">上传作业要求：</span><br />
+							<input type="file" name="uploadFile" value="文件路径"><span
+								style="fonr-size: 20px; color: red">${uploadFileError}</span>
+						</p>
+						<br /> <input id="submit_form" type="submit"
+							class="btn btn-success save" value="上传"> <br />
 					</fieldset>
 				</form>
-
-
-
-
+				<br /> <br /> <br /> <br /> <br /> <br /> <br />
 				<div class="fd-f-link">
 					<div class="container">
 						<div class="fd-fl-title">
@@ -111,11 +122,6 @@
 						</div>
 					</div>
 				</div>
-
-
-
-
-
 				<div class="fd-f-bottom">
 					<div class="container">
 						<div class="fd-fb-logo">

@@ -85,7 +85,7 @@
 		<div class="row">
 			<div class="span12">
 				<p class="bg-primary">
-					欢迎您：${USER} 同学 <a
+					欢迎您：${USER},${student.name}同学 <a
 						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
@@ -167,7 +167,9 @@
 							<div class="col-md-6 col-sm-6 col-xs-12">
 								<div class="service-item">
 									<i class="tf-ion-ios-email-outline"></i>
-									<h4>习题</h4>
+									<h4>
+										<a href="commonFile/commonFile_list.action?fileType=3">课程大纲</a>
+									</h4>
 									<p></p>
 								</div>
 							</div>

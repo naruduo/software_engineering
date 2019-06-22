@@ -28,7 +28,7 @@
 		<div class="row">
 			<div class="span12">
 				<p class="bg-primary">
-					欢迎您：${USER} 同学 <a
+					欢迎您：${USER},${student.name}同学 <a
 						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
@@ -44,7 +44,8 @@
 					<li><a
 						href="<%=request.getContextPath()%>/student/listMyHomeworksStudent.action"
 						style="font-size: 20px">习题作业</a></li>
-					<li><a href="<%=request.getContextPath()%>/exp/listExp.action"
+					<li class=""><a
+						href="<%=request.getContextPath()%>/exp/listExp.action"
 						style="font-size: 20px">实验教学</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/student/stu_resource.jsp"
@@ -60,7 +61,7 @@
 							<li><a href="student/listMyOperationLogsStudent.action">操作日志</a>
 							</li>
 							<li><a href="../contact_us.jsp">联系我们</a></li>
-							<li><a href="#">更多设置</a></li>
+							<li><a href="student/stu_changePassword.jsp">更多设置</a></li>
 							<li class="divider"></li>
 							<li><a
 								href="<%=request.getContextPath()%>/user/logoutUser.action">退出登录</a>

@@ -35,7 +35,7 @@
 		<div class="row">
 			<div class="span12">
 				<p class="bg-primary">
-					欢迎您：${USER} 同学 <a
+					欢迎您：${USER},${student.name}同学 <a
 						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
@@ -90,7 +90,7 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${exps}" var="exp">
-					<tr class="success">
+					<tr>
 						<td>${exp.expId}</td>
 						<td><a
 							href="<%=request.getContextPath()%>/exp/downloadExp.action?filename=${exp.expName}">${exp.expName}</a></td>

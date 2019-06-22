@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="http://localhost:8081/software_engineering/" />
 <meta charset="UTF-8">
 <link
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
@@ -46,7 +45,7 @@
 			<div class="span12">
 				<p class="bg-primary">
 					欢迎您：${USER}，${teacher.name}老师 <a
-						href="<%=request.getContextPath()%>/logout.action"
+						href="<%=request.getContextPath()%>/user/logoutUser.action"
 						class="pull-right bg-primary">登出</a>
 				</p>
 
@@ -107,7 +106,7 @@
 				class="btn btn-lg btn-primary" role="botton"
 				href="teacher/teacher_addStudent.jsp">添加学生</a> <br />
 		</form>
-		<table class="table table=bordered" style="font-size: 17px">
+		<table class="table table=bordered" style="font-size: 20px">
 			<thead>
 				<th>学号</th>
 				<th>姓名</th>
@@ -117,7 +116,7 @@
 				<%
 					for (Student s : students) {
 				%>
-				<tr class="success">
+				<tr>
 					<td><%=s.getId()%></td>
 					<td><%=s.getName()%></td>
 					<td>
@@ -132,6 +131,22 @@
 				%>
 			</tbody>
 		</table>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div class="text-center">
+		<div class="container">
+			<div class="fd-fb-public">
+				<span class="fd-fbp-span1"> 学院地址：福州市闽侯县学园路2号福州大学数学与计算机科学学院 </span><br />
+				<span class="fd-fbp-span2"> 版权声明：© 2019 福州大学软件学院19春季软工实践G013.
+					版权所有. 保留所有权利 </span>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

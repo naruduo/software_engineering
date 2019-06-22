@@ -36,7 +36,7 @@ Start About Section
 				<div class="span12">
 					<p class="bg-primary">
 						欢迎您：${USER}，${teacher.name}老师 <a
-							href="<%=request.getContextPath()%>/logout.action"
+							href="<%=request.getContextPath()%>/user/logoutUser.action"
 							class="pull-right bg-primary">登出</a>
 					</p>
 
@@ -120,7 +120,9 @@ Start About Section
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<div class="service-item">
 								<i class="tf-ion-ios-email-outline"></i>
-								<h4>习题</h4>
+								<h4>
+									<a href="commonFile/commonFile_list.action?fileType=3">课程大纲</a>
+								</h4>
 								<p></p>
 							</div>
 						</div>
