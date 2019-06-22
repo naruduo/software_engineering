@@ -93,9 +93,9 @@
 			</div>
 		</div>
 		<br />
-		<h1>学生列表</h1>
+		<h3>学生列表</h3>
 
-		<form action="teacher/teacher_searchMyStudents.action">
+		<form action="../teacher/teacher_searchMyStudents.action">
 			<div class="form-group">
 				<input type="text" name="nameKey" class="form-control"
 					placeholder="姓名">
@@ -104,7 +104,7 @@
 			<a class="btn btn-lg btn-primary" role="botton"
 				href="teacher/teacher_getMyRoster.action">导出名单</a> <a
 				class="btn btn-lg btn-primary" role="botton"
-				href="teacher/teacher_addStudent.jsp">添加学生</a> <br />
+				href="../teacher/teacher_addStudent.jsp">添加学生</a> <br />
 		</form>
 		<table class="table table=bordered" style="font-size: 20px">
 			<thead>
@@ -122,7 +122,7 @@
 					<td>
 						<button class="btn btn-primary">
 							<a style="text-decoration: none; color: white"
-								href="student/deleteStudent.action?id=<%=s.getId()%>">删除</a>
+								href="<%=request.getContextPath()%>/student/deleteStudent.action?id=<%=s.getId()%>">删除</a>
 						</button>
 					</td>
 				</tr>

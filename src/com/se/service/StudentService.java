@@ -33,7 +33,11 @@ public class StudentService {
 		return false;
 	}
 
-	public void addStudent(Student stu) {
+	public void update(Student stu) {
+		dao.update(stu);
+	}
+
+	public void add(Student stu) {
 		dao.add(stu);
 	}
 
@@ -105,7 +109,8 @@ public class StudentService {
 				nameCell.setCellValue(stu.getName());
 			}
 			File destFile = new File(filePath);
-			if(!destFile.exists()) destFile.createNewFile();
+			if (!destFile.exists())
+				destFile.createNewFile();
 			wb.write(new FileOutputStream(destFile));
 			wb.close();
 		} catch (IOException e) {
@@ -125,9 +130,9 @@ public class StudentService {
 	public List<Student> getTeachersStudents(int teacherId) {
 		return dao.getTeachersStudent(teacherId);
 	}
-	
-	public List<Student> getTeachersStudents(int teacherId,String nameKey) {
-		return dao.getTeachersStudent(teacherId,nameKey);
+
+	public List<Student> getTeachersStudents(int teacherId, String nameKey) {
+		return dao.getTeachersStudent(teacherId, nameKey);
 	}
 
 	// 5-20

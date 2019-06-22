@@ -1,6 +1,5 @@
 package com.se.dao;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.hibernate.Session;

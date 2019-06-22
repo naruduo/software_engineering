@@ -17,14 +17,16 @@ import com.se.service.HomeworkService;
 import com.se.service.OnlineTestService;
 import com.se.service.OperationLogService;
 import com.se.service.StudentService;
+import com.se.util.CheckParamUtils;
 import com.se.util.FileUtils;
 import com.se.util.Page;
 import com.se.util.SessionUtils;
 
 @SuppressWarnings("serial")
 public class StudentAction extends ActionSupport {
-	private int id;
+	private int id = -1;
 	private String newPassword;
+	private String studentId;
 	private Student stu = new Student();
 	private File avatar;
 	private String avatarContentType; // 得到文件的类型
@@ -38,11 +40,35 @@ public class StudentAction extends ActionSupport {
 
 	public String add() {
 		StudentService ss = new StudentService();
+		boolean flag = false;
+		if (CheckParamUtils.isEmpty(studentId)) {
+			SessionUtils.put("idError", "学号不可以为空！");
+			flag = true;
+		} else if (!CheckParamUtils.isStudentId(studentId)) {
+			SessionUtils.put("idError", "学号只可以是9位数字");
+			flag = true;
+		} else {
+			stu.setId(Integer.parseInt(studentId));
+		}
+		if (ss.get(stu.getId()) != null) {
+			SessionUtils.put("idError", "学号已经存在！");
+			flag = true;
+		}
+
+		if (CheckParamUtils.isEmpty(stu.getName())) {
+			SessionUtils.put("nameError", "名字不可以为空！");
+			flag = true;
+		}
+		if (flag) {
+			return "goEdit";
+		}
+
 		stu.setAvatar("default.jpg");
 		stu.setPassword(stu.getId() + "");
 		stu.setTeacherId(SessionUtils.getUserId());
 		System.out.println(stu);
-		ss.addStudent(stu);
+		ss.add(stu);
+
 		list();
 		return "addSuccess";
 	}
@@ -95,6 +121,12 @@ public class StudentAction extends ActionSupport {
 		OnlineTestService otd = new OnlineTestService();
 
 		return "listMyOnlineTests";
+	}
+
+	public String edit() {
+		Student stu = ss.get(id);
+		SessionUtils.put("studentToUpdate", stu);
+		return "goEdit";
 	}
 
 	// 5-20
@@ -173,6 +205,14 @@ public class StudentAction extends ActionSupport {
 
 	public void setOperations(List<OperationLog> operations) {
 		this.operations = operations;
+	}
+
+	public String getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
 	}
 
 }

@@ -5,6 +5,12 @@
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
 <%@ include file="../include/teacherHeader.jsp"%>
+
+<%
+	Student stu = (Student) request.getAttribute("studentToUpdate");
+	String idError = (String) request.getAttribute("idError");
+	String nameError = (String) request.getAttribute("nameError");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -101,21 +107,23 @@
 		</div>
 		<div style="padding: 60px 400px 10px;">
 			<form class="bs-example bs-example-form" role="form"
-				action="student/addStudent.action" method="post"
-				enctype="multipart/form-data">
+				action="student/addStudent.action" method="post">
 				<div class="input-group">
 					<span class="input-group-addon">学号</span> <input type="text"
-						class="form-control" placeholder="学号" name="stu.id">
+						onkeyup="value=value.replace(/[^\d]/g,'')" class="form-control"
+						placeholder="学号" name="studentId">
 				</div>
+				<p style="color: red"><%=idError == null ? "" : idError%></p>
 				<br> <br>
 				<div class="input-group">
 					<span class="input-group-addon">姓名</span> <input type="text"
 						class="form-control" placeholder="姓名" name="stu.name">
 				</div>
+				<p style="color: red"><%=nameError == null ? "" : nameError%></p>
 				<br> <br>
 				<center>
 					<button type="submit" class="btn btn-primary">添加</button>
-					&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<button type="reset" class="btn btn-primary">重置</button>
 				</center>
 			</form>

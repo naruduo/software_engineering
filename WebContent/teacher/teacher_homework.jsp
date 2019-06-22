@@ -97,8 +97,12 @@
 						<td class="text-center">
 							<button class="btn btn-primary">
 								<a style="text-decoration: none; color: white"
+									href="../homework/editHomework.action?homeworkId=${homework.id}">修改</a>
+							</button>&nbsp;&nbsp;&nbsp;&nbsp;
+							<button class="btn btn-primary">
+								<a style="text-decoration: none; color: white"
 									href="../homework/deleteHomework.action?homeworkId=${homework.id}">删除</a>
-							</button>
+							</button>&nbsp;&nbsp;&nbsp;&nbsp;
 							<button class="btn btn-primary">
 								<a style="text-decoration: none; color: white"
 									href="../teacher/teacher_listMyHomeworkAnswers.action?homeworkId=${homework.id}">批阅</a>

@@ -77,9 +77,10 @@
 			<result name="updateSuccess">/test/studentUpdate.jsp</result>
 			<result name="deleteSuccess" type="redirectAction">/teacher/teacher_listMyStudents
 			</result>
-			<result name="addSuccess" type="redirectAction">/teacher/teacher_listMyStudents
+			<result name="addSuccess" type="redirectAction">teacher/teacher_listMyStudents
 			</result>
-			<allowed-methods>listMyHomeworks,update,listMyOperationLogs,add,delete</allowed-methods>
+			<result name="goEdit">../teacher/teacher_addStudent.jsp</result>
+			<allowed-methods>edit,listMyHomeworks,update,listMyOperationLogs,add,delete</allowed-methods>
 		</action>
 	</package>
 	<!-- 林鹏飞-5-17 -->
@@ -112,9 +113,10 @@
 			</result>
 			<result name="deleteSuccess" type="redirectAction">/teacher/teacher_listMyHomeworks
 			</result>
-			<result name="getDetailSuccess" type="dispatcher">/student/stu_ .jsp
+			<result name="getDetailSuccess" type="dispatcher">/student/stu_homeworkEditor.jsp
 			</result>
-			<allowed-methods>add,delete,getDetail</allowed-methods>
+			<result name="goEdit">/teacher/teacher_homeworkEditor.jsp</result>
+			<allowed-methods>add,delete,getDetail,edit</allowed-methods>
 		</action>
 	</package>
 	<package name="homeworkAnswer" extends="default">

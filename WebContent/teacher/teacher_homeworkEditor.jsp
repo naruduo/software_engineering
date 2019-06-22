@@ -3,12 +3,12 @@
 <%@include file="../include/header.jsp"%>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.text.*"%>
 <%@ include file="../include/teacherHeader.jsp"%>
 <%
 	Homework hw = (Homework) request.getAttribute("homework");
+	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 %>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,7 +19,6 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container-fluid">
 			<div class="row">
 				<div class="span12">
 					<p class="bg-primary">
@@ -74,20 +73,34 @@
 				<br /> <br />
 				<form action="../homework/addHomework.action" method="post"
 					enctype="multipart/form-data">
+					<input type="hidden" name="homeworkId"
+						value="<%=hw == null ? -1 : hw.getId()%>" />
 					<fieldset>
 						<legend>编辑作业信息</legend>
 						<p>
 							<span style="fonr-size: 30px; color: black">作业名称：</span><input
-								type="text" placeholder="请输入作业名称" name="hwName"> <span
+								value="<%=hw == null ? "" : hw.getName()%>" type="text"
+								placeholder="请输入作业名称" name="hwName"> <span
 								style="fonr-size: 20px; color: red">${hwNameError}</span>
 						</p>
 
 						<p>
 							<span style="fonr-size: 30px; color: black">截止时间：</span><input
+								value="<%=hw == null ? -1 : df.format(hw.getDeadline())%>"
 								type="date" name="deadline"><span
 								style="fonr-size: 20px; color: red">${deadlineError}</span>
 						</p>
 						<p>
+							<%
+								if (hw != null) {
+							%>
+							<span style="fonr-size: 30px; color: black">当前作业要求：</span> <a
+								href="<%=request.getContextPath()%>/file/downloadFile.action?filename=<%=hw.getAddress()%>&packageId=<%=hw.getTeacher().getId()%>">
+								<%=hw.getName()%>
+							</a><br />
+							<%
+								}
+							%>
 							<span style="fonr-size: 20px; color: black">上传作业要求：</span><br />
 							<input type="file" name="uploadFile" value="文件路径"><span
 								style="fonr-size: 20px; color: red">${uploadFileError}</span>
@@ -136,7 +149,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 </body>
 <script></script>
 <script src="/website/static/fzsjgw/js/homepage.js"></script>

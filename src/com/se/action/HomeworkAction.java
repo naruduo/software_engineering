@@ -16,6 +16,7 @@ import com.se.service.HomeworkService;
 import com.se.service.NotificationService;
 import com.se.service.StudentService;
 import com.se.util.Page;
+import com.se.util.SessionUtils;
 
 @SuppressWarnings("serial")
 public class HomeworkAction extends ActionSupport {
@@ -29,6 +30,12 @@ public class HomeworkAction extends ActionSupport {
 	private Page page = new Page(1, 1);
 
 	public String add() {
+		HomeworkService hs = new HomeworkService();
+		if (homeworkId != -1) {
+			hw.setId(homeworkId);
+			SessionUtils.put("homework", hs.get(homeworkId));
+		}
+
 		boolean flag = true;
 		if ("".equals(deadline)) {
 			ActionContext.getContext().put("deadlineError", "截止日期不可以为空");
@@ -38,7 +45,7 @@ public class HomeworkAction extends ActionSupport {
 			ActionContext.getContext().put("hwNameError", "作业名称不可以为空");
 			flag = false;
 		}
-		if (uploadFile == null) {
+		if (homeworkId == -1 && uploadFile == null) {
 			ActionContext.getContext().put("uploadFileError", "请选择上传文件");
 			flag = false;
 		}
@@ -49,11 +56,13 @@ public class HomeworkAction extends ActionSupport {
 		try {
 			fileAction.upload();
 		} catch (Exception e) {
-			e.printStackTrace();
-			return "addFail";
+			// e.printStackTrace();
+			if (homeworkId == -1)
+				return "addFail";
 		}
 		try {
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			ActionContext.getContext().put("deadlineError", "请输入正确的日期！");
 			hw.setDeadline(df.parse(deadline));
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -66,11 +75,16 @@ public class HomeworkAction extends ActionSupport {
 		hw.setTeacher(teacher);
 		hw.setAddress(uploadFileFileName);
 		System.out.println(hw);
-		HomeworkService hs = new HomeworkService();
-		System.out.println(hw);
-		hs.add(hw);
+
 		NotificationService ns = new NotificationService();
-		ns.autoCreateNoti("老师添加新作业：" + hw.getName() + ",截止时间" + hw.getDeadline() + "请及时完成！");
+		if (homeworkId == -1) {
+			hs.add(hw);
+			ns.autoCreateNoti("老师添加新作业：" + hw.getName() + ",截止时间" + hw.getDeadline() + "请及时完成！");
+		} else {
+			hs.update(hw);
+			ns.autoCreateNoti("老师修改作业：" + hw.getName() + ",截止时间" + hw.getDeadline() + "请及时完成！");
+		}
+
 		return "addSuccess";
 	}
 
@@ -103,6 +117,12 @@ public class HomeworkAction extends ActionSupport {
 		fileAction.setFilename(hw.getAddress());
 		fileAction.delete();
 		return "deleteSuccess";
+	}
+
+	public String edit() {
+		HomeworkService hs = new HomeworkService();
+		SessionUtils.put("homework", hs.get(homeworkId));
+		return "goEdit";
 	}
 
 	public String getDetail() {

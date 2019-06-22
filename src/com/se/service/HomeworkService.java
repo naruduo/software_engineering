@@ -14,6 +14,10 @@ public class HomeworkService {
 		return hd.get(Homework.class, hwId);
 	}
 
+	public void update(Homework hw) {
+		hd.update(hw);
+	}
+
 	public void add(Homework hw) {
 		hd.add(hw);
 	}

@@ -33,8 +33,8 @@ public class FileUtils {
 			try {
 				fis.close();
 				fos.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+			} catch (Exception e) {
+				// e.printStackTrace();
 			}
 		}
 	}
@@ -47,7 +47,7 @@ public class FileUtils {
 		ZipOutputStream zos = null;
 		try {
 			File zipFile = new File(zipFilePath + File.separator + fileName + ".zip");
-			
+
 			fos = new FileOutputStream(zipFile);
 			zos = new ZipOutputStream(new BufferedOutputStream(fos));
 			byte[] bufs = new byte[1024 * 1024 * 10];
