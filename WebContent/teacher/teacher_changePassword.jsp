@@ -16,7 +16,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>软件工程精品课</title>
-<base href="http://localhost:8081/software_engineering/" />
+<base href="<%=request.getContextPath()%>/" />
 <!-- common css -->
 <link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
 <link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.css" />

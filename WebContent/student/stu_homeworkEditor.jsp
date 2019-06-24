@@ -8,6 +8,7 @@
 	Homework homework = (Homework) request.getAttribute("homework");
 	HomeworkAnswer ha = (HomeworkAnswer) request.getAttribute("homeworkAnswer");
 	Student stu = (Student) session.getAttribute("Student");
+	String fileError = (String) request.getAttribute("fileError");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -149,11 +150,12 @@
 							if (homework.getDeadline().compareTo(new Date()) > 0) {
 						%> <input type="file" name="uploadFile"
 						style="display: inline-block" /><input type="submit" value="提交"
-						style="display: inline-block" /> <%
- 	} else {
- %>已经截止！ <%
- 	}
- %>
+						style="display: inline-block" /><span style="color: red"><%=fileError%></span>
+						<%
+							} else {
+						%>已经截止！ <%
+							}
+						%>
 					</td>
 				</tr>
 				<tr>

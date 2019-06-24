@@ -84,10 +84,15 @@ public class OnlineTestAction extends ActionSupport {
 	}
 
 	public String stuGet() {
-		List<OnlineTest> onlineTests;
-		onlineTests = ots.getRandomOnlineTests(chapterId, count);
-		stuTestsMap.put(SessionUtils.getUserId(), onlineTests);
-		SessionUtils.put("onlineTests", onlineTests);
+
+		if (ots.getTotal(chapterId) < count)
+			SessionUtils.put("error", "对不起，题量不够！");
+		else {
+			List<OnlineTest> onlineTests;
+			onlineTests = ots.getRandomOnlineTests(chapterId, count);
+			stuTestsMap.put(SessionUtils.getUserId(), onlineTests);
+			SessionUtils.put("onlineTests", onlineTests);
+		}
 		return "stuTests";
 	}
 

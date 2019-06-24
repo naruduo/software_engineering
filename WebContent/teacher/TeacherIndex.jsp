@@ -30,7 +30,7 @@
 	background-size: contain;
 }
 </style>
-<base href="http://localhost:8081/software_engineering/" />
+<base href="<%=request.getContextPath()%>/" />
 <!-- //custom-theme -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />

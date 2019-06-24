@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/teacherHeader.jsp"%>
+<%
+	String dE = (String) request.getAttribute("unitDesc");
+	String nE = (String) request.getAttribute("unitName");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,9 +78,12 @@
 			<h3>添加章节</h3>
 			<form action="../courseChapter/addCourseChapter.action" method="post">
 				章节名：<input type="text" class="form-control"
-					name="courseChapter.unitName" /> 章节描述：<input type="text"
-					class="form-control" name="courseChapter.unitDesc" /> <br /> <input
-					type="submit" class="btn btn-primary" value="保存" />
+					name="courseChapter.unitName" /><span style="color: red"><%=nE != null ? nE : ""%></span>
+				<br />
+				<br /> 章节描述：<input type="text" class="form-control"
+					name="courseChapter.unitDesc" /><span style="color: red"><%=dE != null ? dE : ""%></span>
+				<br />
+				<br /> <input type="submit" class="btn btn-primary" value="保存" />
 			</form>
 		</div>
 	</div>

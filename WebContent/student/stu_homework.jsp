@@ -110,11 +110,11 @@
 						<td>${homework.deadline}</td>
 						<td><button class="btn btn-primary">
 								<a style="text-decoration: none; color: white"
-									href="file/downloadFile.action?filename=${homework.address}&packageId=${homework.teacher.id}">作业要求</a>
+									href="../file/downloadFile.action?filename=${homework.address}&packageId=${homework.teacher.id}">作业要求</a>
 							</button>
 							<button class="btn btn-primary">
 								<a style="text-decoration: none; color: white"
-									href="homeworkAnswer/getDetailHomeworkAnswer.action?homeworkId=${homework.id}"
+									href="../homeworkAnswer/getDetailHomeworkAnswer.action?homeworkId=${homework.id}"
 									role="button">提交</a>
 							</button></td>
 					</tr>

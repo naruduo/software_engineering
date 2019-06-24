@@ -69,7 +69,7 @@
 				</ul>
 			</div>
 		</div>
-		<h1><%=successOperation%>成功！
+		<h1><%=successOperation%>
 		</h1>
 	</div>
 </body>

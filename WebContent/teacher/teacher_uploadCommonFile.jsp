@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="http://localhost:8081/software_engineering/" />
+<base href="<%=request.getContextPath()%>/" />
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="../css/footer_base.css" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />

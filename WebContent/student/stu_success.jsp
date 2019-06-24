@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.se.pojo.*"%>
 <%@ page import="java.util.*"%>
-<%@ include file="../include/teacherHeader.jsp"%>
+<%@ include file="../include/studentHeader.jsp"%>
 <%
 	String successOperation = (String) request.getAttribute("successOperation");
 %>
@@ -18,7 +18,7 @@
 <%@include file="../include/navigator.jsp"%>
 </head>
 <body>
-		<div class="container-fluid">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="span12">
 				<p class="bg-primary">
@@ -65,7 +65,7 @@
 			</div>
 		</div>
 
-		<h1><%=successOperation%>成功！
+		<h1><%=successOperation%>
 		</h1>
 	</div>
 </body>

@@ -60,7 +60,7 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String changePassword() {
-		SessionUtils.put("successOperation", "修改密码");
+		SessionUtils.put("successOperation", "修改密码成功！");
 		if ("Teacher".equals(ActionContext.getContext().getSession().get("ROLE"))) {
 			Teacher teacher = (Teacher) ActionContext.getContext().getSession().get("teacher");
 			System.out.println(teacher);

@@ -20,4 +20,5 @@
 		<filter-name>Struts2</filter-name>
 		<url-pattern>*.action</url-pattern>
 	</filter-mapping>
+
 </web-app>

@@ -72,6 +72,11 @@ public class HomeworkAnswerAction extends ActionSupport {
 	}
 
 	public String submit() {
+		System.out.println(uploadFile);
+		if (uploadFile == null) {
+			SessionUtils.put("fileError", "请选择文件！");
+			return "addFail";
+		}
 		FileService fs = new FileService();
 		HomeworkAnswerService has = new HomeworkAnswerService();
 		HomeworkAnswer ha = has.getDetail(homeworkId, SessionUtils.getUserId());

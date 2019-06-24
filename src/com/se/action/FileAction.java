@@ -36,10 +36,11 @@ public class FileAction extends ActionSupport {
 				.getRealPath(File.separator + "download" + File.separator + packageId);
 		returnFile = new File(realPath, filename);
 		System.out.print(realPath);
-		if (!returnFile.exists())
-			return "fail";
-		
-		
+		if (!returnFile.exists()) {
+			SessionUtils.put("successOperation", "对不起文件不存在了！");
+			return "Teacher".equals(SessionUtils.getRole())?"tFail":"sFail";
+		}
+
 		// 找到文件，响应到浏览器，弹出下载
 		os.add("下载", filename, (int) ServletActionContext.getContext().getSession().get("USER"));
 		filename = new String(filename.getBytes(), "ISO-8859-1");

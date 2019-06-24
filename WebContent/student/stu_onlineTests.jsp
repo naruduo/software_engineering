@@ -83,7 +83,13 @@
 						method="post">
 						<%
 							int c = 1;
-							for (OnlineTest ot : onlineTests) {
+							if (onlineTests == null) {
+						%>
+						<h2 style="color: red">对不起，题量不足！</h2>
+						<%
+							}
+							if (onlineTests != null)
+								for (OnlineTest ot : onlineTests) {
 						%>
 						<div>
 							<p class="lead"><%=c++ + "、" + ot.getQuestion()%></p>
@@ -103,9 +109,10 @@
 								<%="本题正确率：" + String.format("%.2f", ot.getTrueFreq() * 100.0 / ot.getAnsFreq()) + "%"%>
 							</p>
 							<p><%="<span style='color:red'>"
-						+ (marks == null ? "" : (marks.get(ot.getId()) ? "正确" : "错误,正确答案：" + ot.getAnswer()))
-						+ "</span>"%></p>
+							+ (marks == null ? "" : (marks.get(ot.getId()) ? "正确" : "错误,正确答案：" + ot.getAnswer()))
+							+ "</span>"%></p>
 						</div>
+
 						<%
 							}
 						%>

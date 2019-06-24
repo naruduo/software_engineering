@@ -98,6 +98,10 @@
 			</result>
 			<result name="deleteFail" type="redirect">/teacher/teacher_download.jsp
 			</result>
+			<result name="tFail" type="dispatcher">/teacher/teacher_success.jsp
+			</result>
+			<result name="sFail" type="dispatcher">/student/stu_success.jsp
+			</result>
 			<allowed-methods>download,upload</allowed-methods>
 		</action>
 	</package>
@@ -136,6 +140,8 @@
 			<result name="scoreSuccess" type="redirectAction">
 				<param name="namespace">/teacher</param>
 				<param name="actionName">teacher_listMyHomeworks</param>
+			</result>
+			<result name="addFail" type="chain">getDetailHomeworkAnswer
 			</result>
 			<allowed-methods>pack,submit,add,getDetail,score</allowed-methods>
 		</action>
@@ -176,6 +182,7 @@
 			</result>
 			<result name="studentList">../student/stu_listChapters.jsp</result>
 			<result name="teacherList">../teacher/teacher_listChapters.jsp</result>
+			<result name="addFail">../teacher/teacher_addCourseChapter.jsp</result>
 			<allowed-methods>add,list,delete</allowed-methods>
 		</action>
 	</package>
